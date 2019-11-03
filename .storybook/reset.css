@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --primary: #2a30c8;
+  --primary-accent: #1a089d;
+  --secondary: #9f2ac8;
+  --secondary-accent: #5a1872;
+
+  --textcolor: hsla(0, 0%, 33%, 1);
+  --textcolor-dark: hsla(0, 0%, 17%, 1);
+  --textcolor-light: hsla(0, 0%, 38%, 1);
+
+  --background: hsla(0, 0%, 100%, 1);
+  --background-contrast: hsla(0, 0%, 97%, 1);
+
+  --border-color: hsla(0, 0%, 87%, 1);
+  --shadow-color: hsla(0, 0%, 0%, 0.13);
+}

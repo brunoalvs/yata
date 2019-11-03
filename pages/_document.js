@@ -23,6 +23,8 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --primary: #2A30C8;
     --primary-accent: #1A089D;
+    --secondary: #9F2AC8;
+    --secondary-accent: #5a1872;
 
     --textcolor: hsla(0, 0%, 33%, 1);
     --textcolor-dark: hsla(0, 0%, 17%, 1);
