@@ -5,6 +5,13 @@
   font-family: sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 :root {
   --primary: #2a30c8;
   --primary-accent: #1a089d;

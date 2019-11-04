@@ -1,12 +1,14 @@
 import MyLayout from '../../components/Layout'
-import Button, { Outlined, Contained } from '../../components/Atoms/Button'
+import Button from '../../components/Atoms/Button'
 
 const App = () => (
   <MyLayout pagetitle="App">
     <p>This App Page!</p>
-    <Outlined>Outlined</Outlined>
-    <Button>Button</Button>
-    <Contained>Contained</Contained>
+
+    <Button variant="contained">Contained</Button>
+    <Button variant="raised">Raised</Button>
+    <Button variant="outlined">Outlined</Button>
+    <Button>Text</Button>
   </MyLayout>
 )
 
