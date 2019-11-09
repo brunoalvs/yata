@@ -1,18 +1,46 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Button = styled.button`
+export const Button = styled.button.attrs(props => ({
+  disabled: props.disabled || false
+}))`
   color: var(--primary);
   background: transparent;
   border: 2px solid transparent;
   border-radius: 0.3em;
-  padding: 0.25em 1em;
+  padding: 0.5em 1em;
 
   font-size: 1em;
   font-weight: normal;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    filter: saturate(150%);
+  }
+
+  &:active {
+    filter: brightness(150%);
+  }
+
+  ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.4;
+      filter: grayscale(100%);
+      cursor: not-allowed;
+
+      &:hover {
+        filter: grayscale(100%) contrast(200%);
+      }
+    `}
 
   &.outlined {
     border-color: var(--primary);
     color: var(--primary);
+
+    &:hover {
+      background-color: var(--background-contrast);
+    }
   }
 
   &.contained {
