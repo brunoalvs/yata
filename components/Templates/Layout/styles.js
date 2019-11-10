@@ -2,13 +2,12 @@ import styled from 'styled-components'
 
 export const Grid = styled.section`
   width: 100%;
-  min-height: calc(100vh - 60px);
-  height: 100%;
+  min-height: 100vh;
 
   display: grid;
-  grid-template-rows: 60px 100%;
+  grid-template-rows: 60px calc(100% - 60px);
 
-  background: var(--primary);
+  background: var(--primary-accent);
 
   > header {
     border: 1px solid red;
