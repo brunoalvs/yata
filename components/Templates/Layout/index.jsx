@@ -1,25 +1,25 @@
+import Link from 'next/link'
+
 import CardContainer from '../../Atoms/CardContainer'
 import { Grid } from './styles'
 
-import Logo from '../../Atoms/Logo'
+import Logo, {WrappedLogo} from '../../Atoms/Logo'
 import UserAvatar from '../../Atoms/UserAvatar'
 
-function LayoutDefault() {
+function LayoutDefault({children}) {
   return (
     <Grid>
       <header>
-        <Logo widthSize="120px" />
+        <Link href="/">
+          <WrappedLogo widthSize="120px" />
+        </Link>
         <div>
           <UserAvatar />
         </div>
       </header>
       <section className="content">
         <CardContainer>
-          <h1>Title Section</h1>
-
-          <div>
-            <p>Conteúdo aqui!</p>
-          </div>
+          {children}
         </CardContainer>
       </section>
     </Grid>

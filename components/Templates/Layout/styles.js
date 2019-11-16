@@ -7,19 +7,18 @@ export const Grid = styled.section`
   display: grid;
   grid-template-rows: 60px calc(100% - 60px);
 
-  background: var(--primary-accent);
+  background: var(--background);
 
   > header {
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     padding: 1em;
+    border-bottom: 1px solid var(--shadow-color);
   }
 
   > .content {
     padding: 1em;
-    border: 1px solid yellow;
   }
 `

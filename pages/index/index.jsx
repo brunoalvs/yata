@@ -1,13 +1,15 @@
 import MyLayout from '../../components/Layout'
+import Layout from '../../components/Templates/Layout'
+
 import Link from 'next/link'
 
 const Index = ({ PageTitle }) => (
-  <MyLayout pagetitle={PageTitle}>
+  <Layout pagetitle={PageTitle}>
     <p>This Page is named of {PageTitle}</p>
     <Link href="App">
       <button>Open App</button>
     </Link>
-  </MyLayout>
+  </Layout>
 )
 
 Index.defaultProps = {
