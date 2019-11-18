@@ -5,7 +5,8 @@ export const Grid = styled.section`
   min-height: 100vh;
 
   display: grid;
-  grid-template-rows: 60px calc(100% - 60px);
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr;
 
   background: var(--background);
 
@@ -15,10 +16,10 @@ export const Grid = styled.section`
     justify-content: space-between;
     
     padding: 1em;
-    border-bottom: 1px solid var(--shadow-color);
+    /* border-bottom: 1px solid var(--shadow-color); */
   }
 
   > .content {
-    padding: 1em;
+    padding: 0 1em;
   }
 `

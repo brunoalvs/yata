@@ -1,11 +1,9 @@
-import MyLayout from '../../components/Layout'
+import Link from 'next/link'
 import Layout from '../../components/Templates/Layout'
 
-import Link from 'next/link'
-
-const Index = ({ PageTitle }) => (
-  <Layout pagetitle={PageTitle}>
-    <p>This Page is named of {PageTitle}</p>
+const Index = ({ pageTitle }) => (
+  <Layout pageTitle={pageTitle}>
+    <p>This Page is named of {pageTitle}</p>
     <Link href="App">
       <button>Open App</button>
     </Link>
@@ -13,7 +11,7 @@ const Index = ({ PageTitle }) => (
 )
 
 Index.defaultProps = {
-  PageTitle: 'Indsex'
+  pageTitle: "Index",
 }
 
 export default Index
