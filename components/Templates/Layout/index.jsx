@@ -25,9 +25,7 @@ function LayoutDefault({ pageTitle, children }) {
           </div>
         </header>
         <section className="content">
-          <CardContainer>
             { children }
-          </CardContainer>
         </section>
       </Grid>
     </>
