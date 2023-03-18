@@ -1,34 +1,29 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "yata",
+  "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Bruno Alves da Silva",
+    "email": "hello@brunoalves.app",
+    "url": "https://brunoalves.app"
+  },
   "scripts": {
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
-    "next": "9.1.2",
-    "react": "16.11.0",
-    "react-dom": "16.11.0",
-    "styled-components": "^4.4.1",
-    "styled-icons": "^8.6.0",
-    "styled-media-query": "^2.1.2"
+    "@styled-icons/feather": "^10.47.0",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@storybook/addon-actions": "^5.2.5",
-    "@storybook/addon-links": "^5.2.5",
-    "@storybook/addon-storysource": "^5.2.6",
-    "@storybook/addon-viewport": "^5.2.5",
-    "@storybook/addons": "^5.2.5",
-    "@storybook/react": "^5.2.6",
-    "babel-loader": "^8.0.6",
-    "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0"
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-react": "^7.32.2"
   }
 }
