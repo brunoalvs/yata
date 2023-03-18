@@ -18,6 +18,7 @@ module.exports = {
   },
   'plugins': [
     'react',
+    'react-hooks',
     '@typescript-eslint'
   ],
   'rules': {
@@ -36,7 +37,9 @@ module.exports = {
     'semi': [
       'error',
       'never'
-    ]
+    ],
+    'react/react-in-jsx-scope': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
-  'react/react-in-jsx-scope': 'off'
 }
