@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from '@/theme'
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
@@ -42,7 +45,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <Component {...pageProps} />
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </>
   )
 }
