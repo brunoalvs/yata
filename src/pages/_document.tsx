@@ -1,4 +1,5 @@
-import Document, { DocumentContext, DocumentInitialProps, Html, Head, Main, NextScript } from 'next/document'
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ColorModeScript } from '@chakra-ui/react'
 
 class MyDocument extends Document {
@@ -9,10 +10,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang='en'>
         <Head />
         <body>
-          <ColorModeScript initialColorMode="system" />
+          <ColorModeScript initialColorMode='system' />
           <Main />
           <NextScript />
         </body>

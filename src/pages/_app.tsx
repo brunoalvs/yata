@@ -1,6 +1,6 @@
+import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { ChakraProvider } from '@chakra-ui/react'
@@ -23,30 +23,30 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta charSet='utf-8' />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Description" />
-        <meta name="keywords" content="Keywords" />
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='description' content='Description' />
+        <meta name='keywords' content='Keywords' />
         <title>Next.js PWA example</title>
 
-        <link rel="manifest" href="/manifest.json" />
+        <link rel='manifest' href='/manifest.json' />
         <link
-          href="/icons/favicon-16x16.png"
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
+          href='/icons/favicon-16x16.png'
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
         />
         <link
-          href="/icons/favicon-32x32.png"
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
+          href='/icons/favicon-32x32.png'
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
         />
-        <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <link rel='apple-touch-icon' href='/apple-icon.png' />
+        <meta name='theme-color' content='#317EFB' />
       </Head>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+      <ChakraProvider theme={ theme }>
+        <Component { ...pageProps } />
       </ChakraProvider>
     </>
   )

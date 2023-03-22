@@ -18,11 +18,7 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module'
   },
-  'settings': {
-    'react': {
-      'version': 'detect'
-    }
-  },
+  'settings': { 'react': { 'version': 'detect' } },
   'plugins': [
     'react',
     'react-hooks',
@@ -41,13 +37,44 @@ module.exports = {
       'error',
       'single'
     ],
+    // 'no-duplicate-imports': 'error',
+    // 'import/no-duplicates': ['error', { 'considerQueryString': true }],
     'semi': [
       'error',
       'never'
     ],
+    'object-curly-spacing': [
+      'error',
+      'always'
+    ],
+    'object-curly-newline': ['error', { 'multiline': true }],
+    'arrow-body-style': ['error', 'as-needed'],
+    'jsx-quotes': ['error', 'prefer-single'],
+    'react/self-closing-comp': ['error', { 'component': true, 'html': true }],
+    'react/jsx-props-no-multi-spaces': 'error',
+    'react/jsx-first-prop-new-line': ['error', 'multiline'],
+    'react/jsx-closing-tag-location': 'error',
+    'react/jsx-indent-props': ['error', 2],
+    'react/jsx-curly-spacing': ['error',
+      {
+        'when': 'always',
+        'children': true,
+        'spacing': {
+          'objectLiterals': 'never',
+          'arrayBrackets': 'never'
+        }
+      }
+    ],
+    'react/jsx-max-props-per-line': ['error',
+      {
+        'maximum': 1,
+        'when': 'multiline'
+      }
+    ],
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     '@typescript-eslint/no-var-requires': 'off',
   },
 }
