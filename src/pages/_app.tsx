@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { ChakraProvider } from '@chakra-ui/react'
-import theme from '@/theme'
+import {  LayoutProvider } from '@/contexts/layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -45,9 +44,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='apple-touch-icon' href='/apple-icon.png' />
         <meta name='theme-color' content='#317EFB' />
       </Head>
-      <ChakraProvider theme={ theme }>
+      <LayoutProvider>
         <Component { ...pageProps } />
-      </ChakraProvider>
+      </LayoutProvider>
     </>
   )
 }

@@ -8,15 +8,12 @@
     "url": "https://brunoalves.app"
   },
   "scripts": {
-    "dev": "next dev -p 4000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.5.2",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "firebase": "^9.18.0",
     "firebase-admin": "^11.5.0",
     "framer-motion": "^10.6.0",
@@ -26,11 +23,13 @@
     "next-pwa": "^5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9",
     "swr": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "eslint": "^8.36.0",

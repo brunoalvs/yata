@@ -1,4 +1,5 @@
-import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
+import type { FirebaseApp } from 'firebase/app'
+import { initializeApp, getApps } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 
 interface FirebaseConfig {

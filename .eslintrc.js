@@ -76,5 +76,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
   },
 }
