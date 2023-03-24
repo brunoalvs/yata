@@ -11,6 +11,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { toggleDarkMode, darkMode } = useContext(LayoutContext)
+
   return (
     <ThemeProvider theme={ darkMode ? darkTheme : lightTheme }>
       <Header>
