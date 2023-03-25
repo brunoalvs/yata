@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <>
       <Layout>
-        <h1>Home</h1>
+        <h1>QUE PORRA FOI ESSA MEU MANO?</h1>
       </Layout>
     </>
   )

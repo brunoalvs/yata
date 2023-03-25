@@ -11,12 +11,7 @@ export type ColorRange = {
   900: string
 }
 
-export interface IColors {
-  primary: ColorRange
-  secondary: ColorRange
-  background: string
-  overlay: string
-  text: string
+export interface IDefaultColors {
   textSecondary: string
   gradient: string
   black: string
@@ -24,6 +19,15 @@ export interface IColors {
   success: string
   warning: string
   info: string
+}
+
+export interface IColors extends IDefaultColors {
+  primary: ColorRange
+  secondary: ColorRange
+  background: string
+  aside: string
+  overlay: string
+  text: string
 }
 
 export interface ITypography {

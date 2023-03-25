@@ -1,4 +1,4 @@
-import type { IColors, ColorRange } from './types'
+import type { IColors, ColorRange, IDefaultColors } from './types'
 
 const primaryColor: ColorRange = {
   50: '#f0f5ff',
@@ -26,7 +26,7 @@ const secondaryColor: ColorRange = {
   900: '#120338',
 }
 
-const defaultColors = {
+const defaultColors: IDefaultColors = {
   black: '#000',
   textSecondary: '#636076',
   gradient: 'linear-gradient(90deg, #2f54eb 0%, #722ed1 100%)',
@@ -40,6 +40,7 @@ export const colorsLightTheme: IColors = {
   primary: primaryColor,
   secondary: secondaryColor,
   background: 'linear-gradient(180deg, #FFFFFF 0%, #E7E7E8 100%)',
+  aside: '#fff',
   overlay: 'rgba(0, 0, 0, 0.5)',
   text: '#000',
   ...defaultColors,
@@ -48,7 +49,8 @@ export const colorsLightTheme: IColors = {
 export const colorsDarkTheme: IColors = {
   primary: primaryColor,
   secondary: secondaryColor,
-  background: 'linear-gradient(180deg, #2C2F3A 0%, #17181E 100%)',
+  background: 'linear-gradient(45deg, #262626 0%, #1c1d20 100%)',
+  aside: '#000',
   overlay: 'rgba(0, 0, 0, 0.5)',
   text: '#fff',
   ...defaultColors

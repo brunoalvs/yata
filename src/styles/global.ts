@@ -1,30 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-interface IGlobalStyleProps {
-  theme: {
-    colors: {
-      primary: string
-      secondary: string
-      tertiary: string
-      quaternary: string
-    },
-    breakpoints: {
-      xs: string
-      sm: string
-      md: string
-      lg: string
-      xl: string
-    },
-    typography: {
-      fontFamily: string
-      fontSize: string
-      fontWeight: string
-      lineHeight: string
-    }
-  }
-}
-
-const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
+const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
     margin: 0;
