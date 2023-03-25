@@ -19,7 +19,7 @@ export const LayoutContext = createContext<LayoutContextType>({
 })
 
 export const LayoutProvider = ({ children }: { children: React.ReactNode}) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const [asideIsOpen, setAsideIsOpen] = useState(false)
   const [rightAsideIsOpen, setRightAsideIsOpen] = useState(false)
 

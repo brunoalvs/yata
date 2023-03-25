@@ -4,14 +4,15 @@ import { darkTheme, lightTheme } from '@/themes'
 import { LayoutContext } from '@/contexts/layout'
 
 import * as S from './styles'
-import UserAvatar from '../UserAvatar'
+import LayoutRightAside from '../molecules/LayoutRightAside'
+import LayoutAside from '../molecules/LayoutAside'
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const { toggleDarkMode, darkMode, rightAsideIsOpen, toggleRightAside } = useContext(LayoutContext)
+  const { toggleDarkMode, darkMode, rightAsideIsOpen, toggleRightAside, asideIsOpen, toggleAside } = useContext(LayoutContext)
 
   const sessionInfo = {
     name: 'Amanda Batista',
@@ -21,31 +22,17 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeProvider theme={ darkMode ? darkTheme : lightTheme }>
       <S.Container>
-        <S.Aside>
-          <div style={{ display: 'grid', alignItems: 'center', gap: '1rem', gridTemplateColumns: '4.5rem 1fr' }}>
-            <UserAvatar
-              name={ sessionInfo.name }
-              src={ sessionInfo.src }
-            />
-            <p style={{ fontSize: '1.5rem' }}>{ sessionInfo.name }</p>
-          </div>
-          <button onClick={ () => toggleRightAside() }>
+        <LayoutAside />
+        <S.Content rightAsideIsOpen={ rightAsideIsOpen }>
+          <button onClick={ () => toggleAside() } style={{ background: '#000', fontSize: '3rem', border: '0', cursor: 'pointer' }}>
+            { asideIsOpen ? '🔒' : '🔓' }
+          </button>
+          <button onClick={ () => toggleRightAside() } style={{ background: '#000', fontSize: '3rem', border: '0', cursor: 'pointer' }}>
             { rightAsideIsOpen ? '🔒' : '🔓' }
           </button>
-        </S.Aside>
-        <S.Content rightAsideIsOpen={ rightAsideIsOpen }>
           { children }
         </S.Content>
-        <S.RightAside rightAsideIsOpen={ rightAsideIsOpen }>
-          <S.RightAsideHeader>
-            <button onClick={ () => toggleDarkMode() }>
-              { darkMode ? '🌞' : '🌙' }
-            </button>
-            <section>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, reiciendis doloremque? Reiciendis iusto distinctio eos minus laboriosam quo? Illo expedita quod harum eius consequatur animi perferendis assumenda aspernatur iure ex!</p>
-            </section>
-          </S.RightAsideHeader>
-        </S.RightAside>
+        <LayoutRightAside />
       </S.Container>
     </ThemeProvider>
   )
