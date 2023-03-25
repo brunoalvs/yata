@@ -38,7 +38,6 @@ module.exports = {
       'single'
     ],
     // 'no-duplicate-imports': 'error',
-    // 'import/no-duplicates': ['error', { 'considerQueryString': true }],
     'semi': [
       'error',
       'never'
@@ -55,7 +54,8 @@ module.exports = {
     'react/jsx-first-prop-new-line': ['error', 'multiline'],
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-indent-props': ['error', 2],
-    'react/jsx-curly-spacing': ['error',
+    'react/jsx-curly-spacing': [
+      'error',
       {
         'when': 'always',
         'children': true,
@@ -65,7 +65,8 @@ module.exports = {
         }
       }
     ],
-    'react/jsx-max-props-per-line': ['error',
+    'react/jsx-max-props-per-line': [
+      'error',
       {
         'maximum': 1,
         'when': 'multiline'
