@@ -4,7 +4,7 @@ import { darkTheme, lightTheme } from '@/themes'
 import { LayoutContext } from '@/contexts/layout'
 
 import * as S from './styles'
-import AsideLayout from '../molecules/AsideLayout'
+import AsideLayout from '../../molecules/AsideLayout'
 
 interface LayoutProps {
   children: React.ReactNode;
