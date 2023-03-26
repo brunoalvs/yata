@@ -1,10 +1,10 @@
 import 'styled-components'
-import type { Theme, IColors } from './themes/types'
+import type { IColors, IBreakpoints, ITypography } from './themes/types'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: IColors
-    typography: Theme.ITypography
-    breakpoints: Theme.IBreakpoints
+    typography: ITypography
+    breakpoints: IBreakpoints
   }
 }
