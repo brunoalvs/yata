@@ -1,4 +1,4 @@
-import Layout from '@/components/organisms/Layout'
+import Layout from '@/components/templates/Layout'
 
 export const Home = () => (
   <Layout>

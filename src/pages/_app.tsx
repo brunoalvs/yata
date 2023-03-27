@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 
 import {  LayoutProvider } from '@/contexts/layout'
+import { UserProvider } from '@/contexts/userContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -44,9 +45,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='apple-touch-icon' href='/apple-icon.png' />
         <meta name='theme-color' content='#317EFB' />
       </Head>
-      <LayoutProvider>
-        <Component { ...pageProps } />
-      </LayoutProvider>
+      <UserProvider>
+        <LayoutProvider>
+          <Component { ...pageProps } />
+        </LayoutProvider>
+      </UserProvider>
     </>
   )
 }
