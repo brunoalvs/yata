@@ -49,7 +49,7 @@ export const colorsLightTheme: IColors = {
 export const colorsDarkTheme: IColors = {
   primary: primaryColor,
   secondary: secondaryColor,
-  background: 'linear-gradient(45deg, #262626 0%, #1c1d20 100%)',
+  background: 'linear-gradient(-45deg,#100f11 0%,#000 100%)',
   aside: '#000',
   overlay: 'rgba(0, 0, 0, 0.5)',
   text: '#fff',

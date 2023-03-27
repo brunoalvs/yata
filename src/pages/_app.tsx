@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
+import { darkTheme } from '@/themes'
 
 import {  LayoutProvider } from '@/contexts/layout'
 import { UserProvider } from '@/contexts/userContext'
@@ -45,11 +47,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='apple-touch-icon' href='/apple-icon.png' />
         <meta name='theme-color' content='#317EFB' />
       </Head>
-      <UserProvider>
+      <ThemeProvider theme={ darkTheme }>
         <LayoutProvider>
-          <Component { ...pageProps } />
+          <UserProvider>
+            <Component { ...pageProps } />
+          </UserProvider>
         </LayoutProvider>
-      </UserProvider>
+      </ThemeProvider>
     </>
   )
 }

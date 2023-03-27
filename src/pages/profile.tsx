@@ -3,11 +3,10 @@ import { useContext } from 'react'
 import { getAuth, signOut, signInWithEmailAndPassword } from 'firebase/auth'
 import { createFirebaseApp } from '@/utils/firebase/clientApp'
 
-import { UserContext } from '@/contexts/userContext'
-
+import { UserContext, useUser } from '@/contexts/userContext'
 
 export default function Profile() {
-  const { user, loadingUser } = useContext(UserContext)
+  const { user, loadingUser } = useUser()
 
   const login = () => {
     const firebaseApp = createFirebaseApp()

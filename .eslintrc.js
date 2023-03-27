@@ -51,6 +51,17 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-single'],
     'react/self-closing-comp': ['error', { 'component': true, 'html': true }],
     'react/jsx-props-no-multi-spaces': 'error',
+    'react/jsx-tag-spacing': [
+      'error',
+      {
+        'closingSlash': 'never',
+        'beforeSelfClosing': 'always',
+        'afterOpening': 'never',
+        'beforeClosing': 'never'
+      }
+    ],
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+    'react/jsx-curly-newline': ['error', { multiline: 'consistent', singleline: 'consistent' }],
     'react/jsx-first-prop-new-line': ['error', 'multiline'],
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-indent-props': ['error', 2],

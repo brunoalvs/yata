@@ -35,6 +35,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
       } catch (error) {
         // Most likely a connection error. Handle appropriately.
+        console.error(error)
       } finally {
         setLoadingUser(false)
       }
