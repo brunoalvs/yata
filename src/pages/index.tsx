@@ -1,12 +1,22 @@
-import Layout from '@/components/organisms/Layout'
+import type { NextPage } from 'next'
 
-export default function HomePage() {
+import { useUser } from '@/contexts/userContext'
+import HomePage from '@/components/templates/HomePage'
+
+const Home: NextPage = () => {
+  const { user, loadingUser } = useUser()
+
+  if (loadingUser) {
+    return (
+      <div style={{ minHeight: '100vh', fontSize: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p>Loading...</p>
+      </div>
+    )
+  }
 
   return (
-    <>
-      <Layout>
-        <h1>Homepage</h1>
-      </Layout>
-    </>
+    <HomePage isLogged={ !!user } />
   )
 }
+
+export default Home

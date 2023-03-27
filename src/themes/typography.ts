@@ -3,11 +3,11 @@ import type { ITypography } from './types'
 const typography: ITypography = {
   fontFamily: 'Roboto, "Helvetica Neue", Arial, sans-serif',
   fontSize: {
-    xs: '0.75rem',
+    xs: '0.5rem',
     sm: '0.875rem',
-    base: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
+    base: '1.25rem',
+    lg: '1.75rem',
+    xl: '2rem',
   },
   fontWeight: {
     light: 300,

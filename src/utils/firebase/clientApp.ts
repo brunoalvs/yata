@@ -1,5 +1,5 @@
-import type { FirebaseApp } from 'firebase/app'
 import { initializeApp, getApps } from 'firebase/app'
+import type { FirebaseApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 
 interface FirebaseConfig {
@@ -23,12 +23,13 @@ const firebaseConfig: FirebaseConfig = {
 }
 
 export const createFirebaseApp = (): FirebaseApp => {
-  if (getApps().length === 0 && typeof window !== 'undefined' && firebaseConfig?.measurementId) {
-    getAnalytics()
+  if (getApps().length <= 0) {
+    const app = initializeApp(firebaseConfig)
+
+    if (typeof window !== 'undefined' && 'measurementId' in firebaseConfig) {
+      getAnalytics(app)
+    }
+
+    return app
   }
-  return initializeApp(firebaseConfig)
 }
-
-export const firebaseApp = createFirebaseApp()
-
-export default firebaseApp

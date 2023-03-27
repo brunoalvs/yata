@@ -30,5 +30,3 @@ export const Content = styled.main<RightAsideProps>(
     padding: 2rem;
   `
 )
-
-
