@@ -9,7 +9,6 @@ export const Wrapper = styled.div(
     display: flex;
     flex-direction: column;
     justify-content: center;
-
   `
 )
 
@@ -49,12 +48,13 @@ export const Paragraph = styled.p(
 export const Button = styled.button(
   ({ theme }) => css`
     background: ${theme.colors.primary[500]};
-    color: ${theme.colors.text};
     border: none;
     border-radius: 0.5rem;
+    color: ${theme.colors.text};
     padding: 1rem 2rem;
-    font-size: 2rem;
     font-family: ${theme.typography.fontFamily};
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 

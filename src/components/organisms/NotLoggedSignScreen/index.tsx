@@ -14,7 +14,7 @@ export const NotLoggedSignScreen = () => (
         </S.Button>
       </Link>
       <S.Paragraph>
-        <Link href='/profile'>Login</Link> or <Link href='/profile'>Register</Link> to start using Yata.
+        Don&apos;t have an account? <Link href='/signup'>Sign Up</Link>
       </S.Paragraph>
     </S.Container>
   </S.Wrapper>

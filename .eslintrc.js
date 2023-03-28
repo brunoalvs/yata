@@ -61,6 +61,7 @@ module.exports = {
       }
     ],
     'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+    'react/no-unescaped-entities': 'off',
     'react/jsx-curly-newline': ['error', { multiline: 'consistent', singleline: 'consistent' }],
     'react/jsx-first-prop-new-line': ['error', 'multiline'],
     'react/jsx-closing-tag-location': 'error',
