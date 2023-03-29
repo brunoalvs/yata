@@ -5,7 +5,7 @@ import type { ButtonProps } from '.'
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     height: 3rem;
-    font-size: ${theme.typography.fontSize.xs};
+    font-size: ${theme.typography.fontSize.sm};
   `,
   medium: (theme: DefaultTheme) => css`
     height: 4rem;
@@ -19,7 +19,6 @@ const wrapperModifiers = {
   fullWidth: () => css`
     width: 100%;
   `,
-
 }
 
 export const Wrapper = styled.button<ButtonProps>(
@@ -37,6 +36,16 @@ export const Wrapper = styled.button<ButtonProps>(
     &:hover {
       background: ${theme.colors.primary[600]};
       transition: all .2s ease;
+    }
+
+    &:active {
+      background: ${theme.colors.primary[700]};
+      transition: all .2s ease;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.25rem ${theme.colors.primary[300]};
     }
 
     ${!!size && wrapperModifiers[size](theme)}
