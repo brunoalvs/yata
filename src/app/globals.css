@@ -6,11 +6,13 @@
 
 [data-theme="light"] {
   --background: #ecedf3;
+  --bg-sidebar: #d8dee9;
   --text: #181818;
 }
 
 [data-theme="dark"] {
   --background: #212121;
+  --bg-sidebar: #181818;
   --text: #ecedf3;
 }
 
