@@ -1,8 +1,11 @@
+import { Inter } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({ display: 'swap', subsets: ['latin'] })
 
 export default async function RootLayout({ children }: { children: React.ReactNode} ) {
   return (
-    <html lang='en' className='dark'>
+    <html lang='en' className={ inter.className }>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -15,7 +18,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel='icon' href='/favicon.ico' />
       </head>
       <body>
-        <main className='min-h-screen bg-white dark:bg-zinc-900'>{ children }</main>
+        <main data-theme='dark'>{ children }</main>
       </body>
     </html>
   )

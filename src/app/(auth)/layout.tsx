@@ -1,12 +1,16 @@
 import Link from 'next/link'
+
 import { Logo } from '@/components/Logo'
+import styles from './styles.module.css'
 
 export default function Layout ({ children }: { children: React.ReactNode }) {
   return (
-    <div className='grid grid-rows-layout min-h-screen items-center'>
-      <header className='w-screen flex justify-between items-center p-5'>
-        <Logo title='Yata - Yes, another todo app' width={ 32 } height={ 32 } />
-        <nav className='flex space-x-4 items-center'>
+    <div className={ styles.container }>
+      <header className={ styles.header }>
+        <Link href='/'>
+          <Logo title='Yata - Yes, another todo app' width={ 32 } height={ 32 } />
+        </Link>
+        <nav className={ styles.navigation }>
           <Link
             href='signin'
             className='hover:underline dark:text-white'

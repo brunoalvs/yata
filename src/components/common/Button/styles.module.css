@@ -1,0 +1,16 @@
+.container {
+  background-color: var(--primary-600);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.container:hover {
+  background-color: var(--primary-700);
+  text-decoration: none;
+}
+
+.container:active {
+  background-color: var(--primary-800);
+}

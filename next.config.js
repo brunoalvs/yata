@@ -9,10 +9,6 @@ const withPWA = require('next-pwa')({
 const nextConfig= {
   reactStrictMode: true,
   experimental: { appDir: true, },
-  styledComponents: true | {
-    ssr: true,
-    displayName: true,
-  },
   images: {
     domains: [
       'avatars.githubusercontent.com',
