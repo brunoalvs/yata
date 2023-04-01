@@ -1,0 +1,13 @@
+.container {}
+
+.btn__open_menu {
+  @media (min-width: 768px) {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr repeat(1, 2.8rem);
+}

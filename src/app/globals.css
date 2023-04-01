@@ -8,12 +8,18 @@
   --background: #ecedf3;
   --bg-sidebar: #d8dee9;
   --text: #181818;
+
+  --skeleton-from: hsl(200, 20%, 80%);
+  --skeleton-to: hsl(200, 20%, 95%);
 }
 
 [data-theme="dark"] {
   --background: #212121;
   --bg-sidebar: #181818;
   --text: #ecedf3;
+
+  --skeleton-from: hsl(200, 20%, 20%);
+  --skeleton-to: hsl(200, 20%, 15%);
 }
 
 :root {

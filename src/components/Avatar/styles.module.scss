@@ -1,0 +1,16 @@
+.container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-700)
+}
+
+.initials {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}

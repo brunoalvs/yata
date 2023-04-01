@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-import styles from './styles.module.css'
+import styles from './layout.module.scss'
+import { Avatar } from '@/components/Avatar'
+import { UserOptions } from '@/components/UserOptions'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -9,6 +11,10 @@ interface LayoutProps {
 export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
+  function toggleDrawer () {
+    setIsDrawerOpen(!isDrawerOpen)
+  }
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
@@ -33,16 +39,32 @@ export default function Layout ({ children }: LayoutProps) {
   return (
     <div className={ styles.container }>
       <aside className={ styles.sidebar }>
-        <h1>Aside</h1>
+        <section>
+          <UserOptions user={{ name: 'Rafael Santos Oliveira', email: 'rafaelsantos@gmail.com' }} />
+        </section>
+        <footer>
+          <button>
+            New List
+          </button>
+          <button>
+            New Group
+          </button>
+        </footer>
       </aside>
       <div className={ styles.content }>
-        { isMobile && <button onClick={ () => setIsDrawerOpen(!isDrawerOpen) }>Toggle</button> }
+        { isMobile && <button onClick={ toggleDrawer }>Toggle</button> }
         { children }
-        <button onClick={ () => setIsDrawerOpen(!isDrawerOpen) }>Toggle</button>
+        <button onClick={ toggleDrawer }>Toggle</button>
       </div>
-      <section className={ styles.drawer } data-isOpen={ isDrawerOpen }>
+      <section className={ styles.drawer } data-open={ isDrawerOpen }>
+        <header>
+          <button onClick={ toggleDrawer }>
+            x
+          </button>
+        </header>
         <h1>Section</h1>
       </section>
+      { isMobile && <div className={ styles.overlay } data-open={ isDrawerOpen } onClick={ toggleDrawer } /> }
     </div>
   )
 }
