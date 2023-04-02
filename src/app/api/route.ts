@@ -1,13 +1,15 @@
-import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest, response: NextResponse) {
-  // const data = await db.collection('collection').doc(id).get();
+export async function GET(request: Request) {
 
-  console.log('request', request)
-  console.log('response', response)
+  const { searchParams } = new URL(request.url)
+  const name = searchParams.get('name') || 'brunoalvs'
+  const response = await fetch(`https://api.github.com/users/${name}`)
 
-  const data = { name: 'John Doe' }
+  if (!response.ok) {
+    return NextResponse.error()
+  }
 
-  return NextResponse.json({ data })
+  const data = await response.json()
+  return NextResponse.json(data)
 }
