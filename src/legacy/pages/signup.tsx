@@ -11,6 +11,8 @@ export default function SignUpPage () {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    console.log('submit')
+
     const newUser = {
       email: '',
       password: '',
@@ -18,13 +20,13 @@ export default function SignUpPage () {
       username: ''
     }
 
-    const firebaseApp = createFirebaseApp()
-    const auth = getAuth(firebaseApp)
+    // const firebaseApp = createFirebaseApp()
+    // const auth = getAuth(firebaseApp)
 
-    createUserWithEmailAndPassword(auth, newUser.email, newUser.password)
-      .catch((error) => {
-        console.log(error)
-      })
+    // createUserWithEmailAndPassword(auth, newUser.email, newUser.password)
+    //   .catch((error) => {
+    //     console.log(error)
+    //   })
 
   }
 
