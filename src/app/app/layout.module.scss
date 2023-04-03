@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: minmax(10rem, 14rem) 1fr max-content;
 
-  background-color: var(--background);
+  background-color: var(--background-primary);
   color: var(--text);
   position: relative;
 
@@ -17,7 +17,7 @@
 }
 
 .sidebar {
-  background-color: var(--bg-sidebar);
+  background-color: var(--background-secondary);
   display: grid;
   grid-template-rows: 1fr 45px;
   padding: 0.5rem;
@@ -37,7 +37,7 @@
 }
 
 .drawer {
-  background-color: var(--bg-sidebar);
+  background-color: var(--background-secondary);
   padding: 0.5rem;
 
   width: 100%;
@@ -45,7 +45,7 @@
   transition: transform .2s ease;
   z-index: 10;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 80%;
     height: 100%;
     position: fixed;
