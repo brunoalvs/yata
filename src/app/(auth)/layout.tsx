@@ -26,7 +26,9 @@ export default function Layout ({ children }: { children: React.ReactNode }) {
             </Link>
           </nav>
         </header>
-        { children }
+        <section className={ styles.content }>
+          { children }
+        </section>
       </div>
     </div>
   )
