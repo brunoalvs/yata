@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { UserOptions } from '@/components/UserOptions'
 import styles from './layout.module.scss'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -52,6 +53,11 @@ export default function Layout ({ children }: LayoutProps) {
       <aside className={ styles.sidebar }>
         <section>
           <UserOptions />
+          <nav>
+            <Link href='/app'>
+              Today
+            </Link>
+          </nav>
         </section>
         <footer>
           <button>

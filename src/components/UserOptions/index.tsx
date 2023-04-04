@@ -5,9 +5,11 @@ import { useSession, signOut } from 'next-auth/react'
 import { Avatar } from '../Avatar'
 import { ListOptions } from '../ListOptions'
 import styles from './styles.module.scss'
+import { useRouter } from 'next/navigation'
 
 export const UserOptions: FC = () => {
   const { data, status } = useSession()
+  const { push } = useRouter()
   const [user, setUser] = useState({ name: '', email: '', image: '' })
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export const UserOptions: FC = () => {
   }, [data])
 
   const list = [
-    { name: 'Settings', onClick: () => console.log('Go to Settings') },
+    { name: 'Setting', onClick: () => push('app/settings') },
     { name: 'Logout', onClick: () => signOut() },
   ]
 

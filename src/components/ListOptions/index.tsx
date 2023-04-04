@@ -21,6 +21,11 @@ export const ListOptions: FC<ListOptionsProps> = ({ children, list }) => {
     setIsOpen(!isOpen)
   }
 
+  function handleOptionClick(item: List[number]) {
+    setIsOpen(false)
+    item.onClick?.()
+  }
+
   return (
     <div className={ styles.container }>
       <div onClick={ handleClick }>
@@ -29,7 +34,7 @@ export const ListOptions: FC<ListOptionsProps> = ({ children, list }) => {
       <ul className={ styles.options } data-open={ isOpen }>
         {
           list.map((item, index) => (
-            <li key={ index } className={ styles.option } onClick={ item.onClick }>
+            <li key={ index } className={ styles.option } onClick={ () => handleOptionClick(item) }>
               { item.name }
             </li>
           ))
