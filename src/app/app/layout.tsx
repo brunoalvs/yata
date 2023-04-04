@@ -1,8 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react'
-import styles from './layout.module.scss'
-import { Avatar } from '@/components/Avatar'
+import { useSession } from 'next-auth/react'
+
 import { UserOptions } from '@/components/UserOptions'
+import styles from './layout.module.scss'
+import { redirect } from 'next/navigation'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -11,6 +13,7 @@ interface LayoutProps {
 export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const { status } = useSession()
 
   function toggleDrawer () {
     setIsDrawerOpen(!isDrawerOpen)
@@ -36,11 +39,19 @@ export default function Layout ({ children }: LayoutProps) {
     }
   }, [])
 
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
+
+  if (status === 'unauthenticated') {
+    redirect('/signin')
+  }
+
   return (
     <div className={ styles.container }>
       <aside className={ styles.sidebar }>
         <section>
-          <UserOptions user={{ name: 'Rafael Santos Oliveira', email: 'rafaelsantos@gmail.com' }} />
+          <UserOptions />
         </section>
         <footer>
           <button>

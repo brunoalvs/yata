@@ -9,11 +9,7 @@ const withPWA = require('next-pwa')({
 const nextConfig= {
   reactStrictMode: true,
   experimental: { appDir: true, },
-  images: {
-    domains: [
-      'avatars.githubusercontent.com',
-    ]
-  }
+  images: { remotePatterns: [{ hostname: '*.googleusercontent.com' }, { hostname: 'avatars.githubusercontent.com' }] }
 }
 
 module.exports = withPWA(nextConfig)
