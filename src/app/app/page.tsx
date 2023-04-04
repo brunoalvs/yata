@@ -14,7 +14,6 @@ export default function AppPage() {
 
   return (
     <section className={ styles.container }>
-      <button className={ styles.btn__open_menu }>Open Sidebar</button>
       <header className={ styles.header }>
         <h2 className={ styles.title }>List Name</h2>
       </header>

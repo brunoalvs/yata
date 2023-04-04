@@ -13,8 +13,13 @@ interface LayoutProps {
 
 export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const { status } = useSession()
+
+  function toggleSidebar () {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   function toggleDrawer () {
     setIsDrawerOpen(!isDrawerOpen)
@@ -50,8 +55,9 @@ export default function Layout ({ children }: LayoutProps) {
 
   return (
     <div className={ styles.container }>
-      <aside className={ styles.sidebar }>
+      <aside className={ styles.sidebar } data-open={ isSidebarOpen }>
         <section>
+          { isMobile && <button onClick={ toggleSidebar }>Close Sidebar</button> }
           <UserOptions />
           <nav>
             <Link href='/app'>
@@ -69,7 +75,7 @@ export default function Layout ({ children }: LayoutProps) {
         </footer>
       </aside>
       <div className={ styles.content }>
-        { isMobile && <button onClick={ toggleDrawer }>Toggle</button> }
+        { isMobile && <button onClick={ toggleSidebar }>Open Sidebar</button> }
         { children }
         <button onClick={ toggleDrawer }>Toggle</button>
       </div>
@@ -81,7 +87,13 @@ export default function Layout ({ children }: LayoutProps) {
         </header>
         <h1>Section</h1>
       </section>
-      { isMobile && <div className={ styles.overlay } data-open={ isDrawerOpen } onClick={ toggleDrawer } /> }
+      { isMobile && (
+        <div
+          className={ styles.overlay }
+          data-open={ isDrawerOpen || isSidebarOpen }
+          onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
+        />
+      ) }
     </div>
   )
 }
