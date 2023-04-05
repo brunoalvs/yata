@@ -1,9 +1,24 @@
+'use client'
+
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 
 import { Logo } from '@/components/Logo'
 import styles from './styles.module.css'
+import { LoadingScreen } from '@/components/LoadingScreen'
 
 export default function Layout ({ children }: { children: React.ReactNode }) {
+  const { status } = useSession()
+
+  if (status === 'loading') {
+    return <LoadingScreen />
+  }
+
+  if (status === 'authenticated') {
+    redirect('/app')
+  }
+
   return (
     <div className={ styles.wrapper }>
       <div className={ styles.container }>

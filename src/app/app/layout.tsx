@@ -6,6 +6,7 @@ import { UserOptions } from '@/components/UserOptions'
 import styles from './layout.module.scss'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { LoadingScreen } from '@/components/LoadingScreen'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -15,7 +16,12 @@ export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const { status } = useSession()
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/signin')
+    }
+  })
 
   function toggleSidebar () {
     setIsSidebarOpen(!isSidebarOpen)
@@ -27,13 +33,6 @@ export default function Layout ({ children }: LayoutProps) {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
-
-    return () => {
-      setIsMobile(false)
-    }
-  }, [])
-
-  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
     }
@@ -42,15 +41,12 @@ export default function Layout ({ children }: LayoutProps) {
 
     return () => {
       window.removeEventListener('resize', handleResize)
+      setIsMobile(false)
     }
   }, [])
 
   if (status === 'loading') {
-    return <div>Loading...</div>
-  }
-
-  if (status === 'unauthenticated') {
-    redirect('/signin')
+    return <LoadingScreen />
   }
 
   return (
