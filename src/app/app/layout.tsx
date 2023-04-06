@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-
-import { UserOptions } from '@/components/UserOptions'
-import styles from './layout.module.scss'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+
+import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import { LoadingScreen } from '@/components/LoadingScreen'
+import styles from './layout.module.scss'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -54,7 +54,7 @@ export default function Layout ({ children }: LayoutProps) {
       <aside className={ styles.sidebar } data-open={ isSidebarOpen }>
         <section>
           { isMobile && <button onClick={ toggleSidebar }>Close Sidebar</button> }
-          <UserOptions />
+          <SidebarUserOptions />
           <nav>
             <Link href='/app'>
               Today
