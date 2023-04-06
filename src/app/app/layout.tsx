@@ -1,8 +1,14 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
+import Link from 'next/link'
+
+import { SidebarUserOptions } from '@/components/SidebarUserOptions'
+import { LoadingScreen } from '@/components/LoadingScreen'
+import { Overlay } from '@/components/layout/Overlay'
 import styles from './layout.module.scss'
-import { Avatar } from '@/components/Avatar'
-import { UserOptions } from '@/components/UserOptions'
+import { useLayout } from '@/contexts/layout'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -10,7 +16,20 @@ interface LayoutProps {
 
 export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const { darkMode } = useLayout()
+
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/signin')
+    }
+  })
+
+  function toggleSidebar () {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   function toggleDrawer () {
     setIsDrawerOpen(!isDrawerOpen)
@@ -19,28 +38,30 @@ export default function Layout ({ children }: LayoutProps) {
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
 
-    return () => {
-      setIsMobile(false)
-    }
-  }, [])
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
     window.addEventListener('resize', handleResize)
 
     return () => {
       window.removeEventListener('resize', handleResize)
+      setIsMobile(false)
     }
   }, [])
 
+  if (status === 'loading') {
+    return <LoadingScreen />
+  }
+
   return (
-    <div className={ styles.container }>
-      <aside className={ styles.sidebar }>
+    <div className={ styles.container } data-theme={ darkMode ? 'dark' : 'light' }>
+      <aside className={ styles.sidebar } data-open={ isSidebarOpen }>
         <section>
-          <UserOptions user={{ name: 'Rafael Santos Oliveira', email: 'rafaelsantos@gmail.com' }} />
+          { isMobile && <button onClick={ toggleSidebar }>Close Sidebar</button> }
+          <SidebarUserOptions />
+          <nav>
+            <Link href='/app'>
+              Today
+            </Link>
+          </nav>
         </section>
         <footer>
           <button>
@@ -52,7 +73,7 @@ export default function Layout ({ children }: LayoutProps) {
         </footer>
       </aside>
       <div className={ styles.content }>
-        { isMobile && <button onClick={ toggleDrawer }>Toggle</button> }
+        { isMobile && <button onClick={ toggleSidebar }>Open Sidebar</button> }
         { children }
         <button onClick={ toggleDrawer }>Toggle</button>
       </div>
@@ -64,7 +85,13 @@ export default function Layout ({ children }: LayoutProps) {
         </header>
         <h1>Section</h1>
       </section>
-      { isMobile && <div className={ styles.overlay } data-open={ isDrawerOpen } onClick={ toggleDrawer } /> }
+      {
+        isMobile &&
+        <Overlay
+          isOpen={ isDrawerOpen || isSidebarOpen }
+          onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
+        />
+      }
     </div>
   )
 }

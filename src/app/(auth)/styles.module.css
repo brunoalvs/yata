@@ -69,3 +69,10 @@
   font-size: 2rem;
   font-weight: 600;
 }
+
+.content {
+  border: 1px dashed gold;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

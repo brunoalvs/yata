@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+import Providers from './providers'
+
 const inter = Inter({ display: 'swap', subsets: ['latin'] })
 
 export default async function RootLayout({ children }: { children: React.ReactNode} ) {
@@ -18,7 +20,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel='icon' href='/favicon.ico' />
       </head>
       <body>
-        <main data-theme='dark'>{ children }</main>
+        <Providers>
+          <main data-theme='light'>{ children }</main>
+        </Providers>
       </body>
     </html>
   )
