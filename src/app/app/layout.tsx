@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import styles from './layout.module.scss'
+import { Overlay } from '@/components/layout/Overlay'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -83,13 +84,13 @@ export default function Layout ({ children }: LayoutProps) {
         </header>
         <h1>Section</h1>
       </section>
-      { isMobile && (
-        <div
-          className={ styles.overlay }
-          data-open={ isDrawerOpen || isSidebarOpen }
+      {
+        isMobile &&
+        <Overlay
+          isOpen={ isDrawerOpen || isSidebarOpen }
           onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
         />
-      ) }
+      }
     </div>
   )
 }
