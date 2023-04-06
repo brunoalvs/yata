@@ -1,6 +1,6 @@
 'use client'
 
-export function handleDarkTheme() {
+export async function handleDarkTheme() {
   if (typeof window === 'undefined') throw new Error('window is undefined')
   if (typeof localStorage === 'undefined') throw new Error('localStorage is undefined')
 
@@ -12,10 +12,4 @@ export function handleDarkTheme() {
 
   localStorage.setItem('darkMode', prefersDarkScheme.matches.toString())
   return prefersDarkScheme.matches
-}
-
-export async function updateTheme(darkMode: boolean) {
-  const toggle = !darkMode
-  localStorage.setItem('darkMode', toggle.toString())
-  return toggle
 }

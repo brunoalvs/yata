@@ -1,14 +1,11 @@
 'use client'
 
 import { redirect } from 'next/navigation'
-import { useSession, getProviders } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
 export default function SignIn () {
   const { status } = useSession()
-  const providers = getProviders()
-
-  // console.log(providers)
 
   if (status === 'loading') {
     return (

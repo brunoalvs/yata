@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 import { handleDarkTheme } from '@/utils/handleDarkTheme'
 
@@ -15,12 +15,16 @@ export const LayoutContext = createContext<LayoutContextType>({
 })
 
 export const LayoutProvider = ({ children }: { children: React.ReactNode}) => {
-  const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(handleDarkTheme())
+  const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(true)
 
   const toggleDarkMode = async () => {
     setDarkMode(!darkMode)
     localStorage.setItem('darkMode', JSON.stringify(!darkMode))
   }
+
+  useEffect(() => {
+    handleDarkTheme()
+  }, [])
 
   return (
     <LayoutContext.Provider
