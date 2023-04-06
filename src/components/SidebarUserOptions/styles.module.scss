@@ -68,7 +68,7 @@
   }
 
   > .option {
-    border-bottom: 1px solid var(--background-primary-hover);
+    border-bottom: 1px solid var(--element-hover);
     padding: 1rem 1.5rem;
     font-size: 1.4rem;
     cursor: pointer;
@@ -83,11 +83,11 @@
     }
 
     &:hover {
-      background-color: var(--background-primary-hover);
+      background-color: var(--element-hover);
     }
 
     &:active {
-      background-color: var(--background-primary-active);
+      background-color: var(--element-active);
     }
   }
 }

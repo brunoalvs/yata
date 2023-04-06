@@ -24,6 +24,8 @@
   --secondary-700: #7e22ce;
   --secondary-800: #6b21a8;
   --secondary-900: #581c87;
+  --element-hover: rgba(0, 0, 0, 0.1);
+  --element-active: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -38,9 +40,6 @@
   --background-primary: #ffffff;
   --background-secondary: #f7f7f5;
 
-  --background-primary-hover: rgba(0, 0, 0, 0.1);
-  --background-primary-active: rgba(0, 0, 0, 0.3);
-
   --text: #37352f;
   --text-secondary: #777672;
   --text-sidebar: #9c9b98;
@@ -52,9 +51,6 @@
 [data-theme="dark"] {
   --background-primary: #202020;
   --background-secondary: #272727;
-
-  --background-primary-hover: rgba(0, 0, 0, 0.1);
-  --background-primary-active: rgba(0, 0, 0, 0.3);
 
   --text: #d4d4d4;
   --text-secondary: #5f5f5f;
