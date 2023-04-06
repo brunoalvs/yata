@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import { LoadingScreen } from '@/components/LoadingScreen'
-import styles from './layout.module.scss'
 import { Overlay } from '@/components/layout/Overlay'
+import styles from './layout.module.scss'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -34,10 +34,8 @@ export default function Layout ({ children }: LayoutProps) {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
 
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
     window.addEventListener('resize', handleResize)
 
     return () => {
