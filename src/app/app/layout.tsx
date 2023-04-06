@@ -8,6 +8,7 @@ import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { Overlay } from '@/components/layout/Overlay'
 import styles from './layout.module.scss'
+import { useLayout } from '@/contexts/layout'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -17,6 +18,8 @@ export default function Layout ({ children }: LayoutProps) {
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const { darkMode } = useLayout()
+
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
@@ -49,7 +52,7 @@ export default function Layout ({ children }: LayoutProps) {
   }
 
   return (
-    <div className={ styles.container }>
+    <div className={ styles.container } data-theme={ darkMode ? 'dark' : 'light' }>
       <aside className={ styles.sidebar } data-open={ isSidebarOpen }>
         <section>
           { isMobile && <button onClick={ toggleSidebar }>Close Sidebar</button> }

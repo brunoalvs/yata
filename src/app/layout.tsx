@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <main data-theme='dark'>{ children }</main>
+          <main data-theme='light'>{ children }</main>
         </Providers>
       </body>
     </html>

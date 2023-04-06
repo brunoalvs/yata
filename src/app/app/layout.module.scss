@@ -50,6 +50,7 @@
   width: 100%;
   min-width: 20rem;
   padding: 0.5rem;
+  font-size: medium;
 }
 
 .drawer {
@@ -79,7 +80,7 @@
     transform: translateX(100%);
 
     &[data-open="true"] {
-      min-width: 20rem;
+      min-width: 26rem;
       transform: translateX(0);
     }
   }

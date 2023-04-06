@@ -47,7 +47,7 @@
 
 .options {
   width: 100%;
-  background-color: var(--primary-700);
+  background-color: var(--background-primary);
   border-radius: 0.5rem;
   position: absolute;
   top: 100%;
@@ -68,9 +68,9 @@
   }
 
   > .option {
-    border-bottom: 1px solid var(--primary-900);
+    border-bottom: 1px solid var(--background-primary-hover);
     padding: 1rem 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     cursor: pointer;
 
     &:first-child {
@@ -83,11 +83,11 @@
     }
 
     &:hover {
-      background-color: var(--primary-900);
+      background-color: var(--background-primary-hover);
     }
 
     &:active {
-      background-color: var(--primary-700);
+      background-color: var(--background-primary-active);
     }
   }
 }
