@@ -1,0 +1,101 @@
+.container {
+  max-width: 22rem;
+  max-height: 100vh;
+  background-color: var(--background-secondary);
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  border-right: 1px solid var(--element-active);
+
+  > header {
+
+  }
+
+  > section {
+    max-height: calc(100vh - 125px - 45px);
+    border-top: 1px solid var(--element-active);
+    overflow-y: auto;
+
+    @media (min-width: 768px) {
+      max-height: calc(100vh - 60px - 45px);
+    }
+  }
+
+  > footer {
+    width: 100%;
+    height: 45px;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    border-top: 1px solid var(--element-active);
+
+    button {
+      min-width: 4rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform .2s ease;
+    z-index: 10;
+
+    &[data-open="true"] {
+      transform: translateX(0);
+    }
+  }
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 45px;
+  padding: 1rem 0;
+  overflow-y: auto;
+
+  &.default {
+  }
+
+  > a {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    color: var(--text-sidebar);
+    padding: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--element-hover);
+    }
+
+    &:active {
+      background-color: var(--element-active);
+    }
+  }
+}
+
+.buttonNewCollection {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: center;
+  text-align: start;
+
+  > svg {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    stroke: var(--current);
+  }
+}
+
+.buttonNewGroup {
+
+  > svg {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    stroke: var(--current);
+  }
+}
