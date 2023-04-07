@@ -1,52 +1,39 @@
 'use client'
 import { createContext, useContext, useState } from 'react'
+import { v4 as uuid } from 'uuid'
 
-type Todo = {
-  id: string
-  title: string
-}
+import type { Task } from '@/models/task'
+import type { Collection } from '@/models/collection'
 
 type TodosContextType = {
-  todos: Todo[]
-  addTodo: (todo: Todo) => void
-  removeTodo: (id: string) => void
-  updateTodo: (id: string, title: string) => void
+  lists: Collection[]
+  todos: Task[]
 }
 
 export const TodosContext = createContext<TodosContextType>({
-  todos: [],
-  addTodo: () => {},
-  removeTodo: () => {},
-  updateTodo: () => {},
+  lists: [],
+  todos: []
 })
 
-export const TodosProvider = ({ children }: { children: React.ReactNode}) => {
-  const [todos, setTodos] = useState<Todo[]>([])
-
-  const addTodo = (todo: Todo) => {
-    setTodos([...todos, todo])
-  }
-
-  const removeTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  }
-
-  const updateTodo = (id: string, title: string) => {
-    setTodos(todos.map(todo => todo.id === id ? { ...todo, title } : todo))
-  }
-
-  return (
-    <TodosContext.Provider
-      value={{
-        todos,
-        addTodo,
-        removeTodo,
-        updateTodo
-      }}
-    >
-      { children }
-    </TodosContext.Provider>
-  )
+interface TodosProviderProps {
+  children: React.ReactNode
 }
+
+const defaultLists: Collection[] = [
+  { id: '001ab', title: 'Today', items: [] },
+  { id: '002ab', title: 'All', items: [] },
+  { id: '003ab', title: 'Tasks', items: [] },
+]
+
+export const TodosProvider = ({ children }: TodosProviderProps) => (
+  <TodosContext.Provider
+    value={{
+      lists: defaultLists,
+      todos: []
+    }}
+  >
+    { children }
+  </TodosContext.Provider>
+)
 
 export const useTodos = () => useContext(TodosContext)

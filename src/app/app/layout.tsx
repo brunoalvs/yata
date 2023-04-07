@@ -1,11 +1,14 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
+import { FiMenu } from 'react-icons/fi'
 
 import { useLayout } from '@/contexts/layout'
-import { TodosProvider } from '@/contexts/todos'
+import { TaskProvider } from '@/contexts/task'
 import { LoadingScreen } from '@/components/LoadingScreen'
+import { ButtonIcon } from '@/components/common/ButtonIcon'
 import { Overlay } from '@/components/layout/Overlay'
 import { Sidebar } from '@/components/layout/Sidebar'
 import styles from './layout.module.scss'
@@ -52,11 +55,11 @@ export default function Layout ({ children }: LayoutProps) {
   }
 
   return (
-    <TodosProvider>
+    <TaskProvider>
       <div className={ styles.container } data-theme={ darkMode ? 'dark' : 'light' }>
         <Sidebar isOpen={ isSidebarOpen } closeSidebar={ toggleSidebar } />
         <div className={ styles.content }>
-          { isMobile && <button onClick={ toggleSidebar }>Open Sidebar</button> }
+          { isMobile && <ButtonIcon onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></ButtonIcon> }
           { children }
           <button onClick={ toggleDrawer }>Toggle</button>
         </div>
@@ -76,6 +79,6 @@ export default function Layout ({ children }: LayoutProps) {
           />
         }
       </div>
-    </TodosProvider>
+    </TaskProvider>
   )
 }

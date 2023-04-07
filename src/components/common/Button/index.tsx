@@ -1,14 +1,16 @@
-import type { FC } from 'react'
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
+  className?: string;
 }
 
-export const Button:FC<ButtonProps> = ({ children, onClick, variant, ...props }) => (
-  <button className={ styles.container } onClick={ onClick } data-variant={ variant } { ...props }>
+export const Button = ({ children, ...props }: ButtonProps) => (
+  <button
+    className={ `${styles.container} ${props.className}` }
+    title={ props.title }
+    onClick={ props.onClick }
+  >
     { children }
   </button>
 )

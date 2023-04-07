@@ -49,16 +49,17 @@
   width: 100%;
   background-color: var(--background-primary);
   border-radius: 0.5rem;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  list-style: none;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform-origin: top;
   transform: scaleY(0) translateY(-100%);
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
   transition-property: opacity, transform;
+  position: absolute;
+  top: 100%;
+  right: -1rem;
+  list-style: none;
   z-index: 10;
 
   &[data-open='true'] {
@@ -69,7 +70,7 @@
 
   > .option {
     border-bottom: 1px solid var(--element-hover);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     font-size: 1.4rem;
     cursor: pointer;
 

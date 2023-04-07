@@ -59,7 +59,7 @@ export const SidebarUserOptions = () => {
 
   return (
     <div className={ styles.container }>
-      <section className={ styles.userinfo } onClick={ toggleOptionsOpen }>
+      <section className={ styles.userinfo } onClick={ toggleOptionsOpen } title='Open app settings or sign out'>
         <Avatar src={ user?.image } name={ user.name } />
         <div className={ styles.content }>
           <p className={ styles.username }>
