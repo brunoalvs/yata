@@ -12,6 +12,7 @@ export const useTasks = (): Tasks => {
   const [tasks, setTasks] = useState<Task[]>([])
 
   const addTask = (task: Task) => {
+
     setTasks((prevTasks) => [...prevTasks, task])
   }
 
