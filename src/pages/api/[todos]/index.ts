@@ -20,7 +20,6 @@ async function fakeServer () {
     }
   ]
 
-  // create new Promise that will return data after 2 seconds delay (simulating server response)
   const returnData: Promise<{ status: number, data: Todo[]}> = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
@@ -30,7 +29,6 @@ async function fakeServer () {
     }, 2000)
   })
 
-  // return data as a response
   return returnData
 }
 
