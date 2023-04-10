@@ -8,6 +8,9 @@
 
   > header {
 
+    > button {
+
+    }
   }
 
   > section {
@@ -44,6 +47,16 @@
 
     &[data-open="true"] {
       transform: translateX(0);
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    > header {
+      > button {
+        display: none;
+        visibility: hidden;
+      }
     }
   }
 }

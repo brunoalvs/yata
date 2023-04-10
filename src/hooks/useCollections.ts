@@ -24,10 +24,12 @@ export const useCollections = (): Collections => {
   }
 
   const addCollection = async (title: Collection['title']) => {
-    const collection = {
+    const collection: Collection = {
       id: Math.random().toString(36).substring(2, 9),
       title,
       items: [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     }
 
     await setDoc(doc(db, 'collections', collection.id), collection)
@@ -43,5 +45,11 @@ export const useCollections = (): Collections => {
     setCollections((prevCollections) => prevCollections.map((collection) => (collection.id === id ? { ...collection, ...updates } : collection)))
   }
 
-  return { collections, getCollections, addCollection, removeCollection, updateCollection }
+  return {
+    collections,
+    getCollections,
+    addCollection,
+    removeCollection,
+    updateCollection
+  }
 }

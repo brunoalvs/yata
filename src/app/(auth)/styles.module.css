@@ -31,6 +31,7 @@
 
 .navigation a {
   color: var(--text);
+  font-size: medium;
   text-decoration: none;
 }
 
