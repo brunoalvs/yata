@@ -18,7 +18,9 @@ export default function AppPage() {
           <FiMoreHorizontal />
         </ButtonIcon>
       </header>
-      <h1>Welcome to Yata!</h1>
+      <section className={ styles.content }>
+        <h1>Welcome to Yata!</h1>
+      </section>
     </section>
   )
 }

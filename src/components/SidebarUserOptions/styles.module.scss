@@ -35,12 +35,13 @@
     }
 
     .username {
-      font-size: 1.4rem;
+      font-size: medium;
       font-weight: 500;
     }
     .useremail {
-      font-size: 1.2rem;
+      font-size: small;
       font-weight: 400;
+      padding-bottom: 0.2rem;
     }
   }
 }
@@ -51,15 +52,15 @@
   border-radius: 0.5rem;
   box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
   opacity: 0;
+  position: absolute;
+  top: 100%;
+  right: -1rem;
+  list-style: none;
   transform-origin: top;
   transform: scaleY(0) translateY(-100%);
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
   transition-property: opacity, transform;
-  position: absolute;
-  top: 100%;
-  right: -1rem;
-  list-style: none;
   z-index: 10;
 
   &[data-open='true'] {
@@ -71,7 +72,7 @@
   > .option {
     border-bottom: 1px solid var(--element-hover);
     padding: 1.5rem;
-    font-size: 1.4rem;
+    font-size: medium;
     cursor: pointer;
 
     &:first-child {
@@ -97,11 +98,11 @@
   width: 100vw;
   height: 100vh;
   background-color: transparent;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
 
   &[data-open='true'] {
     display: block;
