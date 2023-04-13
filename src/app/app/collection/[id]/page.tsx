@@ -1,3 +1,7 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+
 interface PageProps {
   params: {
     id: string
@@ -5,5 +9,7 @@ interface PageProps {
 }
 
 export default function Page({ params }: PageProps) {
-  return <div>Collection { params.id }</div>
+  const pathname = usePathname()
+
+  return <div>Collection { params.id } - { pathname }</div>
 }
