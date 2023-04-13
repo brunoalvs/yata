@@ -15,9 +15,7 @@ export const LayoutContext = createContext<LayoutContextType>({
 })
 
 export const LayoutProvider = ({ children }: { children: React.ReactNode}) => {
-  const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(
-    JSON.parse(localStorage.getItem('darkMode') || 'true')
-  )
+  const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(true)
 
   const toggleDarkMode = async () => {
     setDarkMode(!darkMode)
@@ -25,7 +23,7 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode}) => {
   }
 
   useEffect(() => {
-    handleDarkTheme()
+    handleDarkTheme().then((isDark) => setDarkMode(isDark))
   }, [])
 
   return (
