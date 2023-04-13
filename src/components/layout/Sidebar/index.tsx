@@ -43,17 +43,15 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           </Link>
         </nav>
         <nav className={ styles.lists }>
-          {
-            collections.collections.map((collection) => (
-              <Link
-                key={ collection.id }
-                href={ `/app/collection/${collection.id}` }
-                data-current={ pathname?.includes(collection.id) ? 'true' : 'false' }
-              >
-                { collection.title }
-              </Link>
-            ))
-          }
+          { collections.collections.map((collection) => (
+            <Link
+              key={ collection.id }
+              href={ `/app/collection/${collection.id}` }
+              data-current={ pathname?.includes(collection.id) ? 'true' : 'false' }
+            >
+              { collection.title }
+            </Link>
+          )) }
         </nav>
       </section>
       <footer className={ styles.footer }>
