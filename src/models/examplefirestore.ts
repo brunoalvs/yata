@@ -44,8 +44,8 @@ const data: Data = {
           id: 'col1',
           title: 'Collection 1',
           items: ['task1'],
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         }
       ],
       groups: [
