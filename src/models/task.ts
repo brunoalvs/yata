@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto'
+// import { randomUUID } from 'node:crypto'
 import type { Collection } from './collection'
 
 export interface Task {
@@ -12,13 +12,13 @@ export interface Task {
   collection?: Collection['id']
 }
 
-export function createTask(title: string): Task {
-  return {
-    id: randomUUID(),
-    title,
-    completed: false,
-    steps: [],
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  }
-}
+// export function createTask(title: string): Task {
+//   return {
+//     id: randomUUID(),
+//     title,
+//     completed: false,
+//     steps: [],
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   }
+// }
