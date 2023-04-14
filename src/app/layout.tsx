@@ -14,8 +14,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta name='description' content='Yes, another todo app' />
         <meta name='keywords' content='todo, app, nextjs, typescript, offline' />
         <meta name='theme-color' content='#000000' />
-        <title>Yata</title>
-
+        <title>Yata: Yes! Another Todo App</title>
         <link rel='manifest' href='/manifest.json' />
         <link rel='icon' href='/favicon.ico' />
       </head>

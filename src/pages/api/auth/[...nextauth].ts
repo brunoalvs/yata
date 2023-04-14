@@ -1,8 +1,11 @@
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
+// import { FirestoreAdapter } from '@next-auth/firebase-adapter'
+// import { firestore } from '@/lib/firestore'
 
 export default NextAuth({
+  // adapter: FirestoreAdapter(firestore),
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,

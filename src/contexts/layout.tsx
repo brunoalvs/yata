@@ -14,7 +14,7 @@ export const LayoutContext = createContext<LayoutContextType>({
   toggleDarkMode: () => {}
 })
 
-export const LayoutProvider = ({ children }: { children: React.ReactNode}) => {
+export default function LayoutProvider ({ children }: { children: React.ReactNode}) {
   const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(true)
 
   const toggleDarkMode = async () => {

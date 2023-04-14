@@ -1,17 +1,20 @@
 import Link from 'next/link'
-import styles from './styles.module.css'
+import { Button, HeadingPage } from '@/components/common'
+import styles from './page.module.scss'
 
 export default function Home() {
   return (
-    <section className={ styles.home_container }>
-      <h1 className={ styles.heading }>
-        Welcome to Yata!
-      </h1>
+    <section className={ styles.container }>
+      <HeadingPage>
+        Yes! Another todo app
+      </HeadingPage>
       <p>
         Yata is a web application that allows you to manage your tasks in a simple and intuitive way.
       </p>
       <Link href='/app'>
-        Get Started
+        <Button className={ styles.buttonGetStarted }>
+          Get Started
+        </Button>
       </Link>
     </section>
   )

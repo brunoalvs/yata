@@ -1,14 +1,10 @@
 'use client'
 
 import { redirect } from 'next/navigation'
-// import { useSession } from 'next-auth/react'
-// import { signIn } from 'next-auth/react'
-
-import { useSession } from '@/hooks/useSession'
+import { signIn, useSession } from 'next-auth/react'
 
 export default function SignIn () {
-  // const { status, data} = useSession()
-  const { status, signIn, signUp } = useSession()
+  const { status } = useSession()
 
   if (status === 'loading') {
     return (
@@ -27,9 +23,6 @@ export default function SignIn () {
           onClick={ () => signIn() }
         >
           Sign In
-        </button>
-        <button onClick={ () => signUp() }>
-          Sign Up
         </button>
       </div>
     )

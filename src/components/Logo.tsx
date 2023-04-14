@@ -6,7 +6,7 @@ interface LogoProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 export const Logo: FC<LogoProps> = ({ full = false, ...props }) => (
   <img
-    src={ full ? '/logo_full.svg' : '/favicon.png' }
+    src={ full ? '/logo_full.svg' : '/logo_icon.svg' }
     { ...props }
   />
 )
