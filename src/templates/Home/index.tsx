@@ -12,7 +12,11 @@ export default function HomeTemplate () {
         <div className={ styles.container }>
           <header className={ styles.header }>
             <Link href='/'>
-              <Logo title='Yata - Yes, another todo app' width={ 48 } height={ 48 } />
+              <Logo
+                width={ 48 }
+                height={ 48 }
+                title='Yata - Yes, another todo app'
+              />
             </Link>
             <nav className={ styles.navigation }>
               <Link href='signin'>
@@ -26,13 +30,9 @@ export default function HomeTemplate () {
             </nav>
           </header>
           <section className={ styles.content }>
-            <HeadingPage>
-              Yes! Another Todo App
-            </HeadingPage>
-            <p>
-              Yata is a web application that allows you to manage your tasks in a simple and intuitive way.
-            </p>
-            <p>Stop wasting time and start achieving your goals with our Todo App. Sign up today and experience the power of efficient task management!</p>
+            <HeadingPage>Yes! Another Todo App</HeadingPage>
+            <p>Yata is a web application that allows you to manage your tasks in a simple and intuitive way. Stop wasting time and start achieving your goals with our Todo App.</p>
+            <p>Sign up today and experience the power of efficient task management!</p>
             <Link href='/app'>
               <Button className={ styles.buttonGetStarted }>
                 Get Started
