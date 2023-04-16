@@ -7,7 +7,7 @@ import { FiMenu } from 'react-icons/fi'
 
 import { useLayout } from '@/contexts/layout'
 import { TaskProvider } from '@/contexts/task'
-import { LoadingScreen } from '@/components/LoadingScreen'
+import { LoadingScreen } from '@/templates/LoadingScreen'
 import { ButtonIcon } from '@/components/common/ButtonIcon'
 import { Overlay } from '@/components/layout/Overlay'
 import { Sidebar } from '@/components/layout/Sidebar'

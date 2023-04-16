@@ -1,23 +1,27 @@
-'use client'
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
 
 import { Button } from '@/components/common'
 import { Logo } from '@/components/Logo'
+import BackgroundAnimation from '@/components/BackgroundAnimation'
+import styles from './styles.module.scss'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import { LoadingScreen } from '@/templates/LoadingScreen'
-import styles from './layout.module.scss'
-import pageStyle from './page.module.scss'
 
-export default function Layout ({ children }: { children: React.ReactNode }) {
+interface InstitutionalProps {
+  children: React.ReactNode;
+}
+
+export default function Institutional({ children }: InstitutionalProps) {
   const { status } = useSession()
+  const { push } = useRouter()
 
   if (status === 'loading') {
     return <LoadingScreen />
   }
 
   if (status === 'authenticated') {
-    redirect('/app')
+    push('/app')
   }
 
   return (
@@ -25,23 +29,28 @@ export default function Layout ({ children }: { children: React.ReactNode }) {
       <div className={ styles.container }>
         <header className={ styles.header }>
           <Link href='/'>
-            <Logo title='Yata - Yes, another todo app' width={ 64 } height={ 64 } />
+            <Logo
+              width={ 48 }
+              height={ 48 }
+              title='Yata - Yes, another todo app'
+            />
           </Link>
           <nav className={ styles.navigation }>
             <Link href='signin'>
-              Log in
+              Sign In
             </Link>
             <Link href='signup'>
-              <Button className={ pageStyle.buttonGetStarted }>
+              <Button className={ styles.buttonGetStarted }>
                 Get Started
               </Button>
             </Link>
           </nav>
         </header>
-        <div className={ styles.content }>
+        <section className={ styles.content }>
           { children }
-        </div>
+        </section>
       </div>
+      <BackgroundAnimation />
     </div>
   )
 }
