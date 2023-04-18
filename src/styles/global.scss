@@ -31,6 +31,9 @@
 
   --skeleton-from: hsl(200, 20%, 20%);
   --skeleton-to: hsl(200, 20%, 15%);
+
+  --element-hover: rgba(0, 0, 0, 0.1);
+  --element-active: rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] {
@@ -43,4 +46,7 @@
 
   --skeleton-from: hsl(200, 20%, 80%);
   --skeleton-to: hsl(200, 20%, 95%);
+
+  --element-hover: rgba(0, 0, 0, 0.1);
+  --element-active: rgba(0, 0, 0, 0.3);
 }

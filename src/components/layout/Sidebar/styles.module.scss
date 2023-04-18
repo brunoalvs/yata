@@ -129,6 +129,12 @@
 
   button {
     min-width: 4rem;
+
+    > svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+    }
   }
 
   .buttonNewCollection {
@@ -138,20 +144,14 @@
     text-align: start;
 
     > svg {
-      width: 100%;
-      height: 100%;
       padding: 0.5rem;
-      stroke: var(--current);
     }
   }
 
   .buttonNewGroup {
 
     > svg {
-      width: 100%;
-      height: 100%;
       padding: 1rem;
-      stroke: var(--current);
     }
   }
 }
