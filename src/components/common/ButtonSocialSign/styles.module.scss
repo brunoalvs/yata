@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  font-size: large;
+  padding: 1rem;
+  border-color: var(--white);
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-width: 2px;
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--primary-700);
+  }
+}

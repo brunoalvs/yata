@@ -33,6 +33,7 @@ export const SidebarUserOptions = () => {
 
   function toggleOptionsOpen() {
     setOptionsIsOpen(!optionsIsOpen)
+    console.log(data)
   }
 
   function handleOptionClick(item: ListOptions[number]) {

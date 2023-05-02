@@ -2,7 +2,16 @@
 
 export async function handleDarkTheme(): Promise<boolean> {
   if (typeof window === 'undefined') throw new Error('window is undefined')
-  if (typeof localStorage === 'undefined') throw new Error('localStorage is undefined')
+
+  // Aguarda até que o localStorage esteja disponível
+  await new Promise<void>((resolve) => {
+    const intervalId = setInterval(() => {
+      if (typeof localStorage !== 'undefined') {
+        clearInterval(intervalId)
+        resolve()
+      }
+    }, 100)
+  })
 
   if (localStorage.getItem('darkMode') === null) {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
@@ -10,5 +19,5 @@ export async function handleDarkTheme(): Promise<boolean> {
     return prefersDarkScheme.matches
   }
 
-  return JSON.parse(localStorage.getItem('darkMode') as string)
+  return localStorage.getItem('darkMode') === 'true' ? true : false
 }
