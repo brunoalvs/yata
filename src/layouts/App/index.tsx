@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 
-import { ButtonIcon } from '@/components/common/ButtonIcon'
+import { ButtonIcon } from '@/components/atoms/ButtonIcon'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Overlay } from '@/components/layout/Overlay'
 import styles from './styles.module.scss'

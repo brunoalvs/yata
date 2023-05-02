@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
-import { Button, HeadingPage } from '@/components/common'
+import { Button } from '@/components/atoms/Button'
+import { HeadingPage } from '@/components/atoms/HeadingPage'
 import styles from './styles.module.scss'
 
 export default function HomeTemplate () {

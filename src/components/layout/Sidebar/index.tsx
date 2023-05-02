@@ -4,7 +4,8 @@ import { usePathname } from 'next/navigation'
 import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
 import { TaskContext } from '@/contexts/task'
-import { Button, ButtonIcon } from '@/components/common'
+import { Button } from '@/components/atoms/Button'
+import { ButtonIcon } from '@/components/atoms/ButtonIcon'
 import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import styles from './styles.module.scss'
 

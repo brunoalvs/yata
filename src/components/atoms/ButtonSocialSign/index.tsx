@@ -1,5 +1,5 @@
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
-import { Button } from '@/components/common'
+import { Button } from '../Button'
 import styles from './styles.module.scss'
 
 interface ButtonSocialSignProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

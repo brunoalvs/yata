@@ -1,6 +1,6 @@
 import { signIn } from 'next-auth/react'
-import { ButtonSocialSign } from '@/components/common/ButtonSocialSign'
-import { HeadingPage } from '@/components/common'
+import { ButtonSocialSign } from '@/components/atoms/ButtonSocialSign'
+import { HeadingPage } from '@/components/atoms/HeadingPage'
 
 export default function SignUpTemplate () {
   return (
