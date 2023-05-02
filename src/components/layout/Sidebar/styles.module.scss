@@ -6,6 +6,8 @@
   display: grid;
   grid-template-rows: max-content 1fr max-content;
   background-color: var(--background-secondary);
+  background-image: url('/noise.png');
+  background-size: 100px;
   border-right: 1px solid var(--element-active);
 
   @media (max-width: 767px) {

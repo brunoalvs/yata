@@ -9,6 +9,7 @@ const styles = {
   container: {
     width: '100%',
     height: '100%',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -30,10 +31,7 @@ const AppPage: NextPageWithLayout = () => {
   }
 
   if (status === 'unauthenticated') {
-
-    setTimeout(() => {
-      push('/signin')
-    }, 3000)
+    push('/signin')
 
     return (
       <div
@@ -45,24 +43,18 @@ const AppPage: NextPageWithLayout = () => {
   }
 
   return (
-    <div style={ styles.container }>
-      <h1>App Page</h1>
-      <p>When user is Logged!</p>
-      <label
-        style={{ display: 'flex', backgroundColor: 'white', padding: '1rem', borderRadius: '0.5rem' }}
-      >
-        <FiPlus />
-        <input type='text' placeholder='Add a task' />
-      </label>
-    </div>
-  )
-}
-
-AppPage.getLayout = function getLayout (page) {
-  return (
     <TaskProvider>
       <App>
-        { page }
+        <div style={ styles.container }>
+          <h1>App Page</h1>
+          <p>When user is Logged!</p>
+          <label
+            style={{ display: 'flex', backgroundColor: 'white', padding: '1rem', borderRadius: '0.5rem' }}
+          >
+            <FiPlus />
+            <input type='text' placeholder='Add a task' />
+          </label>
+        </div>
       </App>
     </TaskProvider>
   )

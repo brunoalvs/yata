@@ -1,12 +1,12 @@
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 import { Button } from '@/components/common'
 import { Logo } from '@/components/Logo'
 import BackgroundAnimation from '@/components/BackgroundAnimation'
-import styles from './styles.module.scss'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
 import { LoadingScreen } from '@/templates/LoadingScreen'
+import styles from './styles.module.scss'
 
 interface InstitutionalProps {
   children: React.ReactNode;
