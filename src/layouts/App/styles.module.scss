@@ -21,16 +21,28 @@
 .content {
   width: 100%;
   min-width: 20rem;
+  max-height: 100vh;
+  overflow: auto;
   padding: 1rem;
   font-size: medium;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 0.5rem;
+  }
 }
 
 .drawer {
-  background-color: var(--background-secondary);
-  padding: 0.5rem;
-
   width: 100%;
-
+  background-color: var(--background-secondary);
   transition: transform .2s ease;
   z-index: 10;
 
@@ -43,6 +55,7 @@
     transform: translateX(100%);
 
     &[data-open="true"] {
+      padding: 0.5rem;
       transform: translateX(0);
     }
   }
@@ -53,6 +66,7 @@
 
     &[data-open="true"] {
       min-width: 26rem;
+      padding: 0.5rem;
       transform: translateX(0);
     }
   }
