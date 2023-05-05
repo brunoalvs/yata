@@ -14,7 +14,7 @@ interface InstitutionalProps {
 
 export default function Institutional({ children }: InstitutionalProps) {
   const { status } = useSession()
-  const { push } = useRouter()
+  const { push, pathname } = useRouter()
 
   if (status === 'loading') {
     return <LoadingScreen />
@@ -36,12 +36,21 @@ export default function Institutional({ children }: InstitutionalProps) {
             />
           </Link>
           <nav className={ styles.navigation }>
-            <Button
-              variant='text'
-              onClick={ () => push('/signin') }
-            >
+            { pathname !== '/signin' ? (
+              <Button
+                variant='text'
+                onClick={ () => push('/signin') }
+              >
               Sign In
-            </Button>
+              </Button>
+            ) : (
+              <Button
+                variant='text'
+                onClick={ () => push('/signup') }
+              >
+              Sign Up
+              </Button>
+            ) }
             <Button
               onClick={ () => push('/signup') }
             >
@@ -52,6 +61,9 @@ export default function Institutional({ children }: InstitutionalProps) {
         <section className={ styles.content }>
           { children }
         </section>
+        <footer className={ styles.footer }>
+          <p>Your security and privacy are our top priority. That's why we offer the option to login with your Google or Github account, so you can be confident that your information is safe and secure.</p>
+        </footer>
       </div>
       <BackgroundAnimation />
     </div>

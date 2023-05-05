@@ -53,7 +53,7 @@
   justify-content: center;
   gap: 2rem;
   font-size: large;
-  padding: 1rem;
+  padding: 2.4rem 4.8rem;
   line-height: 2.4rem;
   text-align: center;
 
@@ -88,4 +88,10 @@
       }
     }
   }
+}
+
+.footer {
+  text-align: center;
+  padding: 1.2rem 4.8rem;
+  opacity: 0.5;
 }
