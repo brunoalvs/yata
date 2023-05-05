@@ -1,7 +1,9 @@
 import { signIn } from 'next-auth/react'
-import Button from '@/components/atoms/Button'
-import { HeadingPage } from '@/components/atoms/HeadingPage'
+import Link from 'next/link'
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
+
+import { HeadingPage } from '@/components/atoms/HeadingPage'
+import Button from '@/components/atoms/Button'
 
 export default function SignUpTemplate () {
   return (
@@ -24,7 +26,7 @@ export default function SignUpTemplate () {
       </Button>
       <footer>
         <p>Already have an account?</p>
-        <a href='/signin'>Sign In</a>
+        <Link href='/signin'>Sign In</Link>
       </footer>
     </>
   )
