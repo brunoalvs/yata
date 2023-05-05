@@ -1,11 +1,12 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import type { NextPageWithLayout } from '../_app'
+import type { NextPageWithLayout } from '@/pages/_app'
+
 import App from '@/layouts/App'
 import { TaskProvider } from '@/contexts/task'
 
 const AppPage: NextPageWithLayout = () => {
-  const { status } = useSession()
+  const { status, data } = useSession()
   const { push } = useRouter()
 
   if (status === 'loading') {
@@ -33,6 +34,9 @@ const AppPage: NextPageWithLayout = () => {
     <div>
       <h1>All Tasks</h1>
       <p>When user is Logged!</p>
+      <code>
+        { JSON.stringify(data, null, 2) }
+      </code>
     </div>
   )
 }

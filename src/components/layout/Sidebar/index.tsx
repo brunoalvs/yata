@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
 import { TaskContext } from '@/contexts/task'
@@ -16,6 +17,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const { collections } = useContext(TaskContext)
+  const { data: session } = useSession()
   const pathname = usePathname()
 
   return (
@@ -58,7 +60,7 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
       <footer className={ styles.footer }>
         <Button
           className={ styles.buttonNewCollection }
-          onClick={ () => collections.addCollection('Untitled collection') }
+          onClick={ () => collections.addCollection({ author: session?.user?.email || '', title: 'Untitled Collection' }) }
           title='Create a new Collection'
         >
           <FiPlus />
