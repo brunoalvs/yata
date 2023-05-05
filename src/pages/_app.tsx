@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 
 import { SessionProvider } from 'next-auth/react'
 import '@/styles/global.scss'
+import GlobalStyle from '@/components/globalStyles'
 
 const inter = Inter({ display: 'swap', subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel='icon' href='/favicon.png' type='image/png' />
         <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
       </Head>
+      <GlobalStyle />
       <main className={ inter.className }>
         <SessionProvider>
           { getLayout(<Component { ...pageProps } />) }

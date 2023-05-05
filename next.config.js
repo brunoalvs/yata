@@ -13,7 +13,7 @@ const withPWA = require('next-pwa')({
 
 const nextConfig= {
   reactStrictMode: true,
-  // experimental: { appDir: true, },
+  compiler: { styledComponents: true, },
   images: { remotePatterns: [{ hostname: '*.googleusercontent.com' }, { hostname: 'avatars.githubusercontent.com' }] },
   sassOptions: { includePaths: [path.join(__dirname, 'styles')] },
 }
