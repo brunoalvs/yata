@@ -27,13 +27,12 @@ export const SidebarUserOptions = () => {
   })
 
   const listOptions: ListOptions = [
-    { name: 'Settings', onClick: () => push('app/settings') },
+    { name: 'Settings', onClick: () => push('/app/settings') },
     { name: 'Logout', onClick: () => signOut() }
   ]
 
   function toggleOptionsOpen() {
     setOptionsIsOpen(!optionsIsOpen)
-    console.log(data)
   }
 
   function handleOptionClick(item: ListOptions[number]) {
@@ -51,6 +50,14 @@ export const SidebarUserOptions = () => {
       email: data?.user?.email ?? '',
       image: data?.user?.image ?? ''
     })
+
+    return () => {
+      setUser({
+        name: '',
+        email: '',
+        image: ''
+      })
+    }
 
   }, [data])
 

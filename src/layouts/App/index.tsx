@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { FiMenu } from 'react-icons/fi'
+import { FiMenu, FiPlus } from 'react-icons/fi'
 
-import { ButtonIcon } from '@/components/atoms/ButtonIcon'
+import Button from '@/components/atoms/Button'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Overlay } from '@/components/layout/Overlay'
 import styles from './styles.module.scss'
@@ -39,15 +39,19 @@ export default function App({ children }: AppProps) {
     <div className={ styles.container } data-theme='dark'>
       <Sidebar isOpen={ isSidebarOpen } closeSidebar={ toggleSidebar } />
       <div className={ styles.content }>
-        { isMobile && <ButtonIcon onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></ButtonIcon> }
+        { isMobile && <Button variant='text' onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></Button> }
         <button onClick={ toggleDrawer }>Toggle</button>
         { children }
       </div>
       <section className={ styles.drawer } data-open={ isDrawerOpen }>
         <header>
-          <button onClick={ toggleDrawer }>
-          x
-          </button>
+          <Button
+            variant='text'
+            title='Close Drawer'
+            onClick={ toggleDrawer }
+          >
+            <FiPlus style={{ transform: 'rotate(45deg)' }} />
+          </Button>
         </header>
         <h1>Section</h1>
       </section>

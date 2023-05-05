@@ -1,16 +1,30 @@
-import styles from './styles.module.scss'
+
+import * as S from './styles'
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  className?: string;
+  variant?: 'default' | 'outline' | 'text';
+  size?: 'small' | 'large';
+  icon?: React.ReactNode;
 }
 
-export const Button = ({ children, ...props }: ButtonProps) => (
-  <button
-    className={ `${styles.container} ${props.className}` }
-    title={ props.title }
-    onClick={ props.onClick }
+const Button = ({
+  children,
+  variant = 'default',
+  size = 'large',
+  icon,
+  ...props
+}: ButtonProps) => (
+  <S.Button
+    variant={ variant }
+    size={ size }
+    { ...props }
   >
+    <span />
+    { icon && icon }
     { children }
-  </button>
+    <span />
+  </S.Button>
 )
+
+export default Button

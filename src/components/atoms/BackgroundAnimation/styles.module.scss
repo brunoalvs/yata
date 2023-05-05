@@ -1,4 +1,6 @@
-.container {
+.container {}
+
+.containerAnimated {
   width: 100%;
   height: 100%;
   animation: background-animate 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;

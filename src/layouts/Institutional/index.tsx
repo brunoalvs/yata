@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
-import { Button } from '@/components/atoms/Button'
+import Button from '@/components/atoms/Button'
 import { Logo } from '@/components/Logo'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 import { LoadingScreen } from '@/templates/LoadingScreen'
@@ -36,14 +36,17 @@ export default function Institutional({ children }: InstitutionalProps) {
             />
           </Link>
           <nav className={ styles.navigation }>
-            <Link href='signin'>
+            <Button
+              variant='text'
+              onClick={ () => push('/signin') }
+            >
               Sign In
-            </Link>
-            <Link href='signup'>
-              <Button className={ styles.buttonGetStarted }>
-                Get Started
-              </Button>
-            </Link>
+            </Button>
+            <Button
+              onClick={ () => push('/signup') }
+            >
+              Get Started
+            </Button>
           </nav>
         </header>
         <section className={ styles.content }>

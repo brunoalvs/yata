@@ -46,6 +46,11 @@
   transition: transform .2s ease;
   z-index: 10;
 
+  > header {
+    display: flex;
+    justify-content: end;
+  }
+
   @media (max-width: 767px) {
     width: 80%;
     height: 100%;

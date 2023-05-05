@@ -5,8 +5,7 @@ import { useSession } from 'next-auth/react'
 import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
 import { TaskContext } from '@/contexts/task'
-import { Button } from '@/components/atoms/Button'
-import { ButtonIcon } from '@/components/atoms/ButtonIcon'
+import Button from '@/components/atoms/Button'
 import { SidebarUserOptions } from '@/components/SidebarUserOptions'
 import styles from './styles.module.scss'
 
@@ -23,9 +22,13 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   return (
     <aside className={ styles.container } data-open={ isOpen }>
       <header className={ styles.header }>
-        <ButtonIcon onClick={ () => closeSidebar() } title='Close Sidebar'>
+        <Button
+          variant='text'
+          title='Close Sidebar'
+          onClick={ () => closeSidebar() }
+        >
           <FiMenu />
-        </ButtonIcon>
+        </Button>
         <SidebarUserOptions />
       </header>
       <section className={ styles.content }>
@@ -59,16 +62,20 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
       </section>
       <footer className={ styles.footer }>
         <Button
-          className={ styles.buttonNewCollection }
-          onClick={ () => collections.addCollection({ author: session?.user?.email || '', title: 'Untitled Collection' }) }
-          title='Create a new Collection'
+          icon={ <FiPlus /> }
+          variant='text'
+          size='small'
+          onClick={ () => collections.addCollection({ author: session?.user?.id || '', title: 'Untitled Collection' }) }
         >
-          <FiPlus />
           New Collection
         </Button>
-        <Button className={ styles.buttonNewGroup } title='Create a new Group'>
+        <Button
+          variant='text'
+          title='Create a new Group'
+        >
           <FiPlusSquare />
         </Button>
       </footer>
     </aside>
-  )}
+  )
+}

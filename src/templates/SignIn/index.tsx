@@ -1,18 +1,30 @@
 import { signIn } from 'next-auth/react'
-import { ButtonSocialSign } from '@/components/atoms/ButtonSocialSign'
+import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
+
 import { HeadingPage } from '@/components/atoms/HeadingPage'
+import Button from '@/components/atoms/Button'
 
 export default function SignInTemplate () {
   return (
     <>
       <HeadingPage>Welcome</HeadingPage>
       <p>Sign In using your Google's <br />or Github's account.</p>
-      <ButtonSocialSign provider='google' onClick={ () => signIn('google') }>
+
+      <Button
+        variant='outline'
+        icon={ <RiGoogleFill /> }
+        onClick={ () => signIn('google') }
+      >
         Continue with Google
-      </ButtonSocialSign>
-      <ButtonSocialSign provider='github' onClick={ () => signIn('github') }>
+      </Button>
+      <Button
+        variant='outline'
+        icon={ <RiGithubFill /> }
+        onClick={ () => signIn('github') }
+      >
         Continue with GitHub
-      </ButtonSocialSign>
+      </Button>
+
       <footer>
         <p>Don't have an account?</p>
         <a href='/signup'>Sign Up</a>

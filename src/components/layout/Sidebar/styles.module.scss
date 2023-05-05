@@ -128,32 +128,4 @@
   display: grid;
   grid-template-columns: 1fr max-content;
   border-top: 1px solid var(--element-active);
-
-  button {
-    min-width: 4rem;
-
-    > svg {
-      width: 100%;
-      height: 100%;
-      stroke: currentColor;
-    }
-  }
-
-  .buttonNewCollection {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    align-items: center;
-    text-align: start;
-
-    > svg {
-      padding: 0.5rem;
-    }
-  }
-
-  .buttonNewGroup {
-
-    > svg {
-      padding: 1rem;
-    }
-  }
 }
