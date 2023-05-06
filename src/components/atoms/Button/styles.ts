@@ -4,7 +4,7 @@ export const Button = styled.button<{ variant?: 'default' | 'outline' | 'text', 
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 1rem 1.2rem;
-  background-color: var(--primary-700);
+  background-color: var(--primary-500);
   border: 0.2rem solid var(--primary-500);
   position: relative;
   isolation: isolate;
@@ -13,10 +13,11 @@ export const Button = styled.button<{ variant?: 'default' | 'outline' | 'text', 
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  transition: background 200ms ease;
 
   &:hover,
   &:focus-visible {
-    background-color: var(--primary-500);
+    background-color: var(--primary-600);
   }
 
   > span {
@@ -86,16 +87,15 @@ export const Button = styled.button<{ variant?: 'default' | 'outline' | 'text', 
 
           &:hover,
           &:focus-visible {
-            background-color: rgba(255, 255, 255, 1);
-            color: var(--primary-800);
-          }
-
-          &::before {
             background-color: var(--primary-800);
           }
 
+          &::before {
+            background-color: rgba(255, 255, 255, 1);
+          }
+
           &:active {
-            color: white;
+            color: var(--primary-800);
           }
         `
     case 'text':
