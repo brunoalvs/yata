@@ -1,6 +1,8 @@
 import type { NextPageWithLayout } from './_app'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
+import screenshotExample from '../../public/screenshot-example.webp'
 import Institutional from '@/layouts/Institutional'
 import { HeadingPage } from '@/components/atoms/HeadingPage'
 import Button from '@/components/atoms/Button'
@@ -14,8 +16,18 @@ const IndexPage: NextPageWithLayout = () => {
       <p>Yata is a web application that allows you to manage your tasks in a simple and intuitive way. Stop wasting time and start achieving your goals with our Todo App.</p>
       <p>Sign up today and experience the power of efficient task management!</p>
       <Button onClick={ () => push('/app') }>
-      Get Started
+        Get Started
       </Button>
+
+      <figure
+        style={{ maxWidth: 'calc(100vw - 9.6rem)', margin: '0 auto' }}
+      >
+        <Image
+          src={ screenshotExample }
+          alt='Yata App Screenshot'
+          style={{ width: '100%', height: 'auto', objectFit: 'contain', margin: '4.8rem 0', borderRadius: '0.5rem', overflow: 'hidden' }}
+        />
+      </figure>
     </>
   )}
 

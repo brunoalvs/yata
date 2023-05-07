@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import { Suspense } from 'react'
 import Image from 'next/image'
 
-import Skeleton from '@/components/SkeletonElements'
+import Skeleton from '@/components/molecules/SkeletonElements'
 
 import styles from './styles.module.scss'
 

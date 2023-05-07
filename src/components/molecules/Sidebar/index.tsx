@@ -6,7 +6,7 @@ import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
 import { TaskContext } from '@/contexts/task'
 import Button from '@/components/atoms/Button'
-import { SidebarUserOptions } from '@/components/SidebarUserOptions'
+import { SidebarUserOptions } from '@/components/organisms/SidebarUserOptions'
 import styles from './styles.module.scss'
 
 interface SidebarProps {
@@ -45,11 +45,11 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
             title='All tasks'
             data-current={ pathname === '/app/all' }
           >
-            All
+            All Tasks
           </Link>
         </nav>
         <nav className={ styles.lists }>
-          { collections.collections.map((collection) => (
+          { collections.collections.filter((collection) => collection.author === session?.user?.id).map((collection) => (
             <Link
               key={ collection.id }
               href={ `/app/collection/${collection.id}` }

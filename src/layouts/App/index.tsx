@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { FiMenu, FiPlus } from 'react-icons/fi'
 
 import Button from '@/components/atoms/Button'
-import { Sidebar } from '@/components/layout/Sidebar'
-import { Overlay } from '@/components/layout/Overlay'
+import { Sidebar } from '@/components/molecules/Sidebar'
+import { Overlay } from '@/components/molecules/Overlay'
 import styles from './styles.module.scss'
 
 interface AppProps {
