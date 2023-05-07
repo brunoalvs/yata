@@ -47,11 +47,10 @@
 }
 
 @keyframes around {
-  to {
-    transform: translate3d(10, 20, 0) rotate3d(0, 0, 1, 360deg);
-  }
-
   from {
     transform: translate3d(10, 20, 30) rotate3d(0, 0, 10, 0deg);
+  }
+  to {
+    transform: translate3d(10, 20, 0) rotate3d(0, 0, 1, 360deg);
   }
 }

@@ -29,16 +29,23 @@ const AppPage: NextPageWithLayout = () => {
   }
 
   return (
+    <div>
+      <h1>App Page</h1>
+      <p>When user is Logged!</p>
+      <label>
+        <FiPlus />
+        <input type='text' placeholder='Add a task' />
+      </label>
+    </div>
+
+  )
+}
+
+AppPage.getLayout = function getLayout (page) {
+  return (
     <TaskProvider>
       <App>
-        <div>
-          <h1>App Page</h1>
-          <p>When user is Logged!</p>
-          <label>
-            <FiPlus />
-            <input type='text' placeholder='Add a task' />
-          </label>
-        </div>
+        { page }
       </App>
     </TaskProvider>
   )

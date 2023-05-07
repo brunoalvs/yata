@@ -20,12 +20,12 @@ const IndexPage: NextPageWithLayout = () => {
       </Button>
 
       <figure
-        style={{ maxWidth: 'calc(100vw - 9.6rem)', margin: '0 auto' }}
+        style={{ margin: '0 auto' }}
       >
         <Image
           src={ screenshotExample }
           alt='Yata App Screenshot'
-          style={{ width: '100%', height: 'auto', objectFit: 'contain', margin: '4.8rem 0', borderRadius: '0.5rem', overflow: 'hidden' }}
+          style={{ width: '100%', height: 'auto', objectFit: 'contain', margin: '2.4rem 0', borderRadius: '0.5rem', overflow: 'hidden' }}
         />
       </figure>
     </>

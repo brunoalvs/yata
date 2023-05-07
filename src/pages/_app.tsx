@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import { motion } from 'framer-motion'
 
 import { SessionProvider } from 'next-auth/react'
 import '@/styles/global.scss'
@@ -18,7 +19,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
@@ -32,11 +33,20 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
       </Head>
       <GlobalStyle />
-      <main className={ inter.className }>
+      <motion.main
+        key={ router.route }
+        initial='initial'
+        animate='animate'
+        variants={{
+          initial: { opacity: 0 },
+          animate: { opacity: 1 }
+        }}
+        className={ inter.className }
+      >
         <SessionProvider>
           { getLayout(<Component { ...pageProps } />) }
         </SessionProvider>
-      </main>
+      </motion.main>
     </>
   )
 }

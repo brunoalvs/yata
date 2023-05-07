@@ -9,9 +9,10 @@ import styles from './styles.module.scss'
 interface AvatarProps {
   src: string
   name: string
+  size?: 'small' | 'medium' | 'large'
 }
 
-export const Avatar: FC<AvatarProps> = ({ src, name }) => {
+export const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
 
   function initials (name: string) {
     return name.split(' ').map((word) => word[0]).join('')
@@ -37,8 +38,8 @@ export const Avatar: FC<AvatarProps> = ({ src, name }) => {
         <Image
           src={ src }
           alt={ `Avatar of ${name}` }
-          width={ 48 }
-          height={ 48 }
+          width={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
+          height={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
           onError={ handleImageError }
         />
       </Suspense>

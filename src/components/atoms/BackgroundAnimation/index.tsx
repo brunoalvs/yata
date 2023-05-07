@@ -1,5 +1,10 @@
-import styles from './styles.module.scss'
+import * as S from './styles'
 
 export default function BackgroundAnimation () {
-  return <div className={ styles.container } />
+  return (
+    <S.Wrapper>
+      <S.Overlay />
+      <S.Element />
+    </S.Wrapper>
+  )
 }
