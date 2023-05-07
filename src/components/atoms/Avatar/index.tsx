@@ -1,10 +1,9 @@
 import type { FC } from 'react'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import Image from 'next/image'
 
 import Skeleton from '@/components/molecules/SkeletonElements'
-
-import styles from './styles.module.scss'
+import * as S from './styles'
 
 interface AvatarProps {
   src: string
@@ -13,36 +12,26 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
+  const [imageSrc, setSrc] = useState<string>(src)
 
-  function initials (name: string) {
-    return name.split(' ').map((word) => word[0]).join('')
+  function getName (name:string) {
+    const [firstName, lastName] = name.split(' ')
+    return `${firstName}+${lastName}`
   }
 
-  if (!src) {
-    return (
-      <div className={ styles.container }>
-        <div className={ styles.initials }>
-          { initials(name) }
-        </div>
-      </div>
-    )
-  }
-
-  const handleImageError = () => {
-    console.log('Image error')
-  }
+  const handleImageError = () => setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`)
 
   return (
-    <div className={ styles.container }>
+    <S.Container>
       <Suspense fallback={ <Skeleton type='avatar' /> }>
         <Image
-          src={ src }
+          src={ imageSrc }
           alt={ `Avatar of ${name}` }
           width={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
           height={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
           onError={ handleImageError }
         />
       </Suspense>
-    </div>
+    </S.Container>
   )
 }
