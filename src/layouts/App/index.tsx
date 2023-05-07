@@ -7,7 +7,7 @@ import Avatar from '@/components/atoms/Avatar'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 import Button from '@/components/atoms/Button'
 import { Logo } from '@/components/atoms/Logo'
-import { Sidebar } from '@/components/molecules/Sidebar'
+import { Sidebar } from '@/components/organisms/Sidebar'
 import { Overlay } from '@/components/molecules/Overlay'
 import styles from './styles.module.scss'
 
@@ -58,7 +58,7 @@ export default function App({ children }: AppProps) {
           <Avatar
             size='small'
             name='Bruno Alves'
-            src='https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1st0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c'
+            src='https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1t0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c'
           />
         </section>
       </header>

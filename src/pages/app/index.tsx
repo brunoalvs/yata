@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FiPlus } from 'react-icons/fi'
 import type { NextPageWithLayout } from '@/pages/_app'
-import App from '@/layouts/App'
+import AppLayout from '@/components/templates/AppLayout'
 import { TaskProvider } from '@/contexts/task'
 
 const AppPage: NextPageWithLayout = () => {
@@ -44,9 +44,9 @@ const AppPage: NextPageWithLayout = () => {
 AppPage.getLayout = function getLayout (page) {
   return (
     <TaskProvider>
-      <App>
+      <AppLayout>
         { page }
-      </App>
+      </AppLayout>
     </TaskProvider>
   )
 }

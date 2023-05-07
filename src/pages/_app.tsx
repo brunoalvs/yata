@@ -3,10 +3,9 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import { SessionProvider } from 'next-auth/react'
 import { motion } from 'framer-motion'
 
-import { SessionProvider } from 'next-auth/react'
-import '@/styles/global.scss'
 import GlobalStyle from '@/components/globalStyles'
 
 const inter = Inter({ display: 'swap', subsets: ['latin'] })
