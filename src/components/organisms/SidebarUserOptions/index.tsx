@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 
-import { Avatar } from '../../atoms/Avatar'
+import Avatar from '@/components/atoms/Avatar'
 import styles from './styles.module.scss'
 
 type ListOptions = {

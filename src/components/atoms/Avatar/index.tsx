@@ -11,7 +11,7 @@ interface AvatarProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-export const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
+const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
   const [imageSrc, setSrc] = useState<string>(src)
 
   function getName (name:string) {
@@ -35,3 +35,5 @@ export const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
     </S.Container>
   )
 }
+
+export default Avatar

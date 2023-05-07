@@ -3,19 +3,20 @@ import { FiMenu, FiPlus } from 'react-icons/fi'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
+import Avatar from '@/components/atoms/Avatar'
+import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 import Button from '@/components/atoms/Button'
+import { Logo } from '@/components/atoms/Logo'
 import { Sidebar } from '@/components/molecules/Sidebar'
 import { Overlay } from '@/components/molecules/Overlay'
-import { Logo } from '@/components/atoms/Logo'
 import styles from './styles.module.scss'
-import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 
 interface AppProps {
   children: React.ReactNode;
 }
 
 export default function App({ children }: AppProps) {
-  const { status, data: session } = useSession()
+  const { status } = useSession()
   const { push } = useRouter()
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -54,7 +55,11 @@ export default function App({ children }: AppProps) {
         <Logo width={ 24 } />
 
         <section>
-          <Button variant='text' title='Open Drawer' onClick={ toggleDrawer }><FiPlus /></Button>
+          <Avatar
+            size='small'
+            name='Bruno Alves'
+            src='https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1st0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c'
+          />
         </section>
       </header>
       <div className={ styles.container } data-theme='dark'>
