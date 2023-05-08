@@ -19,9 +19,7 @@ const IndexPage: NextPageWithLayout = () => {
         Get Started
       </Button>
 
-      <figure
-        style={{ margin: '0 auto' }}
-      >
+      <figure>
         <Image
           src={ screenshotExample }
           alt='Yata App Screenshot'
