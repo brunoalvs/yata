@@ -1,6 +1,6 @@
 import { initializeApp, getApps } from 'firebase/app'
 
-interface FirebaseConfig {
+interface FirebaseCredentials {
   apiKey: string
   authDomain: string
   projectId: string
@@ -10,7 +10,7 @@ interface FirebaseConfig {
   measurementId?: string
 }
 
-const firebaseConfig: FirebaseConfig = {
+const firebaseCredentials: FirebaseCredentials = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ?? '',
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ?? '',
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ?? '',
@@ -20,6 +20,6 @@ const firebaseConfig: FirebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ?? '',
 }
 
-const firebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
+const firebaseApp = getApps().length === 0 ? initializeApp(firebaseCredentials) : getApps()[0]
 
 export default firebaseApp

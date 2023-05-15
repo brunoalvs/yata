@@ -1,40 +1,31 @@
-.header {
-  width: 100%;
-  height: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--black);
-  padding: 0 1rem;
-}
+import styled from 'styled-components'
 
-.container {
+export const Container = styled.div`
   width: 100%;
   max-width: 100vw;
-  min-height: calc(100vh - 5rem);
-  overflow: hidden;
+  min-height: 100vh;
+  background-color: var(--background-primary);
+  background-image: url('/noise.png');
+  background-size: 120px 120px;
+  color: var(--text);
 
   display: grid;
   grid-template-columns: 1fr;
-
-  background-color: var(--background-primary);
-  background-image: url('/noise.png');
-  background-size: 200px 200px;
-  color: var(--text);
+  overflow: hidden;
   position: relative;
 
   @media (min-width: 768px) {
     grid-template-columns: minmax(14rem, 22rem) 1fr max-content;
   }
-}
+`
 
-.content {
+export const Content = styled.article`
   width: 100%;
   min-width: 20rem;
   max-height: 100vh;
-  overflow: auto;
-  padding: 1rem;
   font-size: medium;
+  overflow-y: auto;
+  padding: 1rem;
 
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -48,35 +39,29 @@
     background: var(--text-secondary);
     border-radius: 0.5rem;
   }
-}
+`
 
-.drawer {
+export const Drawer = styled.div`
   width: 100%;
+  height: 100%;
   background-color: var(--background-secondary);
-  transition: transform .2s ease;
-  z-index: 10;
-
-  > header {
-    display: flex;
-    justify-content: flex-end;
-  }
+  transition: transform 200ms ease;
+  z-index: var(--z-index-drawer);
 
   @media (max-width: 767px) {
-    width: 80%;
-    height: 100%;
     position: fixed;
     top: 0;
     right: 0;
     transform: translateX(100%);
 
     &[data-open="true"] {
+      width: 80%;
       padding: 0.5rem;
       transform: translateX(0);
     }
   }
 
   @media (min-width: 768px) {
-    width: 0;
     transform: translateX(100%);
 
     &[data-open="true"] {
@@ -85,4 +70,9 @@
       transform: translateX(0);
     }
   }
-}
+`
+
+export const DrawerHeader = styled.header`
+  display: flex;
+  justify-content: flex-end;
+`

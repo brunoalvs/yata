@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Collection } from '@/models/collection'
 
 import firebaseApp from '@/utils/firebase'
@@ -7,7 +7,7 @@ import { getFirestore, doc, setDoc, getDocs, collection } from 'firebase/firesto
 interface Collections {
   collections: Collection[],
   getCollections: () => void,
-  addCollection: (title: string) => void,
+  addCollection: ({ title, author }: { title: Collection['title'], author: Collection['author']}) => void,
   removeCollection: (id: string) => void,
   updateCollection: (id: string, updates: Partial<Collection>) => void,
 }
@@ -23,13 +23,14 @@ export const useCollections = (): Collections => {
     setCollections(collections.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Collection)))
   }
 
-  const addCollection = async (title: Collection['title']) => {
+  const addCollection = async ({ title, author }: { title: Collection['title'], author: Collection['author']}) => {
     const collection: Collection = {
       id: Math.random().toString(36).substring(2, 9),
       title,
       items: [],
       createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date().toISOString(),
+      author
     }
 
     await setDoc(doc(db, 'collections', collection.id), collection)
@@ -44,6 +45,10 @@ export const useCollections = (): Collections => {
   const updateCollection = (id: string, updates: Partial<Collection>) => {
     setCollections((prevCollections) => prevCollections.map((collection) => (collection.id === id ? { ...collection, ...updates } : collection)))
   }
+
+  useEffect(() => {
+    getCollections()
+  }, [])
 
   return {
     collections,

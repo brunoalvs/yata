@@ -1,10 +1,14 @@
-
 import { useEffect, useState } from 'react'
-import { FiMenu } from 'react-icons/fi'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { FiMenu, FiPlus } from 'react-icons/fi'
 
-import { ButtonIcon } from '@/components/common/ButtonIcon'
-import { Sidebar } from '@/components/layout/Sidebar'
-import { Overlay } from '@/components/layout/Overlay'
+import Avatar from '@/components/atoms/Avatar'
+import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
+import Button from '@/components/atoms/Button'
+import Logo from '@/components/atoms/Logo'
+import { Sidebar } from '@/components/organisms/Sidebar'
+import Overlay from '@/components/molecules/Overlay'
 import styles from './styles.module.scss'
 
 interface AppProps {
@@ -12,6 +16,8 @@ interface AppProps {
 }
 
 export default function App({ children }: AppProps) {
+  const { status } = useSession()
+  const { push } = useRouter()
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -36,29 +42,53 @@ export default function App({ children }: AppProps) {
     }
   }, [])
 
+  if (status === 'unauthenticated') {
+    push('/signin')
+    return (
+      <BackgroundAnimation />
+    )
+  }
+
   return (
-    <div className={ styles.container } data-theme='dark'>
-      <Sidebar isOpen={ isSidebarOpen } closeSidebar={ toggleSidebar } />
-      <div className={ styles.content }>
-        { isMobile && <ButtonIcon onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></ButtonIcon> }
-        <button onClick={ toggleDrawer }>Toggle</button>
-        { children }
+    <>
+      <header className={ styles.header }>
+        <Logo width={ 24 } />
+
+        <section>
+          <Avatar
+            size='small'
+            name='Bruno Alves'
+            src='https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1t0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c'
+          />
+        </section>
+      </header>
+      <div className={ styles.container } data-theme='dark'>
+        <Sidebar isOpen={ isSidebarOpen } closeSidebar={ toggleSidebar } />
+        <div className={ styles.content }>
+          { isMobile && <Button variant='text' onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></Button> }
+          <button onClick={ toggleDrawer }>Toggle</button>
+          { children }
+        </div>
+        <section className={ styles.drawer } data-open={ isDrawerOpen }>
+          <header>
+            <Button
+              variant='text'
+              title='Close Drawer'
+              onClick={ toggleDrawer }
+            >
+              <FiPlus style={{ transform: 'rotate(45deg)' }} />
+            </Button>
+          </header>
+          <h1>Section</h1>
+        </section>
+        {
+          isMobile &&
+          <Overlay
+            isOpen={ isDrawerOpen || isSidebarOpen }
+            onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
+          />
+        }
       </div>
-      <section className={ styles.drawer } data-open={ isDrawerOpen }>
-        <header>
-          <button onClick={ toggleDrawer }>
-          x
-          </button>
-        </header>
-        <h1>Section</h1>
-      </section>
-      {
-        isMobile &&
-        <Overlay
-          isOpen={ isDrawerOpen || isSidebarOpen }
-          onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
-        />
-      }
-    </div>
+    </>
   )
 }

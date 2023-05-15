@@ -1,9 +1,10 @@
-import type { NextAuthOptions } from 'next-auth'
+import type { NextAuthOptions, Session } from 'next-auth'
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import { FirestoreAdapter } from '@next-auth/firebase-adapter'
 import { firestore } from '@/lib/firestore'
+import type { AdapterUser } from 'next-auth/adapters'
 
 export const authOptions: NextAuthOptions = {
   adapter: FirestoreAdapter(firestore),
@@ -24,6 +25,14 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+  callbacks: {
+    session: async ({ session, user }: { session: Session, user: AdapterUser}) => {
+      if (session?.user) {
+        session.user.id = user.id
+      }
+      return Promise.resolve(session)
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 }
 

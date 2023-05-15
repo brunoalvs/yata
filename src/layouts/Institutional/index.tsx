@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
-import { Button } from '@/components/common'
-import { Logo } from '@/components/Logo'
-import BackgroundAnimation from '@/components/BackgroundAnimation'
-import { LoadingScreen } from '@/templates/LoadingScreen'
+import Button from '@/components/atoms/Button'
+import Logo from '@/components/atoms/Logo'
+import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
+import LoadingScreen from '@/components/templates/LoadingScreen'
 import styles from './styles.module.scss'
 
 interface InstitutionalProps {
@@ -14,7 +14,7 @@ interface InstitutionalProps {
 
 export default function Institutional({ children }: InstitutionalProps) {
   const { status } = useSession()
-  const { push } = useRouter()
+  const { push, pathname } = useRouter()
 
   if (status === 'loading') {
     return <LoadingScreen />
@@ -36,19 +36,36 @@ export default function Institutional({ children }: InstitutionalProps) {
             />
           </Link>
           <nav className={ styles.navigation }>
-            <Link href='signin'>
+            { pathname !== '/signin' ? (
+              <Button
+                variant='text'
+                onClick={ () => push('/signin') }
+              >
               Sign In
-            </Link>
-            <Link href='signup'>
-              <Button className={ styles.buttonGetStarted }>
-                Get Started
               </Button>
-            </Link>
+            ) : (
+              <Button
+                variant='text'
+                onClick={ () => push('/signup') }
+              >
+              Sign Up
+              </Button>
+            ) }
+            <Button
+              onClick={ () => push('/signup') }
+            >
+              Get Started
+            </Button>
           </nav>
         </header>
         <section className={ styles.content }>
           { children }
         </section>
+        { pathname === '/signin' || pathname === '/signup' ? (
+          <footer className={ styles.footer }>
+            <p>Your security and privacy are our top priority. That's why we offer the option to login with your Google or Github account, so you can be confident that your information is safe and secure.</p>
+          </footer>
+        ) : null }
       </div>
       <BackgroundAnimation />
     </div>

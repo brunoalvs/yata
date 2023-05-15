@@ -1,38 +1,25 @@
+import type { NextPageWithLayout } from '@/pages/_app'
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import type { NextPageWithLayout } from '../_app'
-import App from '@/layouts/App'
 import { TaskProvider } from '@/contexts/task'
+import AppLayout from '@/components/templates/AppLayout'
 
 const AppPage: NextPageWithLayout = () => {
-  const { status } = useSession()
-  const { push } = useRouter()
-
-  if (status === 'loading') {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
-
-  if (status === 'unauthenticated') {
-    setTimeout(() => {
-      push('/signin')
-    }, 3000)
-
-    return (
-      <div>
-        <p>You are not signed in.</p>
-        <p>Redirecting to Sign In...</p>
-      </div>
-    )
-  }
+  const { data } = useSession()
 
   return (
     <div>
       <h1>All Tasks</h1>
       <p>When user is Logged!</p>
+      <code>
+        { JSON.stringify({
+          'user': {
+            'name': data?.user?.name,
+            'email': data?.user?.email,
+            'image': data?.user?.image,
+            'id': data?.user?.id
+          }
+        }, null, 2) }
+      </code>
     </div>
   )
 }
@@ -40,9 +27,9 @@ const AppPage: NextPageWithLayout = () => {
 AppPage.getLayout = function getLayout (page) {
   return (
     <TaskProvider>
-      <App>
+      <AppLayout>
         { page }
-      </App>
+      </AppLayout>
     </TaskProvider>
   )
 }
