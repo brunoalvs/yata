@@ -1,45 +1,19 @@
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import { FiPlus } from 'react-icons/fi'
 import type { NextPageWithLayout } from '@/pages/_app'
-import AppLayout from '@/components/templates/AppLayout'
+import { FiPlus } from 'react-icons/fi'
 import { TaskProvider } from '@/contexts/task'
+import AppLayout from '@/components/templates/AppLayout'
+import HeadingPage from '@/components/atoms/HeadingPage'
 
-const AppPage: NextPageWithLayout = () => {
-  const { status } = useSession()
-  const { push } = useRouter()
-
-  if (status === 'loading') {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
-
-  if (status === 'unauthenticated') {
-    push('/signin')
-
-    return (
-      <div>
-        <p>You are not signed in.</p>
-        <p>Redirecting to Sign In...</p>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <h1>App Page</h1>
-      <p>When user is Logged!</p>
-      <label>
-        <FiPlus />
-        <input type='text' placeholder='Add a task' />
-      </label>
-    </div>
-
-  )
-}
+const AppPage: NextPageWithLayout = () => (
+  <div>
+    <HeadingPage>App Page</HeadingPage>
+    <p>When user is Logged!</p>
+    <label>
+      <FiPlus />
+      <input type='text' placeholder='Add a task' />
+    </label>
+  </div>
+)
 
 AppPage.getLayout = function getLayout (page) {
   return (

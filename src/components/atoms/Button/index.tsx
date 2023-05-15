@@ -1,30 +1,22 @@
-
+import type { HTMLAttributes, ReactNode } from 'react'
+import { memo } from 'react'
 import * as S from './styles'
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-  variant?: 'default' | 'outline' | 'text';
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  fullWidth?: boolean;
+  icon?: ReactNode;
   size?: 'small' | 'large';
-  icon?: React.ReactNode;
+  variant?: 'default' | 'outline' | 'text';
 }
 
-const Button = ({
-  children,
-  variant = 'default',
-  size = 'large',
-  icon,
-  ...props
-}: ButtonProps) => (
-  <S.Button
-    variant={ variant }
-    size={ size }
-    { ...props }
-  >
+const Button = ({ children, ...props }: ButtonProps) => (
+  <S.Container { ...props }>
     <span />
-    { icon && icon }
+    { props.icon && props.icon }
     { children }
     <span />
-  </S.Button>
+  </S.Container>
 )
 
-export default Button
+export default memo(Button)

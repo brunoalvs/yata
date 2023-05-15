@@ -1,17 +1,22 @@
-import type { FC } from 'react'
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useCallback, memo } from 'react'
 import Image from 'next/image'
 
 import Skeleton from '@/components/molecules/SkeletonElements'
 import * as S from './styles'
 
+enum AvatarSize {
+  small = 32,
+  medium = 48,
+  large = 64
+}
+
 interface AvatarProps {
   src: string
   name: string
-  size?: 'small' | 'medium' | 'large'
+  size?: keyof typeof AvatarSize
 }
 
-const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
+const Avatar = ({ src, name, size = 'medium' }: AvatarProps) => {
   const [imageSrc, setSrc] = useState<string>(src)
 
   function getName (name:string) {
@@ -19,7 +24,7 @@ const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
     return `${firstName}+${lastName}`
   }
 
-  const handleImageError = () => setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`)
+  const handleImageError = useCallback(() => setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`), [name])
 
   return (
     <S.Container>
@@ -27,8 +32,8 @@ const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
         <Image
           src={ imageSrc }
           alt={ `Avatar of ${name}` }
-          width={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
-          height={ size === 'small' ? 32 : size === 'large' ? 64 : 48 }
+          width={ AvatarSize[size] }
+          height={ AvatarSize[size] }
           onError={ handleImageError }
         />
       </Suspense>
@@ -36,4 +41,4 @@ const Avatar: FC<AvatarProps> = ({ src, name, size = 'medium' }) => {
   )
 }
 
-export default Avatar
+export default memo(Avatar)

@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   background-color: rgba(10, 20, 70, 1);
   position: fixed;
+  inset: 0;
 `
 
 export const Overlay = styled.div`

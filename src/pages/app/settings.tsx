@@ -1,6 +1,6 @@
+import type { NextPageWithLayout } from '@/pages/_app'
 import { TaskProvider } from '@/contexts/task'
-import type { NextPageWithLayout } from '../_app'
-import App from '@/layouts/App'
+import AppLayout from '@/components/templates/AppLayout'
 
 const SettingsPage: NextPageWithLayout = () => (
   <div>
@@ -11,9 +11,9 @@ const SettingsPage: NextPageWithLayout = () => (
 SettingsPage.getLayout = function getLayout (page) {
   return (
     <TaskProvider>
-      <App>
+      <AppLayout>
         { page }
-      </App>
+      </AppLayout>
     </TaskProvider>
   )
 }

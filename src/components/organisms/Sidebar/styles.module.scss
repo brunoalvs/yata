@@ -27,7 +27,7 @@
 }
 
 .header {
-  > button {
+  > button:first-of-type {
     margin-left: 1rem;
   }
 
@@ -36,7 +36,7 @@
   }
 
   @media (min-width: 768px) {
-    > button {
+    > button:first-of-type {
       display: none;
       visibility: hidden;
     }

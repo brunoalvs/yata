@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSession, signOut } from 'next-auth/react'
-
+import { signOut } from 'next-auth/react'
 import Avatar from '@/components/atoms/Avatar'
 import styles from './styles.module.scss'
 
@@ -17,14 +16,9 @@ type User = {
 }
 
 export const SidebarUserOptions = () => {
-  const { data, status } = useSession()
   const { push } = useRouter()
   const [optionsIsOpen, setOptionsIsOpen] = useState<boolean>(false)
-  const [user, setUser] = useState<User>({
-    name: '',
-    email: '',
-    image: ''
-  })
+  const [user] = useState<User>({ 'name': 'Bruno Alves', 'email': 'hello.brunoalves@gmail.com', 'image': 'https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1t0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c' })
 
   const listOptions: ListOptions = [
     { name: 'Settings', onClick: () => push('/app/settings') },
@@ -38,31 +32,6 @@ export const SidebarUserOptions = () => {
   function handleOptionClick(item: ListOptions[number]) {
     setOptionsIsOpen(false)
     item.onClick()
-  }
-
-  useEffect(() => {
-    if (!data?.user) {
-      return
-    }
-
-    setUser({
-      name: data?.user?.name ?? '',
-      email: data?.user?.email ?? '',
-      image: data?.user?.image ?? ''
-    })
-
-    return () => {
-      setUser({
-        name: '',
-        email: '',
-        image: ''
-      })
-    }
-
-  }, [data])
-
-  if (status === 'loading') {
-    return <div>Loading...</div>
   }
 
   return (

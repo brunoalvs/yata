@@ -1,5 +1,6 @@
+import type { ReactNode } from 'react'
 import Button from '@/components/atoms/Button'
-import { HeadingPage } from '@/components/atoms/HeadingPage'
+import HeadingPage from '@/components/atoms/HeadingPage'
 import Institutional from '@/layouts/Institutional'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -32,7 +33,7 @@ const SignInPage = () => (
   </>
 )
 
-SignInPage.getLayout = function getLayout (page) {
+SignInPage.getLayout = function getLayout (page: ReactNode) {
   return (
     <Institutional>
       { page }

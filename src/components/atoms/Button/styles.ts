@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import type { ButtonProps } from './'
 
-export const Button = styled.button<{ variant?: 'default' | 'outline' | 'text', size?: 'large' | 'small' }>`
+export const Container = styled.button<ButtonProps>`
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 1rem 1.2rem;

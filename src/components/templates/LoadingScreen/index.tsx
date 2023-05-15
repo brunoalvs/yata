@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.scss'
 
-export const LoadingScreen = () => (
+const LoadingScreen = () => (
   <div className={ styles.container }>
     <section className={ styles.logo }>
       <Image src='/favicon.png' alt='Yata' width={ 60 } height={ 60 } priority />
@@ -10,3 +11,5 @@ export const LoadingScreen = () => (
     <p className={ styles.loading }>Loading...</p>
   </div>
 )
+
+export default memo(LoadingScreen)

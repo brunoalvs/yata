@@ -3,9 +3,9 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
 import Button from '@/components/atoms/Button'
-import { Logo } from '@/components/atoms/Logo'
+import Logo from '@/components/atoms/Logo'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
-import { LoadingScreen } from '@/templates/LoadingScreen'
+import LoadingScreen from '@/components/templates/LoadingScreen'
 import styles from './styles.module.scss'
 
 interface InstitutionalProps {

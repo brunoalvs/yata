@@ -1,11 +1,16 @@
-import styles from './styles.module.scss'
+import type { HTMLAttributes, ReactNode } from 'react'
+import { memo } from 'react'
+import * as S from './styles'
 
-interface HeadingPageProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  children: React.ReactNode
+export interface HeadingPageProps extends HTMLAttributes<HTMLHeadingElement> {
+  children: ReactNode
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
-export const HeadingPage = ({ children, ...props }: HeadingPageProps) => (
-  <h1 className={ styles.heading } { ...props }>
+const HeadingPage = ({ children, ...props }: HeadingPageProps) => (
+  <S.Container { ...props }>
     { children }
-  </h1>
+  </S.Container>
 )
+
+export default memo(HeadingPage)

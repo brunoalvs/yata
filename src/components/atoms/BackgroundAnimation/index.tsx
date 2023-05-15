@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import * as S from './styles'
 
-export default function BackgroundAnimation () {
+function BackgroundAnimation () {
   return (
     <S.Wrapper>
       <S.Overlay />
@@ -8,3 +9,5 @@ export default function BackgroundAnimation () {
     </S.Wrapper>
   )
 }
+
+export default memo(BackgroundAnimation)

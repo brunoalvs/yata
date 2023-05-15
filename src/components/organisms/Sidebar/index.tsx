@@ -8,6 +8,7 @@ import { TaskContext } from '@/contexts/task'
 import Button from '@/components/atoms/Button'
 import { SidebarUserOptions } from '@/components/organisms/SidebarUserOptions'
 import styles from './styles.module.scss'
+import ProfileMenu from '../ProfileMenu'
 
 interface SidebarProps {
   isOpen: boolean
@@ -29,6 +30,7 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
         >
           <FiMenu />
         </Button>
+        <ProfileMenu />
         <SidebarUserOptions />
       </header>
       <section className={ styles.content }>

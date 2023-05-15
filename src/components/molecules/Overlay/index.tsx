@@ -1,14 +1,16 @@
-import styles from './styles.module.scss'
+import { memo } from 'react'
+import * as S from './styles'
 
-interface OverlayProps {
+export interface OverlayProps {
   isOpen: boolean
   onClick: () => void
 }
 
-export const Overlay = ({ isOpen, onClick }: OverlayProps) => (
-  <div
-    className={ styles.container }
-    data-open={ isOpen }
+const Overlay = ({ isOpen, onClick }: OverlayProps) => (
+  <S.Container
+    isOpen={ isOpen }
     onClick={ onClick }
   />
 )
+
+export default memo(Overlay)

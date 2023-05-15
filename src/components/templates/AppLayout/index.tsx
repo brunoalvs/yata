@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Sidebar } from '@/components/organisms/Sidebar'
-import * as S from './styles'
-import Button from '@/components/atoms/Button'
 import { FiMenu, FiPlus } from 'react-icons/fi'
-import { Overlay } from '@/components/molecules/Overlay'
+
+import Button from '@/components/atoms/Button'
+import { Sidebar } from '@/components/organisms/Sidebar'
+import Overlay from '@/components/molecules/Overlay'
+import * as S from './styles'
 
 interface AppLayoutProps {
   children: React.ReactNode

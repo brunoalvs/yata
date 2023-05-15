@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
 
 import Button from '@/components/atoms/Button'
-import { HeadingPage } from '@/components/atoms/HeadingPage'
+import HeadingPage from '@/components/atoms/HeadingPage'
 import Institutional from '@/layouts/Institutional'
 
 const SignUpPage = () => (
@@ -32,7 +33,7 @@ const SignUpPage = () => (
   </>
 )
 
-SignUpPage.getLayout = function getLayout (page) {
+SignUpPage.getLayout = function getLayout (page: ReactNode) {
   return (
     <Institutional>
       { page }

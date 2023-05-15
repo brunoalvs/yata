@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import { FiMenu, FiPlus } from 'react-icons/fi'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { FiMenu, FiPlus } from 'react-icons/fi'
 
 import Avatar from '@/components/atoms/Avatar'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 import Button from '@/components/atoms/Button'
-import { Logo } from '@/components/atoms/Logo'
+import Logo from '@/components/atoms/Logo'
 import { Sidebar } from '@/components/organisms/Sidebar'
-import { Overlay } from '@/components/molecules/Overlay'
+import Overlay from '@/components/molecules/Overlay'
 import styles from './styles.module.scss'
 
 interface AppProps {

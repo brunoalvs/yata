@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import screenshotExample from '../../public/screenshot-example.webp'
 import Institutional from '@/layouts/Institutional'
-import { HeadingPage } from '@/components/atoms/HeadingPage'
+import HeadingPage from '@/components/atoms/HeadingPage'
 import Button from '@/components/atoms/Button'
 
 const IndexPage: NextPageWithLayout = () => {
