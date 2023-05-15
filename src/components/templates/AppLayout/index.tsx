@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import { FiMenu, FiPlus } from 'react-icons/fi'
 
 import Button from '@/components/atoms/Button'
@@ -11,6 +13,8 @@ interface AppLayoutProps {
 }
 
 const AppLayout = ({ children }: AppLayoutProps) => {
+  const { status } = useSession()
+  const { push } = useRouter()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -34,6 +38,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       setIsMobile(false)
     }
   }, [])
+
+  if (status === 'unauthenticated') {
+    push('/signin')
+  }
 
   return (
     <S.Container data-theme='dark'>
