@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { SessionProvider } from 'next-auth/react'
-import { motion } from 'framer-motion'
 
 import GlobalStyle from '@/components/globalStyles'
 
@@ -32,20 +31,14 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
         <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
       </Head>
       <GlobalStyle />
-      <motion.main
+      <main
         key={ router.route }
-        initial='initial'
-        animate='animate'
-        variants={{
-          initial: { opacity: 0 },
-          animate: { opacity: 1 }
-        }}
         className={ inter.className }
       >
         <SessionProvider>
           { getLayout(<Component { ...pageProps } />) }
         </SessionProvider>
-      </motion.main>
+      </main>
     </>
   )
 }
