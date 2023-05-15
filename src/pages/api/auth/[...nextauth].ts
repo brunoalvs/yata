@@ -1,10 +1,10 @@
 import type { NextAuthOptions, Session } from 'next-auth'
+import type { AdapterUser } from 'next-auth/adapters'
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import { FirestoreAdapter } from '@next-auth/firebase-adapter'
 import { firestore } from '@/lib/firestore'
-import type { AdapterUser } from 'next-auth/adapters'
 
 export const authOptions: NextAuthOptions = {
   adapter: FirestoreAdapter(firestore),
