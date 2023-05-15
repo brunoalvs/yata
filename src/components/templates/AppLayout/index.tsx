@@ -6,6 +6,7 @@ import { FiMenu, FiPlus } from 'react-icons/fi'
 import Button from '@/components/atoms/Button'
 import { Sidebar } from '@/components/organisms/Sidebar'
 import Overlay from '@/components/molecules/Overlay'
+import LoadingScreen from '@/components/templates/LoadingScreen'
 import * as S from './styles'
 
 interface AppLayoutProps {
@@ -41,6 +42,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   if (status === 'unauthenticated') {
     push('/signin')
+    return (
+      <LoadingScreen />
+    )
   }
 
   return (
