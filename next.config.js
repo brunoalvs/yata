@@ -1,6 +1,8 @@
 /**
  * @type {import('next').NextConfig}
  */
+const path = require('path')
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: process.env.NODE_ENV === 'development',
@@ -11,8 +13,9 @@ const withPWA = require('next-pwa')({
 
 const nextConfig= {
   reactStrictMode: true,
-  experimental: { appDir: true, },
-  images: { remotePatterns: [{ hostname: '*.googleusercontent.com' }, { hostname: 'avatars.githubusercontent.com' }] }
+  compiler: { styledComponents: true, },
+  images: { remotePatterns: [{ hostname: '*.googleusercontent.com' }, { hostname: 'avatars.githubusercontent.com' }, { hostname: 'ui-avatars.com' }] },
+  sassOptions: { includePaths: [path.join(__dirname, 'styles')] },
 }
 
 module.exports = withPWA(nextConfig)

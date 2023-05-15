@@ -6,4 +6,5 @@ export interface Collection {
   items: Task['id'][] | []
   createdAt: string
   updatedAt: string
+  author: string
 }
