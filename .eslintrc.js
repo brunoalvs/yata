@@ -9,10 +9,10 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@next/next/recommended'
   ],
-  'overrides': [
-  ],
+  'overrides': [],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaVersion': 'latest',
@@ -37,7 +37,6 @@ module.exports = {
       'error',
       'single'
     ],
-    // 'no-duplicate-imports': 'error',
     'semi': [
       'error',
       'never'
