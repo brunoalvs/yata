@@ -1,6 +1,6 @@
 'use client'
 
-export async function handleDarkTheme(): Promise<boolean> {
+export async function handleDarkTheme (): Promise<boolean> {
   if (typeof window === 'undefined') throw new Error('window is undefined')
 
   // Aguarda até que o localStorage esteja disponível
@@ -19,5 +19,5 @@ export async function handleDarkTheme(): Promise<boolean> {
     return prefersDarkScheme.matches
   }
 
-  return localStorage.getItem('darkMode') === 'true' ? true : false
+  return localStorage.getItem('darkMode') === 'true'
 }

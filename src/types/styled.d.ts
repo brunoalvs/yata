@@ -7,22 +7,22 @@ interface Colors {
     700: string
     800: string
     900: string
-  },
-  black: string,
-  white: string,
+  }
+  black: string
+  white: string
   background: {
     primary: string
     secondary: string
-  },
+  }
   text: {
     primary: string
     secondary: string
     sidebar: string
-  },
+  }
   skeleton: {
     from: string
     to: string
-  },
+  }
   element: {
     hover: string
     active: string
@@ -31,7 +31,7 @@ interface Colors {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: Colors,
+    colors: Colors
     zIndex: {
       base: number
       modal: number

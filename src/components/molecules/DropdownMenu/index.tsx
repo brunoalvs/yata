@@ -2,26 +2,26 @@ import * as S from './styles'
 
 interface DropdownnMenuProps {
   isOpen?: boolean
-  items?: {
+  items?: Array<{
     name: string
     onClick: () => void
-  }[]
+  }>
 }
 
 const DropdownnMenu = ({ items, isOpen }: DropdownnMenuProps) => (
   <S.Container
     role='listbox'
-    aria-hidden={ isOpen }
+    aria-hidden={isOpen}
   >
-    { items?.map((item, index) => (
+    {items?.map((item, index) => (
       <li
-        key={ index }
-        onClick={ item.onClick }
+        key={index}
+        onClick={item.onClick}
         role='option'
       >
-        { item.name }
+        {item.name}
       </li>
-    )) }
+    ))}
   </S.Container>
 )
 

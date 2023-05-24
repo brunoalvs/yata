@@ -9,63 +9,67 @@ import LoadingScreen from '@/components/templates/LoadingScreen'
 import styles from './styles.module.scss'
 
 interface InstitutionalProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function Institutional({ children }: InstitutionalProps) {
   const { status } = useSession()
   const { push, pathname } = useRouter()
 
+  const handlePush = async (path: string) => {
+    await push(path)
+  }
+
   if (status === 'loading') {
     return <LoadingScreen />
   }
 
   if (status === 'authenticated') {
-    push('/app')
+    void push('/app')
   }
 
   return (
-    <div className={ styles.wrapper }>
-      <div className={ styles.container }>
-        <header className={ styles.header }>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <header className={styles.header}>
           <Link href='/'>
-            <Logo
-              width={ 48 }
-              height={ 48 }
-              title='Yata - Yes, another todo app'
-            />
+            <Logo />
           </Link>
-          <nav className={ styles.navigation }>
-            { pathname !== '/signin' ? (
-              <Button
-                variant='text'
-                onClick={ () => push('/signin') }
-              >
-              Sign In
-              </Button>
-            ) : (
-              <Button
-                variant='text'
-                onClick={ () => push('/signup') }
-              >
-              Sign Up
-              </Button>
-            ) }
+          <nav className={styles.navigation}>
+            {pathname !== '/signin'
+              ? (
+                <Button
+                  variant='text'
+                  onClick={() => { handlePush('/signin') }}
+                >
+                  Sign In
+                </Button>
+              )
+              : (
+                <Button
+                  variant='text'
+                  onClick={() => { handlePush('/signup') }}
+                >
+                  Sign Up
+                </Button>
+              )}
             <Button
-              onClick={ () => push('/signup') }
+              onClick={() => { handlePush('/signup') }}
             >
               Get Started
             </Button>
           </nav>
         </header>
-        <section className={ styles.content }>
-          { children }
+        <section className={styles.content}>
+          {children}
         </section>
-        { pathname === '/signin' || pathname === '/signup' ? (
-          <footer className={ styles.footer }>
-            <p>Your security and privacy are our top priority. That's why we offer the option to login with your Google or Github account, so you can be confident that your information is safe and secure.</p>
-          </footer>
-        ) : null }
+        {pathname === '/signin' || pathname === '/signup'
+          ? (
+            <footer className={styles.footer}>
+              <p>Your security and privacy are our top priority. That's why we offer the option to login with your Google or Github account, so you can be confident that your information is safe and secure.</p>
+            </footer>
+          )
+          : null}
       </div>
       <BackgroundAnimation />
     </div>

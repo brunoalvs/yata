@@ -19,7 +19,7 @@ AppPage.getLayout = function getLayout (page) {
   return (
     <TaskProvider>
       <AppLayout>
-        { page }
+        {page}
       </AppLayout>
     </TaskProvider>
   )

@@ -48,19 +48,19 @@ const PrivacyPage: NextPageWithLayout = () => (
     <p>If you have any questions or concerns regarding this Privacy Policy or the use of your personal information, please contact us at [insert Yata contact email].</p>
 
     <p>
-      Effective Date: { new Date('2023-05-18').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
+      Effective Date: {new Date('2023-05-18').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
     </p>
     <p>
-      This Privacy Policy was last updated on: { new Date('2023-05-18').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
+      This Privacy Policy was last updated on: {new Date('2023-05-18').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
     </p>
 
   </>
 )
 
-PrivacyPage.getLayout = function getLayout(page: ReactNode) {
+PrivacyPage.getLayout = function getLayout (page: ReactNode) {
   return (
     <Institutional>
-      { page }
+      {page}
     </Institutional>
   )
 }

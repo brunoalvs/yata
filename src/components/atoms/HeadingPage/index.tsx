@@ -8,8 +8,8 @@ export interface HeadingPageProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 const HeadingPage = ({ children, ...props }: HeadingPageProps) => (
-  <S.Container { ...props }>
-    { children }
+  <S.Container {...props}>
+    {children}
   </S.Container>
 )
 

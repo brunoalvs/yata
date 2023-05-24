@@ -1,28 +1,29 @@
 import type { ReactNode } from 'react'
+import type { NextPageWithLayout } from './_app'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
+import { handleSignIn } from '@/utils/handleSignIn'
 
 import Button from '@/components/atoms/Button'
 import HeadingPage from '@/components/atoms/HeadingPage'
 import Institutional from '@/layouts/Institutional'
 
-const SignUpPage = () => (
+const SignUpPage: NextPageWithLayout = () => (
   <>
     <HeadingPage>Welcome</HeadingPage>
     <p>We're thrilled that you're considering joining our platform.</p>
 
     <Button
-      icon={ <RiGoogleFill /> }
+      icon={<RiGoogleFill />}
       variant='outline'
-      onClick={ () => signIn('google') }
+      onClick={() => { handleSignIn('google') }}
     >
       Continue with Google
     </Button>
     <Button
-      icon={ <RiGithubFill /> }
+      icon={<RiGithubFill />}
       variant='outline'
-      onClick={ () => signIn('github') }
+      onClick={() => { handleSignIn('github') }}
     >
       Continue with GitHub
     </Button>
@@ -33,10 +34,11 @@ const SignUpPage = () => (
   </>
 )
 
-SignUpPage.getLayout = function getLayout (page: ReactNode) {
+
+SignUpPage.getLayout = function getLayout(page: ReactNode) {
   return (
     <Institutional>
-      { page }
+      {page}
     </Institutional>
   )
 }

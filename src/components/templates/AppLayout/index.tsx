@@ -31,7 +31,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
 
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    const handleResize = () => { setIsMobile(window.innerWidth < 768) }
     window.addEventListener('resize', handleResize)
 
     return () => {

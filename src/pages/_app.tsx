@@ -18,7 +18,8 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || ((page) => page)
+  // const getLayout = (Component.getLayout != null) || ((page: NextPage | ReactNode) => page)
+  const getLayout = Component.getLayout ?? ((page: ReactNode) => page)
 
   return (
     <>
@@ -32,11 +33,11 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       </Head>
       <GlobalStyle />
       <main
-        key={ router.route }
-        className={ inter.className }
+        key={router.route}
+        className={inter.className}
       >
         <SessionProvider>
-          { getLayout(<Component { ...pageProps } />) }
+          {getLayout(<Component {...pageProps} />)}
         </SessionProvider>
       </main>
     </>

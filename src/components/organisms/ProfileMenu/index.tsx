@@ -15,7 +15,7 @@ const ProfileMenu = () => {
         style={{ width: '100%' }}
         aria-haspopup='true'
         aria-expanded={ isOpen }
-        onClick={ () => setIsOpen(!isOpen) }
+        onClick={ () => { setIsOpen(!isOpen) } }
       >
         <UserInfo
           user={{
@@ -28,11 +28,12 @@ const ProfileMenu = () => {
       <DropdownnMenu
         isOpen={ isOpen }
         items={ [
-          { name: 'Settings', onClick: () => console.log('Settings') },
-          { name: 'Logout', onClick: () => console.log('Logout') }
+          { name: 'Settings', onClick: () => { console.log('Settings') } },
+          { name: 'Logout', onClick: () => { console.log('Logout') } }
         ] }
       />
     </S.Container>
-  )}
+  )
+}
 
 export default ProfileMenu

@@ -3,18 +3,18 @@ import { memo } from 'react'
 import * as S from './styles'
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  fullWidth?: boolean;
-  icon?: ReactNode;
-  size?: 'small' | 'large';
-  variant?: 'default' | 'outline' | 'text';
+  children: ReactNode
+  fullWidth?: boolean
+  icon?: ReactNode
+  size?: 'small' | 'large'
+  variant?: 'default' | 'outline' | 'text'
 }
 
 const Button = ({ children, ...props }: ButtonProps) => (
-  <S.Container { ...props }>
+  <S.Container {...props}>
     <span />
-    { props.icon && props.icon }
-    { children }
+    {props.icon ?? props.icon}
+    {children}
     <span />
   </S.Container>
 )

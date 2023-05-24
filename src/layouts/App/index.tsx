@@ -22,18 +22,18 @@ export default function App({ children }: AppProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  function toggleSidebar () {
+  function toggleSidebar() {
     setIsSidebarOpen(!isSidebarOpen)
   }
 
-  function toggleDrawer () {
+  function toggleDrawer() {
     setIsDrawerOpen(!isDrawerOpen)
   }
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
 
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    const handleResize = () => { setIsMobile(window.innerWidth < 768) }
     window.addEventListener('resize', handleResize)
 
     return () => {
@@ -42,8 +42,15 @@ export default function App({ children }: AppProps) {
     }
   }, [])
 
+  async function handleLogin() {
+    await push('/login')
+  }
+
   if (status === 'unauthenticated') {
-    push('/signin')
+    handleLogin().catch((err) => {
+      console.error(err)
+    })
+
     return (
       <BackgroundAnimation />
     )
@@ -51,8 +58,8 @@ export default function App({ children }: AppProps) {
 
   return (
     <>
-      <header className={ styles.header }>
-        <Logo width={ 24 } />
+      <header className={styles.header}>
+        <Logo />
 
         <section>
           <Avatar
@@ -62,19 +69,19 @@ export default function App({ children }: AppProps) {
           />
         </section>
       </header>
-      <div className={ styles.container } data-theme='dark'>
-        <Sidebar isOpen={ isSidebarOpen } closeSidebar={ toggleSidebar } />
-        <div className={ styles.content }>
-          { isMobile && <Button variant='text' onClick={ toggleSidebar } title='Open Sidebar'><FiMenu /></Button> }
-          <button onClick={ toggleDrawer }>Toggle</button>
-          { children }
+      <div className={styles.container} data-theme='dark'>
+        <Sidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
+        <div className={styles.content}>
+          {isMobile && <Button variant='text' onClick={toggleSidebar} title='Open Sidebar'><FiMenu /></Button>}
+          <button onClick={toggleDrawer}>Toggle</button>
+          {children}
         </div>
-        <section className={ styles.drawer } data-open={ isDrawerOpen }>
+        <section className={styles.drawer} data-open={isDrawerOpen}>
           <header>
             <Button
               variant='text'
               title='Close Drawer'
-              onClick={ toggleDrawer }
+              onClick={toggleDrawer}
             >
               <FiPlus style={{ transform: 'rotate(45deg)' }} />
             </Button>
@@ -84,8 +91,8 @@ export default function App({ children }: AppProps) {
         {
           isMobile &&
           <Overlay
-            isOpen={ isDrawerOpen || isSidebarOpen }
-            onClick={ isDrawerOpen ? toggleDrawer : toggleSidebar }
+            isOpen={isDrawerOpen || isSidebarOpen}
+            onClick={isDrawerOpen ? toggleDrawer : toggleSidebar}
           />
         }
       </div>

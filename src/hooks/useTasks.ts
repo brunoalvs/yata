@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import type { Task } from '@/models/task'
 
-interface Tasks {
-  tasks: Task[],
-  addTask: (task: Task) => void,
-  removeTask: (id: string) => void,
-  updateTask: (id: string, updates: Partial<Task>) => void,
+export interface ITasks {
+  tasks: Task[]
+  addTask: (task: Task) => void
+  removeTask: (id: string) => void
+  updateTask: (id: string, updates: Partial<Task>) => void
 }
 
-export const useTasks = (): Tasks => {
+export const useTasks = (): ITasks => {
   const [tasks, setTasks] = useState<Task[]>([])
 
   const addTask = (task: Task) => {

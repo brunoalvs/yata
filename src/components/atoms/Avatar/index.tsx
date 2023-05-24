@@ -19,22 +19,22 @@ interface AvatarProps {
 const Avatar = ({ src, name, size = 'medium' }: AvatarProps) => {
   const [imageSrc, setSrc] = useState<string>(src)
 
-  function getName (name:string) {
+  function getName (name: string) {
     const [firstName, lastName] = name.split(' ')
     return `${firstName}+${lastName}`
   }
 
-  const handleImageError = useCallback(() => setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`), [name])
+  const handleImageError = useCallback(() => { setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`) }, [name])
 
   return (
     <S.Container>
-      <Suspense fallback={ <Skeleton type='avatar' /> }>
+      <Suspense fallback={<Skeleton type='avatar' />}>
         <Image
-          src={ imageSrc }
-          alt={ `Avatar of ${name}` }
-          width={ AvatarSize[size] }
-          height={ AvatarSize[size] }
-          onError={ handleImageError }
+          src={imageSrc}
+          alt={`Avatar of ${name}`}
+          width={AvatarSize[size]}
+          height={AvatarSize[size]}
+          onError={handleImageError}
         />
       </Suspense>
     </S.Container>

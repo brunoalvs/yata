@@ -1,20 +1,22 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { useEffect, useState } from 'react'
 import type { Collection } from '@/models/collection'
 
 import firebaseApp from '@/utils/firebase'
 import { getFirestore, doc, setDoc, getDocs, collection } from 'firebase/firestore'
 
-interface Collections {
-  collections: Collection[],
-  getCollections: () => void,
-  addCollection: ({ title, author }: { title: Collection['title'], author: Collection['author']}) => void,
-  removeCollection: (id: string) => void,
-  updateCollection: (id: string, updates: Partial<Collection>) => void,
+export interface ICollections {
+  collections: Collection[]
+  getCollections: () => void
+  addCollection: ({ title, author }: { title: Collection['title'], author: Collection['author'] }) => void
+  removeCollection: (id: string) => void
+  updateCollection: (id: string, updates: Partial<Collection>) => void
 }
 
 const db = getFirestore(firebaseApp)
 
-export const useCollections = (): Collections => {
+export const useCollections = (): ICollections => {
   const [collections, setCollections] = useState<Collection[]>([])
 
   const getCollections = async () => {
@@ -23,7 +25,7 @@ export const useCollections = (): Collections => {
     setCollections(collections.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Collection)))
   }
 
-  const addCollection = async ({ title, author }: { title: Collection['title'], author: Collection['author']}) => {
+  const addCollection = async ({ title, author }: { title: Collection['title'], author: Collection['author'] }) => {
     const collection: Collection = {
       id: Math.random().toString(36).substring(2, 9),
       title,
