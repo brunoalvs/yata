@@ -11,7 +11,7 @@ const IndexPage: NextPageWithLayout = () => {
   const { push } = useRouter()
 
   const handleGetStarted = (): void => {
-    push('/signup').catch(err => {
+    push('/signup').catch((err) => {
       console.error(err)
     })
   }
@@ -19,29 +19,29 @@ const IndexPage: NextPageWithLayout = () => {
   return (
     <>
       <HeadingPage>Yes! Another Todo App</HeadingPage>
-      <p>Yata is a web application that allows you to manage your tasks in a simple and intuitive way. Stop wasting time and start achieving your goals with our Todo App.</p>
-      <p>Sign up today and experience the power of efficient task management!</p>
-      <Button onClick={handleGetStarted}>
-        Get Started
-      </Button>
+      <p>
+        Yata is a web application that allows you to manage your tasks in a
+        simple and intuitive way. Stop wasting time and start achieving your
+        goals with our Todo App.
+      </p>
+      <p>
+        Sign up today and experience the power of efficient task management!
+      </p>
+      <Button onClick={handleGetStarted}>Get Started</Button>
 
-      { /* <figure>
+      {/* <figure>
         <Image
           src={ screenshotExample }
           alt='Yata App Screenshot'
           style={{ width: '100%', height: 'auto', objectFit: 'contain', margin: '2.4rem 0', borderRadius: '0.5rem', overflow: 'hidden' }}
         />
-      </figure> */ }
+      </figure> */}
     </>
   )
 }
 
 IndexPage.getLayout = function getLayout(page) {
-  return (
-    <Institutional>
-      {page}
-    </Institutional>
-  )
+  return <Institutional>{page}</Institutional>
 }
 
 export default IndexPage

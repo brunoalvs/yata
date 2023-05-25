@@ -11,10 +11,8 @@ interface UserInfoProps {
 
 const UserInfo = ({ user }: UserInfoProps) => (
   <S.Container>
-    <Avatar src={ user?.image } name={ user.name } />
-    <S.UserName>
-      { user.name }
-    </S.UserName>
+    <Avatar src={user?.image} name={user.name} />
+    <S.UserName>{user.name}</S.UserName>
   </S.Container>
 )
 

@@ -8,13 +8,19 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
   register: true,
   scope: '/',
-  sw: 'service-worker.js'
+  sw: 'service-worker.js',
 })
 
-const nextConfig= {
+const nextConfig = {
   reactStrictMode: true,
-  compiler: { styledComponents: true, },
-  images: { remotePatterns: [{ hostname: '*.googleusercontent.com' }, { hostname: 'avatars.githubusercontent.com' }, { hostname: 'ui-avatars.com' }] },
+  compiler: { styledComponents: true },
+  images: {
+    remotePatterns: [
+      { hostname: '*.googleusercontent.com' },
+      { hostname: 'avatars.githubusercontent.com' },
+      { hostname: 'ui-avatars.com' },
+    ],
+  },
   sassOptions: { includePaths: [path.join(__dirname, 'styles')] },
 }
 

@@ -22,10 +22,9 @@
 }
 
 .loading {
-
   font-size: 1.5rem;
   font-weight: 600;
-  animation: blink .5s linear infinite alternate;
+  animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {

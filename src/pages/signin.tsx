@@ -11,37 +11,39 @@ import Institutional from '@/layouts/Institutional'
 const SignInPage: NextPageWithLayout = () => (
   <>
     <HeadingPage>Welcome</HeadingPage>
-    <p>We've made it easy for you to sign in to our platform using <br /> your Google or Github account.</p>
+    <p>
+      We've made it easy for you to sign in to our platform using <br /> your
+      Google or Github account.
+    </p>
 
     <Button
-      variant='outline'
+      variant="outline"
       icon={<RiGoogleFill />}
-      onClick={() => { handleSignIn('google') }}
+      onClick={() => {
+        handleSignIn('google')
+      }}
     >
       Continue with Google
     </Button>
     <Button
-      variant='outline'
+      variant="outline"
       icon={<RiGithubFill />}
-      onClick={() => { handleSignIn('google') }}
+      onClick={() => {
+        handleSignIn('google')
+      }}
     >
       Continue with GitHub
     </Button>
 
     <footer>
       <p>Don't have an account?</p>
-      <Link href='/signup'>Sign Up</Link>
+      <Link href="/signup">Sign Up</Link>
     </footer>
   </>
 )
 
-
 SignInPage.getLayout = function getLayout(page: ReactNode) {
-  return (
-    <Institutional>
-      {page}
-    </Institutional>
-  )
+  return <Institutional>{page}</Institutional>
 }
 
 export default SignInPage

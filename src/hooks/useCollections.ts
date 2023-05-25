@@ -4,12 +4,24 @@ import { useEffect, useState } from 'react'
 import type { Collection } from '@/models/collection'
 
 import firebaseApp from '@/utils/firebase'
-import { getFirestore, doc, setDoc, getDocs, collection } from 'firebase/firestore'
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDocs,
+  collection,
+} from 'firebase/firestore'
 
 export interface ICollections {
   collections: Collection[]
   getCollections: () => void
-  addCollection: ({ title, author }: { title: Collection['title'], author: Collection['author'] }) => void
+  addCollection: ({
+    title,
+    author,
+  }: {
+    title: Collection['title']
+    author: Collection['author']
+  }) => void
   removeCollection: (id: string) => void
   updateCollection: (id: string, updates: Partial<Collection>) => void
 }
@@ -21,18 +33,32 @@ export const useCollections = (): ICollections => {
 
   const getCollections = async () => {
     const collections = await getDocs(collection(db, 'collections'))
-    console.log(collections.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Collection)))
-    setCollections(collections.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Collection)))
+    console.log(
+      collections.docs.map(
+        (doc) => ({ id: doc.id, ...doc.data() } as Collection),
+      ),
+    )
+    setCollections(
+      collections.docs.map(
+        (doc) => ({ id: doc.id, ...doc.data() } as Collection),
+      ),
+    )
   }
 
-  const addCollection = async ({ title, author }: { title: Collection['title'], author: Collection['author'] }) => {
+  const addCollection = async ({
+    title,
+    author,
+  }: {
+    title: Collection['title']
+    author: Collection['author']
+  }) => {
     const collection: Collection = {
       id: Math.random().toString(36).substring(2, 9),
       title,
       items: [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      author
+      author,
     }
 
     await setDoc(doc(db, 'collections', collection.id), collection)
@@ -41,11 +67,17 @@ export const useCollections = (): ICollections => {
   }
 
   const removeCollection = (id: string) => {
-    setCollections((prevCollections) => prevCollections.filter((collection) => collection.id !== id))
+    setCollections((prevCollections) =>
+      prevCollections.filter((collection) => collection.id !== id),
+    )
   }
 
   const updateCollection = (id: string, updates: Partial<Collection>) => {
-    setCollections((prevCollections) => prevCollections.map((collection) => (collection.id === id ? { ...collection, ...updates } : collection)))
+    setCollections((prevCollections) =>
+      prevCollections.map((collection) =>
+        collection.id === id ? { ...collection, ...updates } : collection,
+      ),
+    )
   }
 
   useEffect(() => {
@@ -57,6 +89,6 @@ export const useCollections = (): ICollections => {
     getCollections,
     addCollection,
     removeCollection,
-    updateCollection
+    updateCollection,
   }
 }

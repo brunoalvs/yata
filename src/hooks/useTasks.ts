@@ -20,7 +20,11 @@ export const useTasks = (): ITasks => {
   }
 
   const updateTask = (id: string, updates: Partial<Task>) => {
-    setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, ...updates } : task)))
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, ...updates } : task,
+      ),
+    )
   }
 
   return { tasks, addTask, removeTask, updateTask }

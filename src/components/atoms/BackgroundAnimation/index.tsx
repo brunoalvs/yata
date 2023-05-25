@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import * as S from './styles'
 
-function BackgroundAnimation () {
+function BackgroundAnimation() {
   return (
     <S.Wrapper>
       <S.Overlay />

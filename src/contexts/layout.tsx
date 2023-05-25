@@ -12,10 +12,14 @@ export const LayoutContext = createContext<LayoutContextType>({
   darkMode: true,
   toggleDarkMode: () => {
     throw new Error('toggleDarkMode was not initialized')
-  }
+  },
 })
 
-export default function LayoutProvider({ children }: { children: React.ReactNode }) {
+export default function LayoutProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(true)
 
   const toggleDarkMode = () => {
@@ -33,7 +37,7 @@ export default function LayoutProvider({ children }: { children: React.ReactNode
     <LayoutContext.Provider
       value={{
         darkMode,
-        toggleDarkMode
+        toggleDarkMode,
       }}
     >
       {children}

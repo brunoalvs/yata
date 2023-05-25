@@ -54,7 +54,7 @@ export const Drawer = styled.div`
     right: 0;
     transform: translateX(100%);
 
-    &[data-open="true"] {
+    &[data-open='true'] {
       width: 80%;
       padding: 0.5rem;
       transform: translateX(0);
@@ -64,7 +64,7 @@ export const Drawer = styled.div`
   @media (min-width: 768px) {
     transform: translateX(100%);
 
-    &[data-open="true"] {
+    &[data-open='true'] {
       min-width: 26rem;
       padding: 0.5rem;
       transform: translateX(0);

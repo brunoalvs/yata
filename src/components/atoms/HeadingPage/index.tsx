@@ -8,9 +8,7 @@ export interface HeadingPageProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 const HeadingPage = ({ children, ...props }: HeadingPageProps) => (
-  <S.Container {...props}>
-    {children}
-  </S.Container>
+  <S.Container {...props}>{children}</S.Container>
 )
 
 export default memo(HeadingPage)

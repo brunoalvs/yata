@@ -34,7 +34,7 @@ const defaultTaskContext: ITaskContext = {
     getCollections: () => {
       throw new Error('getCollections was not initialized')
     },
-  }
+  },
 }
 
 export const TaskContext = createContext<ITaskContext>(defaultTaskContext)

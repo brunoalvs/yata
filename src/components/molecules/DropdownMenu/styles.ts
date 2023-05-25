@@ -16,7 +16,7 @@ export const Container = styled.ul`
     will-change: opacity;
   }
 
-  &[aria-hidden="true"] {
+  &[aria-hidden='true'] {
     transform: scaleY(1);
     transition-timing-function: ease-out;
 

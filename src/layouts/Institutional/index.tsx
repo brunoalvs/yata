@@ -32,44 +32,48 @@ export default function Institutional({ children }: InstitutionalProps) {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <Link href='/'>
+          <Link href="/">
             <Logo />
           </Link>
           <nav className={styles.navigation}>
-            {pathname !== '/signin'
-              ? (
-                <Button
-                  variant='text'
-                  onClick={() => { handlePush('/signin') }}
-                >
-                  Sign In
-                </Button>
-              )
-              : (
-                <Button
-                  variant='text'
-                  onClick={() => { handlePush('/signup') }}
-                >
-                  Sign Up
-                </Button>
-              )}
+            {pathname !== '/signin' ? (
+              <Button
+                variant="text"
+                onClick={() => {
+                  handlePush('/signin')
+                }}
+              >
+                Sign In
+              </Button>
+            ) : (
+              <Button
+                variant="text"
+                onClick={() => {
+                  handlePush('/signup')
+                }}
+              >
+                Sign Up
+              </Button>
+            )}
             <Button
-              onClick={() => { handlePush('/signup') }}
+              onClick={() => {
+                handlePush('/signup')
+              }}
             >
               Get Started
             </Button>
           </nav>
         </header>
-        <section className={styles.content}>
-          {children}
-        </section>
-        {pathname === '/signin' || pathname === '/signup'
-          ? (
-            <footer className={styles.footer}>
-              <p>Your security and privacy are our top priority. That's why we offer the option to login with your Google or Github account, so you can be confident that your information is safe and secure.</p>
-            </footer>
-          )
-          : null}
+        <section className={styles.content}>{children}</section>
+        {pathname === '/signin' || pathname === '/signup' ? (
+          <footer className={styles.footer}>
+            <p>
+              Your security and privacy are our top priority. That's why we
+              offer the option to login with your Google or Github account, so
+              you can be confident that your information is safe and secure.
+            </p>
+          </footer>
+        ) : null}
       </div>
       <BackgroundAnimation />
     </div>

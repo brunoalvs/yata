@@ -15,32 +15,31 @@ const SignUpPage: NextPageWithLayout = () => (
 
     <Button
       icon={<RiGoogleFill />}
-      variant='outline'
-      onClick={() => { handleSignIn('google') }}
+      variant="outline"
+      onClick={() => {
+        handleSignIn('google')
+      }}
     >
       Continue with Google
     </Button>
     <Button
       icon={<RiGithubFill />}
-      variant='outline'
-      onClick={() => { handleSignIn('github') }}
+      variant="outline"
+      onClick={() => {
+        handleSignIn('github')
+      }}
     >
       Continue with GitHub
     </Button>
     <footer>
       <p>Already have an account?</p>
-      <Link href='/signin'>Sign In</Link>
+      <Link href="/signin">Sign In</Link>
     </footer>
   </>
 )
 
-
 SignUpPage.getLayout = function getLayout(page: ReactNode) {
-  return (
-    <Institutional>
-      {page}
-    </Institutional>
-  )
+  return <Institutional>{page}</Institutional>
 }
 
 export default SignUpPage

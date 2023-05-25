@@ -10,17 +10,15 @@ const AppPage: NextPageWithLayout = () => (
     <p>When user is Logged!</p>
     <label>
       <FiPlus />
-      <input type='text' placeholder='Add a task' />
+      <input type="text" placeholder="Add a task" />
     </label>
   </div>
 )
 
-AppPage.getLayout = function getLayout (page) {
+AppPage.getLayout = function getLayout(page) {
   return (
     <TaskProvider>
-      <AppLayout>
-        {page}
-      </AppLayout>
+      <AppLayout>{page}</AppLayout>
     </TaskProvider>
   )
 }

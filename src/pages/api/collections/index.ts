@@ -4,7 +4,7 @@ import firebaseApp from '@/utils/firebase'
 
 const db = getFirestore(firebaseApp)
 
-export default function handler (req: NextApiRequest, res: NextApiResponse) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const getCollections = async () => {
     const collections = await getDocs(collection(db, 'collections'))
     console.log(collections)
