@@ -3,36 +3,44 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 import { handleDarkTheme } from '@/utils/handleDarkTheme'
 
-type LayoutContextType = {
+interface LayoutContextType {
   darkMode: boolean
   toggleDarkMode: () => void
 }
 
 export const LayoutContext = createContext<LayoutContextType>({
   darkMode: true,
-  toggleDarkMode: () => {}
+  toggleDarkMode: () => {
+    throw new Error('toggleDarkMode was not initialized')
+  },
 })
 
-export default function LayoutProvider ({ children }: { children: React.ReactNode}) {
+export default function LayoutProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [darkMode, setDarkMode] = useState<LayoutContextType['darkMode']>(true)
 
-  const toggleDarkMode = async () => {
+  const toggleDarkMode = () => {
     setDarkMode(!darkMode)
     localStorage.setItem('darkMode', JSON.stringify(!darkMode))
   }
 
   useEffect(() => {
-    handleDarkTheme().then((isDark) => setDarkMode(isDark))
+    handleDarkTheme().then((isDark) => {
+      setDarkMode(isDark)
+    })
   }, [])
 
   return (
     <LayoutContext.Provider
       value={{
         darkMode,
-        toggleDarkMode
+        toggleDarkMode,
       }}
     >
-      { children }
+      {children}
     </LayoutContext.Provider>
   )
 }

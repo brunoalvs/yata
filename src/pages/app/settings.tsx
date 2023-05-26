@@ -8,12 +8,10 @@ const SettingsPage: NextPageWithLayout = () => (
   </div>
 )
 
-SettingsPage.getLayout = function getLayout (page) {
+SettingsPage.getLayout = function getLayout(page) {
   return (
     <TaskProvider>
-      <AppLayout>
-        { page }
-      </AppLayout>
+      <AppLayout>{page}</AppLayout>
     </TaskProvider>
   )
 }

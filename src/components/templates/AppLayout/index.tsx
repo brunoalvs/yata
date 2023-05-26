@@ -6,6 +6,7 @@ import { FiMenu, FiPlus } from 'react-icons/fi'
 import Button from '@/components/atoms/Button'
 import { Sidebar } from '@/components/organisms/Sidebar'
 import Overlay from '@/components/molecules/Overlay'
+import LoadingScreen from '@/components/templates/LoadingScreen'
 import * as S from './styles'
 
 interface AppLayoutProps {
@@ -19,18 +20,20 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
-  function handleToggleDrawer () {
+  function handleToggleDrawer() {
     setIsDrawerOpen(!isDrawerOpen)
   }
 
-  function handleToggleSidebar () {
+  function handleToggleSidebar() {
     setIsSidebarOpen(!isSidebarOpen)
   }
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
 
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
     window.addEventListener('resize', handleResize)
 
     return () => {
@@ -41,40 +44,41 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   if (status === 'unauthenticated') {
     push('/signin')
+    return <LoadingScreen />
   }
 
   return (
-    <S.Container data-theme='dark'>
-      <Sidebar isOpen={ isSidebarOpen } closeSidebar={ handleToggleSidebar } />
+    <S.Container data-theme="dark">
+      <Sidebar isOpen={isSidebarOpen} closeSidebar={handleToggleSidebar} />
       <S.Content>
-        { isMobile && (
+        {isMobile && (
           <Button
-            variant='text'
-            onClick={ handleToggleSidebar }
-            title='Open Sidebar'
+            variant="text"
+            onClick={handleToggleSidebar}
+            title="Open Sidebar"
           >
             <FiMenu />
           </Button>
-        ) }
-        { children }
+        )}
+        {children}
       </S.Content>
-      <S.Drawer data-open={ isDrawerOpen }>
+      <S.Drawer data-open={isDrawerOpen}>
         <S.DrawerHeader>
           <Button
-            variant='text'
-            title='Close Drawer'
-            onClick={ handleToggleDrawer }
+            variant="text"
+            title="Close Drawer"
+            onClick={handleToggleDrawer}
           >
             <FiPlus style={{ transform: 'rotate(45deg)' }} />
           </Button>
         </S.DrawerHeader>
       </S.Drawer>
-      { isMobile && (
+      {isMobile && (
         <Overlay
-          isOpen={ isDrawerOpen || isSidebarOpen }
-          onClick={ isDrawerOpen ? handleToggleDrawer : handleToggleSidebar }
+          isOpen={isDrawerOpen || isSidebarOpen}
+          onClick={isDrawerOpen ? handleToggleDrawer : handleToggleSidebar}
         />
-      ) }
+      )}
     </S.Container>
   )
 }

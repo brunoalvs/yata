@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import type { Task } from '@/models/task'
 
-interface Tasks {
-  tasks: Task[],
-  addTask: (task: Task) => void,
-  removeTask: (id: string) => void,
-  updateTask: (id: string, updates: Partial<Task>) => void,
+export interface ITasks {
+  tasks: Task[]
+  addTask: (task: Task) => void
+  removeTask: (id: string) => void
+  updateTask: (id: string, updates: Partial<Task>) => void
 }
 
-export const useTasks = (): Tasks => {
+export const useTasks = (): ITasks => {
   const [tasks, setTasks] = useState<Task[]>([])
 
   const addTask = (task: Task) => {
@@ -20,7 +20,11 @@ export const useTasks = (): Tasks => {
   }
 
   const updateTask = (id: string, updates: Partial<Task>) => {
-    setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, ...updates } : task)))
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, ...updates } : task,
+      ),
+    )
   }
 
   return { tasks, addTask, removeTask, updateTask }

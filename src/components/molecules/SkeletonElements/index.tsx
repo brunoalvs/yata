@@ -6,9 +6,9 @@ interface SkeletonProps {
 }
 
 const Skeleton: FC<SkeletonProps> = ({ type }) => (
-  <div className={ styles.skeleton }>
-    { type === 'text' && <div className={ styles.text } /> }
-    { type === 'avatar' && <div className={ styles.avatar } /> }
+  <div className={styles.skeleton}>
+    {type === 'text' && <div className={styles.text} />}
+    {type === 'avatar' && <div className={styles.avatar} />}
   </div>
 )
 

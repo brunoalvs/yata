@@ -21,16 +21,22 @@ export const authOptions: NextAuthOptions = {
           prompt: 'consent',
           access_type: 'offline',
           response_type: 'code',
-        }
-      }
-    })
+        },
+      },
+    }),
   ],
   callbacks: {
-    session: async ({ session, user }: { session: Session, user: AdapterUser}) => {
-      if (session?.user) {
+    session: async ({
+      session,
+      user,
+    }: {
+      session: Session
+      user: AdapterUser
+    }) => {
+      if (session?.user != null) {
         session.user.id = user.id
       }
-      return Promise.resolve(session)
+      return await Promise.resolve(session)
     },
   },
   secret: process.env.NEXTAUTH_SECRET,

@@ -37,7 +37,8 @@ export const Element = styled.div`
   border-radius: 50%;
   position: fixed;
   inset: 10% 0;
-  animation: ${rotate} 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite forwards;
+  animation: ${rotate} 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite
+    forwards;
   will-change: transform;
 
   &::after,
@@ -52,7 +53,8 @@ export const Element = styled.div`
     height: 20rem;
     background-color: #9f2ac8;
     border-radius: 20%;
-    animation: ${rotate} 8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite forwards;
+    animation: ${rotate} 8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite
+      forwards;
   }
 
   &::before {
@@ -60,7 +62,8 @@ export const Element = styled.div`
     height: 70rem;
     background-color: #9e6bff;
     border-radius: 50%;
-    animation: ${rotate} 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite forwards;
+    animation: ${rotate} 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite
+      forwards;
     margin: auto;
   }
 `

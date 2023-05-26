@@ -1,12 +1,13 @@
 # Yata: Yes, another todo app
+
 ![Yata Logo](./public//logo_full.svg)
 
 This is a web-based Todo app built using React, Next.js, and Sass with Atomic Design architecture. Firebase and NextAuth were used for authentication.
 
 This app helps users keep track of their tasks by allowing them to create Todo lists called Collections. Within these Collections, users can manage their tasks, such as adding, editing, and deleting them. Users can also move tasks between different Collections as needed. Additionally, users can set due dates for their tasks, and if a task is due today, it will be highlighted on the Today page.
 
-
 ## Getting Started
+
 To run this app locally, follow these steps:
 
 1. Clone this repository

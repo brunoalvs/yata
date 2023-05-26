@@ -9,7 +9,7 @@
   cursor: pointer;
   z-index: 1;
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     display: block;
   }
 }

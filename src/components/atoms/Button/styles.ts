@@ -80,8 +80,8 @@ export const Container = styled.button<ButtonProps>`
 
   ${({ variant }) => {
     switch (variant) {
-    case 'outline':
-      return `
+      case 'outline':
+        return `
           background-color: transparent;
           color: white;
           border-color: white;
@@ -99,8 +99,8 @@ export const Container = styled.button<ButtonProps>`
             color: var(--primary-800);
           }
         `
-    case 'text':
-      return `
+      case 'text':
+        return `
           background-color: transparent;
           border-color: transparent;
           color: white;
@@ -115,8 +115,8 @@ export const Container = styled.button<ButtonProps>`
             background-color: var(--element-active);
           }
         `
-    default:
-      return `
+      default:
+        return `
           color: white;
         `
     }
@@ -124,10 +124,10 @@ export const Container = styled.button<ButtonProps>`
 
   ${({ size }) => {
     switch (size) {
-    case 'small':
-      return 'font-size: small;'
-    default:
-      return 'font-size: large;'
+      case 'small':
+        return 'font-size: small;'
+      default:
+        return 'font-size: large;'
     }
   }}
 `

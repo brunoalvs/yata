@@ -22,7 +22,9 @@ export const Container = styled.div<OverlayProps>`
   z-index: 1;
   animation: ${fadeIn} 200ms ease-in-out;
 
-  ${({ isOpen }) => isOpen && `
+  ${({ isOpen }) =>
+    isOpen &&
+    `
     display: block;
   `}
 `

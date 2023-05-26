@@ -19,5 +19,5 @@ export async function handleDarkTheme(): Promise<boolean> {
     return prefersDarkScheme.matches
   }
 
-  return localStorage.getItem('darkMode') === 'true' ? true : false
+  return localStorage.getItem('darkMode') === 'true'
 }

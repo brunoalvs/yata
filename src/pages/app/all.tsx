@@ -11,25 +11,27 @@ const AppPage: NextPageWithLayout = () => {
       <h1>All Tasks</h1>
       <p>When user is Logged!</p>
       <code>
-        { JSON.stringify({
-          'user': {
-            'name': data?.user?.name,
-            'email': data?.user?.email,
-            'image': data?.user?.image,
-            'id': data?.user?.id
-          }
-        }, null, 2) }
+        {JSON.stringify(
+          {
+            user: {
+              name: data?.user?.name,
+              email: data?.user?.email,
+              image: data?.user?.image,
+              id: data?.user?.id,
+            },
+          },
+          null,
+          2,
+        )}
       </code>
     </div>
   )
 }
 
-AppPage.getLayout = function getLayout (page) {
+AppPage.getLayout = function getLayout(page) {
   return (
     <TaskProvider>
-      <AppLayout>
-        { page }
-      </AppLayout>
+      <AppLayout>{page}</AppLayout>
     </TaskProvider>
   )
 }
