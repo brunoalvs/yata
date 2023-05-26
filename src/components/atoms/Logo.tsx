@@ -7,10 +7,12 @@ interface LogoProps {
 
 const Logo = ({ full = false }: LogoProps) => (
   <Image
-    src={full ? '/img/logo-full.svg' : '/img/logo.svg'}
+    src={full ? '/logo-full.svg' : '/logo_icon.svg'}
     alt="Logo da aplicação Yata - uma aplicação de gerenciamento de tarefas"
     aria-label="Logo da aplicação Yata"
     aria-hidden="true"
+    width={full ? 200 : 48}
+    height={full ? 50 : 48}
   />
 )
 
