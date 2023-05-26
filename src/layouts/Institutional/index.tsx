@@ -1,11 +1,10 @@
-import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import Button from '@/components/atoms/Button'
 import Logo from '@/components/atoms/Logo'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
-import LoadingScreen from '@/components/templates/LoadingScreen'
 import styles from './styles.module.scss'
 
 interface InstitutionalProps {
@@ -18,10 +17,6 @@ export default function Institutional({ children }: InstitutionalProps) {
 
   const handlePush = async (path: string) => {
     await push(path)
-  }
-
-  if (status === 'loading') {
-    return <LoadingScreen />
   }
 
   if (status === 'authenticated') {
