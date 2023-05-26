@@ -1,8 +1,6 @@
 import type { NextPageWithLayout } from './_app'
 import { useRouter } from 'next/router'
-// import Image from 'next/image'
 
-// import screenshotExample from '../../public/screenshot-example.webp'
 import Institutional from '@/layouts/Institutional'
 import HeadingPage from '@/components/atoms/HeadingPage'
 import Button from '@/components/atoms/Button'
@@ -28,14 +26,6 @@ const IndexPage: NextPageWithLayout = () => {
         Sign up today and experience the power of efficient task management!
       </p>
       <Button onClick={handleGetStarted}>Get Started</Button>
-
-      {/* <figure>
-        <Image
-          src={ screenshotExample }
-          alt='Yata App Screenshot'
-          style={{ width: '100%', height: 'auto', objectFit: 'contain', margin: '2.4rem 0', borderRadius: '0.5rem', overflow: 'hidden' }}
-        />
-      </figure> */}
     </>
   )
 }
