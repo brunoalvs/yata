@@ -1,4 +1,4 @@
 import { getFirestore } from 'firebase/firestore'
-import firebaseApp from '@/utils/firebase'
+import firebaseApp from '@/firebase/credentials'
 
 export const db = getFirestore(firebaseApp)
