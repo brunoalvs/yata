@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, getDocs, collection } from 'firebase/firestore'
-import firebaseApp from '@/utils/firebase'
+import firebaseApp from '@/firebase/credentials'
 
 const db = getFirestore(firebaseApp)
 

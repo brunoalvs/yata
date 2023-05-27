@@ -22,7 +22,7 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({
   Component,
-  pageProps,
+  pageProps: { session, ...pageProps },
   router,
 }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: ReactNode) => page)
@@ -45,7 +45,7 @@ export default function App({
       </Head>
       <GlobalStyle />
       <main key={router.route} className={inter.className}>
-        <SessionProvider>
+        <SessionProvider session={session}>
           {getLayout(<Component {...pageProps} />)}
         </SessionProvider>
       </main>
