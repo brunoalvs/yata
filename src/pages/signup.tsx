@@ -11,8 +11,8 @@ import { signupWithEmailAndPassword } from '@/firebase/auth/signup'
 import { handleSignIn } from '@/utils/handleSignIn'
 
 const SignUpPage: NextPageWithLayout = () => {
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleSignUp = async (event: FormEvent) => {
     event.preventDefault()
