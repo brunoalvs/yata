@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import type { Collection } from '@/models/collection'
 
-import firebaseApp from '@/firebase/credentials'
+import firebaseApp from '@/utils/firebase'
 import {
   getFirestore,
   doc,

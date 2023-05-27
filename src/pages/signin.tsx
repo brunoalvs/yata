@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { NextPageWithLayout } from './_app'
+import type { NextPageWithLayout } from '@/pages/_app'
 import Link from 'next/link'
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
 import { handleSignIn } from '@/utils/handleSignIn'
@@ -29,7 +29,7 @@ const SignInPage: NextPageWithLayout = () => (
       variant="outline"
       icon={<RiGithubFill />}
       onClick={() => {
-        handleSignIn('google')
+        handleSignIn('github')
       }}
     >
       Continue with GitHub
