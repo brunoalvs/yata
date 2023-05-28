@@ -6,11 +6,15 @@ import { signinWithEmailAndPassword } from '@/firebase/auth/signin'
 
 // import Button from '@/components/atoms/Button'
 import HeadingPage from '@/components/atoms/HeadingPage'
-import Institutional from '@/layouts/Institutional'
+import Institutional from '@/components/templates/Institutional'
+import handleSignInErrorsMessage from '@/utils/handleWithSignInErrors'
+import { useRouter } from 'next/router'
+import { SignForm } from '@/components/organisms/SignForm'
 
 const SignInPage: NextPageWithLayout = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const handleSignIn = async (event: FormEvent) => {
     event.preventDefault()
@@ -19,10 +23,12 @@ const SignInPage: NextPageWithLayout = () => {
 
     if (error !== undefined && error !== null) {
       console.error(error)
+      alert(handleSignInErrorsMessage(error))
       return
     }
 
     console.log('User could be signed in successfully', result)
+    router.push('/app')
   }
 
   return (
@@ -33,31 +39,13 @@ const SignInPage: NextPageWithLayout = () => {
         Google or Github account.
       </p>
 
-      <form
+      <SignForm
         onSubmit={(event) => {
           void handleSignIn(event)
         }}
-      >
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={(event) => {
-            setEmail(event.target.value)
-          }}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(event) => {
-            setPassword(event.target.value)
-          }}
-        />
-        <button type="submit">Sign In</button>
-      </form>
+        setEmail={setEmail}
+        setPassword={setPassword}
+      />
 
       {/* <Button
         variant="outline"

@@ -1,5 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react'
-import { memo } from 'react'
+import { memo, type HTMLAttributes, type ReactNode } from 'react'
 import * as S from './styles'
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {

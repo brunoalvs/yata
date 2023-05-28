@@ -1,9 +1,9 @@
 import type { NextPageWithLayout } from './_app'
 import { useRouter } from 'next/router'
 
-import Institutional from '@/layouts/Institutional'
 import HeadingPage from '@/components/atoms/HeadingPage'
 import Button from '@/components/atoms/Button'
+import Institutional from '@/components/templates/Institutional'
 
 const IndexPage: NextPageWithLayout = () => {
   const { push } = useRouter()

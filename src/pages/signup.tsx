@@ -5,14 +5,17 @@ import { RiGithubFill, RiGoogleFill } from 'react-icons/ri'
 
 import Button from '@/components/atoms/Button'
 import HeadingPage from '@/components/atoms/HeadingPage'
-import Institutional from '@/layouts/Institutional'
+import Institutional from '@/components/templates/Institutional'
 
 import { signupWithEmailAndPassword } from '@/firebase/auth/signup'
 import { handleSignIn } from '@/utils/handleSignIn'
+import { useRouter } from 'next/router'
+import { SignForm } from '@/components/organisms/SignForm'
 
 const SignUpPage: NextPageWithLayout = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const handleSignUp = async (event: FormEvent) => {
     event.preventDefault()
@@ -25,6 +28,7 @@ const SignUpPage: NextPageWithLayout = () => {
     }
 
     console.log('User created successfully')
+    router.push('/app')
   }
 
   return (
@@ -32,31 +36,14 @@ const SignUpPage: NextPageWithLayout = () => {
       <HeadingPage>Welcome</HeadingPage>
       <p>We're thrilled that you're considering joining our platform.</p>
 
-      <form
+      <SignForm
         onSubmit={(event) => {
           void handleSignUp(event)
         }}
-      >
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={(event) => {
-            setEmail(event.target.value)
-          }}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(event) => {
-            setPassword(event.target.value)
-          }}
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+        setEmail={setEmail}
+        setPassword={setPassword}
+        type="signup"
+      />
 
       <Button
         icon={<RiGoogleFill />}

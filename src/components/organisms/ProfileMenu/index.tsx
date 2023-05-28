@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { signOut } from '@/firebase/auth/signout'
+
 import DropdownnMenu from '@/components/molecules/DropdownMenu'
 import UserInfo from '@/components/molecules/UserInfo'
 import Button from '@/components/atoms/Button'
@@ -7,10 +9,14 @@ import * as S from './styles'
 const ProfileMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const handleSignOut = () => {
+    console.log('Signning out...')
+    signOut()
+  }
+
   return (
     <S.Container>
       <Button
-        fullWidth={true}
         variant="text"
         style={{ width: '100%' }}
         aria-haspopup="true"
@@ -40,7 +46,7 @@ const ProfileMenu = () => {
           {
             name: 'Logout',
             onClick: () => {
-              console.log('Logout')
+              handleSignOut()
             },
           },
         ]}

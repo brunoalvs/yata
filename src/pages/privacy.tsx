@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import Institutional from '@/layouts/Institutional'
+import Institutional from '@/components/templates/Institutional'
 import HeadingPage from '@/components/atoms/HeadingPage'
 import type { NextPageWithLayout } from './_app'
 

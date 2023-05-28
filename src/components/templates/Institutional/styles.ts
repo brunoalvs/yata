@@ -1,40 +1,12 @@
-.wrapper {
+import styled from 'styled-components'
+
+export const Wrapper = styled.div`
   position: relative;
   background-color: rgba(10, 20, 70, 1);
   z-index: 1;
-}
+`
 
-.header {
-  width: 100%;
-  max-width: 1200px;
-  place-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.4rem 2rem;
-
-  .navigation {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-
-    > a {
-      color: var(--white);
-      font-size: large;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  @media (min-width: 768px) {
-    padding: 2.4rem 4.8rem;
-  }
-}
-
-.container {
+export const Container = styled.div`
   width: 100%;
   max-width: 100vw;
   min-height: 100vh;
@@ -45,9 +17,39 @@
   position: relative;
   overflow-x: hidden;
   z-index: var(--z-index-base);
-}
+`
 
-.content {
+export const Header = styled.header`
+  width: 100%;
+  max-width: 1200px;
+  place-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem 2rem;
+
+  @media (min-width: 768px) {
+    padding: 2.4rem 4.8rem;
+  }
+`
+
+export const Navigation = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  > a {
+    color: var(--white);
+    font-size: large;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`
+
+export const Content = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,6 +59,10 @@
   padding: 2.4rem 2rem;
   line-height: 2.4rem;
   text-align: center;
+
+  @media (min-width: 768px) {
+    padding: 2.4rem 4.8rem;
+  }
 
   > h1 {
     color: var(--white);
@@ -89,14 +95,10 @@
       }
     }
   }
+`
 
-  @media (min-width: 768px) {
-    padding: 2.4rem 4.8rem;
-  }
-}
-
-.footer {
+export const Footer = styled.footer`
   text-align: center;
-  padding: 1.2rem 4.8rem;
   opacity: 0.5;
-}
+  padding: 1.2rem 4.8rem;
+`

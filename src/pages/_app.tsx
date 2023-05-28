@@ -3,8 +3,8 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import { SessionProvider } from 'next-auth/react'
 
+import { AuthContextProvider } from '@/contexts/AuthContext'
 import GlobalStyle from '@/components/globalStyles'
 
 const inter = Inter({ display: 'swap', subsets: ['latin'] })
@@ -45,9 +45,9 @@ export default function App({
       </Head>
       <GlobalStyle />
       <main key={router.route} className={inter.className}>
-        <SessionProvider session={session}>
+        <AuthContextProvider>
           {getLayout(<Component {...pageProps} />)}
-        </SessionProvider>
+        </AuthContextProvider>
       </main>
     </>
   )

@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FiMenu, FiPlus } from 'react-icons/fi'
+import { useAuthContext } from '@/contexts/AuthContext'
 
 import Button from '@/components/atoms/Button'
 import { Sidebar } from '@/components/organisms/Sidebar'
 import Overlay from '@/components/molecules/Overlay'
-import LoadingScreen from '@/components/templates/LoadingScreen'
 import * as S from './styles'
 
 interface AppLayoutProps {
@@ -14,8 +13,8 @@ interface AppLayoutProps {
 }
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-  const { status } = useSession()
-  const { push } = useRouter()
+  const { user } = useAuthContext()
+  const router = useRouter()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -42,10 +41,13 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     }
   }, [])
 
-  if (status === 'unauthenticated') {
-    push('/signin')
-    return <LoadingScreen />
-  }
+  useEffect(() => {
+    if (user === null) {
+      router.push('/')
+    }
+
+    console.log('user', user)
+  }, [router, user])
 
   return (
     <S.Container data-theme="dark">

@@ -17,15 +17,15 @@ interface SidebarProps {
 
 export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const { collections } = useContext(TaskContext)
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
   const pathname = usePathname()
 
-  const handleNewCollection = () => {
-    collections.addCollection({
-      author: session?.user?.id ?? '',
-      title: 'Untitled Collection',
-    })
-  }
+  // const handleNewCollection = () => {
+  //   collections.addCollection({
+  //     author: session?.user?.id ?? '',
+  //     title: 'Untitled Collection',
+  //   })
+  // }
 
   return (
     <aside className={styles.container} data-open={isOpen}>
@@ -59,7 +59,7 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
             All Tasks
           </Link>
         </nav>
-        <nav className={styles.lists}>
+        {/* <nav className={styles.lists}>
           {collections.collections
             .filter((collection) => collection.author === session?.user?.id)
             .map((collection) => (
@@ -73,7 +73,7 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
                 {collection.title}
               </Link>
             ))}
-        </nav>
+        </nav> */}
       </section>
       <footer className={styles.footer}>
         <Button
@@ -81,7 +81,7 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           variant="text"
           size="small"
           onClick={() => {
-            handleNewCollection()
+            // handleNewCollection()
           }}
         >
           New Collection

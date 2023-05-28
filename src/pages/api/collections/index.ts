@@ -7,7 +7,7 @@ const db = getFirestore(firebaseApp)
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const getCollections = async () => {
     const collections = await getDocs(collection(db, 'collections'))
-    console.log(collections)
+    console.log('collections', { collections })
     return collections.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
   }
 

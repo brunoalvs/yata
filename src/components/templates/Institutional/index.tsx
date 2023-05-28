@@ -1,36 +1,34 @@
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import Button from '@/components/atoms/Button'
 import Logo from '@/components/atoms/Logo'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
-import styles from './styles.module.scss'
+import * as S from './styles'
 
 interface InstitutionalProps {
   children: React.ReactNode
 }
 
 export default function Institutional({ children }: InstitutionalProps) {
-  const { status } = useSession()
   const { push, pathname } = useRouter()
 
   const handlePush = async (path: string) => {
     await push(path)
   }
 
-  if (status === 'authenticated') {
-    void push('/app')
-  }
+  // if (status === 'authenticated') {
+  //   void push('/app')
+  // }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <header className={styles.header}>
+    <S.Wrapper>
+      <S.Container>
+        <S.Header>
           <Link href="/">
             <Logo />
           </Link>
-          <nav className={styles.navigation}>
+          <S.Navigation>
             {pathname !== '/signin' ? (
               <Button
                 variant="text"
@@ -57,20 +55,20 @@ export default function Institutional({ children }: InstitutionalProps) {
             >
               Get Started
             </Button>
-          </nav>
-        </header>
-        <section className={styles.content}>{children}</section>
+          </S.Navigation>
+        </S.Header>
+        <S.Content>{children}</S.Content>
         {pathname === '/signin' || pathname === '/signup' ? (
-          <footer className={styles.footer}>
+          <S.Footer>
             <p>
               Your security and privacy are our top priority. That's why we
               offer the option to login with your Google or Github account, so
               you can be confident that your information is safe and secure.
             </p>
-          </footer>
+          </S.Footer>
         ) : null}
-      </div>
+      </S.Container>
       <BackgroundAnimation />
-    </div>
+    </S.Wrapper>
   )
 }
