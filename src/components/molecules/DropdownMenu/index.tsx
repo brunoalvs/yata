@@ -11,9 +11,14 @@ interface DropdownnMenuProps {
 const DropdownnMenu = ({ items, isOpen }: DropdownnMenuProps) => (
   <S.Container role="listbox" aria-hidden={isOpen}>
     {items?.map((item, index) => (
-      <li key={index} onClick={item.onClick} role="option">
+      <S.Item
+        key={index}
+        onClick={item.onClick}
+        role="option"
+        aria-hidden={isOpen}
+      >
         {item.name}
-      </li>
+      </S.Item>
     ))}
   </S.Container>
 )

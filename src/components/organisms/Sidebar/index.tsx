@@ -1,12 +1,10 @@
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
-import { TaskContext } from '@/contexts/task'
+// import { TaskContext } from '@/contexts/task'
 import Button from '@/components/atoms/Button'
-import { SidebarUserOptions } from '@/components/organisms/SidebarUserOptions'
 import styles from './styles.module.scss'
 import ProfileMenu from '../ProfileMenu'
 
@@ -16,7 +14,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
-  const { collections } = useContext(TaskContext)
+  // const { collections } = useContext(TaskContext)
   // const { data: session } = useSession()
   const pathname = usePathname()
 
@@ -40,7 +38,6 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           <FiMenu />
         </Button>
         <ProfileMenu />
-        <SidebarUserOptions />
       </header>
       <section className={styles.content}>
         <nav className={`${styles.lists} ${styles.default}`}>

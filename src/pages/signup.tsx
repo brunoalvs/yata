@@ -15,12 +15,17 @@ import { SignForm } from '@/components/organisms/SignForm'
 const SignUpPage: NextPageWithLayout = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [userName, setUserName] = useState('')
   const router = useRouter()
 
   const handleSignUp = async (event: FormEvent) => {
     event.preventDefault()
 
-    const { error } = await signupWithEmailAndPassword(email, password)
+    const { error } = await signupWithEmailAndPassword(
+      email,
+      password,
+      userName,
+    )
 
     if (error !== undefined && error !== null) {
       console.error(error)
@@ -42,6 +47,7 @@ const SignUpPage: NextPageWithLayout = () => {
         }}
         setEmail={setEmail}
         setPassword={setPassword}
+        setUserName={setUserName}
         type="signup"
       />
 

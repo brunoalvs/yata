@@ -1,7 +1,6 @@
 import { Suspense, useState, useCallback, memo } from 'react'
 import Image from 'next/image'
 
-import Skeleton from '@/components/molecules/SkeletonElements'
 import * as S from './styles'
 
 enum AvatarSize {
@@ -26,13 +25,29 @@ const Avatar = ({ src, name, size = 'medium' }: AvatarProps) => {
 
   const handleImageError = useCallback(() => {
     setSrc(`https://ui-avatars.com/api/?name=${getName(name)}}`)
+    console.log('error')
   }, [name])
+
+  console.log('userPhotoURL: ', {
+    imageSrc: {
+      src: imageSrc,
+      type: typeof imageSrc,
+    },
+    src: {
+      src,
+      type: typeof src,
+    },
+  })
 
   return (
     <S.Container>
-      <Suspense fallback={<Skeleton type="avatar" />}>
+      <Suspense fallback={<div>loading...</div>}>
         <Image
-          src={imageSrc}
+          src={
+            imageSrc === ''
+              ? `https://ui-avatars.com/api/?name=${getName(name)}}`
+              : imageSrc
+          }
           alt={`Avatar of ${name}`}
           width={AvatarSize[size]}
           height={AvatarSize[size]}

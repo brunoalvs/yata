@@ -10,19 +10,36 @@ export const Container = styled.ul`
   z-index: var(--z-index-modal);
   will-change: transform;
 
-  > li {
-    opacity: 0;
-    transition: opacity 50ms ease-in;
-    will-change: opacity;
-  }
+  border: 1px dashed goldenrod;
+  width: 100%;
+  max-width: 18rem;
+  background-color: purple;
+  display: grid;
+  gap: 0.5rem;
 
   &[aria-hidden='true'] {
     transform: scaleY(1);
     transition-timing-function: ease-out;
+  }
+`
 
-    > li {
-      opacity: 1;
-      transition: opacity 250ms ease-out;
-    }
+export const Item = styled.li`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.6rem;
+  padding: 0 1.6rem;
+  opacity: 0;
+  transition: opacity 50ms ease-in;
+  will-change: opacity;
+
+  &[aria-hidden='true'] {
+    opacity: 1;
+    transition: opacity 250ms ease-out;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `

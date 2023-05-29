@@ -5,9 +5,13 @@ import DropdownnMenu from '@/components/molecules/DropdownMenu'
 import UserInfo from '@/components/molecules/UserInfo'
 import Button from '@/components/atoms/Button'
 import * as S from './styles'
+import { useAuthContext } from '@/contexts/AuthContext'
+import { useRouter } from 'next/router'
 
 const ProfileMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { user } = useAuthContext()
+  const { push } = useRouter()
 
   const handleSignOut = () => {
     console.log('Signning out...')
@@ -27,10 +31,9 @@ const ProfileMenu = () => {
       >
         <UserInfo
           user={{
-            name: 'UserName',
-            email: 'user@email.com',
-            image:
-              'https://lh3.googleusercontent.com/a/AGNmyxbXZDYE1t0yXIz8MraVl29kor-wU8zq-WIKajMurA=s96-c',
+            name: user?.displayName ?? '',
+            image: user?.photoURL ?? '',
+            email: user?.email ?? '',
           }}
         />
       </Button>
@@ -40,7 +43,7 @@ const ProfileMenu = () => {
           {
             name: 'Settings',
             onClick: () => {
-              console.log('Settings')
+              push('/app/settings')
             },
           },
           {
