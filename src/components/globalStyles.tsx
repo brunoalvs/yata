@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
     --skeleton-from: hsl(200, 20%, 20%);
     --skeleton-to: hsl(200, 20%, 15%);
 
-    --element-hover: rgba(0, 0, 0, 0.1);
+    --element-hover: rgba(0, 0, 0, 0.2);
     --element-active: rgba(0, 0, 0, 0.3);
   }
 

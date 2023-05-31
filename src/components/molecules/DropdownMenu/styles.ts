@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.ul`
+  width: 100%;
+  max-width: 18rem;
+  display: grid;
+  gap: 0.5rem;
+  background-color: var(--background-primary);
+  box-shadow: 0 0 0.5rem var(--background-primary);
+
   position: absolute;
   top: 100%;
   right: 0;
@@ -9,13 +16,6 @@ export const Container = styled.ul`
   transition: transform 100ms ease-in;
   z-index: var(--z-index-modal);
   will-change: transform;
-
-  border: 1px dashed goldenrod;
-  width: 100%;
-  max-width: 18rem;
-  background-color: purple;
-  display: grid;
-  gap: 0.5rem;
 
   &[aria-hidden='true'] {
     transform: scaleY(1);
@@ -40,6 +40,10 @@ export const Item = styled.li`
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--element-hover);
+  }
+
+  &:active {
+    background-color: var(--element-active);
   }
 `
