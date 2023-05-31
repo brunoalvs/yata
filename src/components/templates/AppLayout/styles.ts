@@ -75,4 +75,8 @@ export const Drawer = styled.div`
 export const DrawerHeader = styled.header`
   display: flex;
   justify-content: flex-end;
+
+  svg {
+    transform: rotate(45deg);
+  }
 `

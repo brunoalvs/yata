@@ -1,4 +1,3 @@
-import type { OverlayProps } from './'
 import styled, { keyframes } from 'styled-components'
 
 const fadeIn = keyframes`
@@ -10,7 +9,7 @@ const fadeIn = keyframes`
   }
 `
 
-export const Container = styled.div<OverlayProps>`
+export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -22,9 +21,7 @@ export const Container = styled.div<OverlayProps>`
   z-index: 1;
   animation: ${fadeIn} 200ms ease-in-out;
 
-  ${({ isOpen }) =>
-    isOpen &&
-    `
+  &[data-open='true'] {
     display: block;
-  `}
+  }
 `

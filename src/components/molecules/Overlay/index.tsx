@@ -7,7 +7,7 @@ export interface OverlayProps {
 }
 
 const Overlay = ({ isOpen, onClick }: OverlayProps) => (
-  <S.Container isOpen={isOpen} onClick={onClick} />
+  <S.Container data-open={isOpen} onClick={onClick} />
 )
 
 export default memo(Overlay)

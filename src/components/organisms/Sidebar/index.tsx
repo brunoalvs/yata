@@ -1,33 +1,21 @@
-// import { useContext } from 'react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
 
-// import { TaskContext } from '@/contexts/task'
 import Button from '@/components/atoms/Button'
-import styles from './styles.module.scss'
-import ProfileMenu from '../ProfileMenu'
+import ProfileMenu from '@/components/organisms/ProfileMenu'
+import * as S from './styles'
 
 interface SidebarProps {
   isOpen: boolean
   closeSidebar: () => void
 }
 
-export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
-  // const { collections } = useContext(TaskContext)
-  // const { data: session } = useSession()
+const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const pathname = usePathname()
 
-  // const handleNewCollection = () => {
-  //   collections.addCollection({
-  //     author: session?.user?.id ?? '',
-  //     title: 'Untitled Collection',
-  //   })
-  // }
-
   return (
-    <aside className={styles.container} data-open={isOpen}>
-      <header className={styles.header}>
+    <S.Container data-open={isOpen}>
+      <S.Header>
         <Button
           variant="text"
           title="Close Sidebar"
@@ -38,24 +26,24 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           <FiMenu />
         </Button>
         <ProfileMenu />
-      </header>
-      <section className={styles.content}>
-        <nav className={`${styles.lists} ${styles.default}`}>
-          <Link
+      </S.Header>
+      <S.Content>
+        <S.List>
+          <S.ListItem
             href="/app"
             title="A list that refreshes every day"
             data-current={pathname === '/app'}
           >
             Today
-          </Link>
-          <Link
+          </S.ListItem>
+          <S.ListItem
             href="/app/all"
             title="All tasks"
             data-current={pathname === '/app/all'}
           >
             All Tasks
-          </Link>
-        </nav>
+          </S.ListItem>
+        </S.List>
         {/* <nav className={styles.lists}>
           {collections.collections
             .filter((collection) => collection.author === session?.user?.id)
@@ -71,8 +59,8 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
               </Link>
             ))}
         </nav> */}
-      </section>
-      <footer className={styles.footer}>
+      </S.Content>
+      <S.Footer>
         <Button
           icon={<FiPlus />}
           variant="text"
@@ -86,7 +74,9 @@ export const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
         <Button variant="text" title="Create a new Group">
           <FiPlusSquare />
         </Button>
-      </footer>
-    </aside>
+      </S.Footer>
+    </S.Container>
   )
 }
+
+export default Sidebar
