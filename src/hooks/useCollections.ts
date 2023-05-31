@@ -34,6 +34,7 @@ export const useCollections = (): ICollections => {
   const getCollections = async () => {
     const collections = await getDocs(collection(db, 'collections'))
     console.log(
+      'collections',
       collections.docs.map(
         (doc) => ({ id: doc.id, ...doc.data() } as Collection),
       ),

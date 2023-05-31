@@ -1,6 +1,5 @@
 import type { NextPageWithLayout } from '@/pages/_app'
 import { FiPlus } from 'react-icons/fi'
-import { TaskProvider } from '@/contexts/task'
 import AppLayout from '@/components/templates/AppLayout'
 import HeadingPage from '@/components/atoms/HeadingPage'
 
@@ -16,11 +15,7 @@ const AppPage: NextPageWithLayout = () => (
 )
 
 AppPage.getLayout = function getLayout(page) {
-  return (
-    <TaskProvider>
-      <AppLayout>{page}</AppLayout>
-    </TaskProvider>
-  )
+  return <AppLayout>{page}</AppLayout>
 }
 
 export default AppPage
