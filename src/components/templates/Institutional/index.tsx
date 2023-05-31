@@ -5,6 +5,8 @@ import Button from '@/components/atoms/Button'
 import Logo from '@/components/atoms/Logo'
 import BackgroundAnimation from '@/components/atoms/BackgroundAnimation'
 import * as S from './styles'
+import { useAuthContext } from '@/contexts/AuthContext'
+import { useEffect } from 'react'
 
 interface InstitutionalProps {
   children: React.ReactNode
@@ -12,14 +14,24 @@ interface InstitutionalProps {
 
 export default function Institutional({ children }: InstitutionalProps) {
   const { push, pathname } = useRouter()
+  const { user } = useAuthContext()
 
   const handlePush = async (path: string) => {
     await push(path)
   }
 
-  // if (status === 'authenticated') {
-  //   void push('/app')
-  // }
+  useEffect(() => {
+    if (user !== null) {
+      const navigateToApp = async () => {
+        try {
+          await push('/app')
+        } catch (error) {
+          console.error('Error navigating to app', error)
+        }
+      }
+      navigateToApp()
+    }
+  }, [user, push])
 
   return (
     <S.Wrapper>
