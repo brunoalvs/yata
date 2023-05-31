@@ -9,7 +9,7 @@ const fadeIn = keyframes`
   }
 `
 
-export const Container = styled.div`
+export const Container = styled.div<{ open: boolean; hidden: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +21,6 @@ export const Container = styled.div`
   z-index: 1;
   animation: ${fadeIn} 200ms ease-in-out;
 
-  &[data-open='true'] {
-    display: block;
-  }
+  ${(props) => props.open && `display: block;`}
+  ${(props) => props.hidden && `background-color: transparent;`}
 `

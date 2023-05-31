@@ -34,6 +34,6 @@ export const UserEmail = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
 `
