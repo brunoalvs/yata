@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
 import firebaseApp from '@/firebase/credentials'
+import LoadingScreen from '@/components/templates/LoadingScreen'
 
 const auth = getAuth(firebaseApp)
 
@@ -41,7 +42,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
   return (
     <AuthContext.Provider value={{ user }}>
-      {loading ? <div>Loading...</div> : children}
+      {loading ? <LoadingScreen /> : children}
     </AuthContext.Provider>
   )
 }

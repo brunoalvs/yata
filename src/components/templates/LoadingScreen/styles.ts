@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Logo = styled.section`
   display: flex;
-  algin-items: center;
+  align-items: center;
   margin-bottom: 2rem;
 `
 
