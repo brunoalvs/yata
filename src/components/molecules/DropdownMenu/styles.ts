@@ -27,6 +27,7 @@ export const Item = styled.li`
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 1rem;
   height: 4rem;
   font-size: 1.6rem;
   padding: 0 1.6rem;

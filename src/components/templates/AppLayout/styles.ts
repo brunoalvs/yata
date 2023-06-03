@@ -25,7 +25,7 @@ export const Content = styled.article`
   max-height: 100vh;
   font-size: medium;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 2rem;
 
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -39,6 +39,12 @@ export const Content = styled.article`
     background: var(--text-secondary);
     border-radius: 0.5rem;
   }
+
+  @media (max-width: 767px) {
+    display: grid;
+    grid-template-rows: 4.4rem 1fr;
+    gap: 1rem;
+  }
 `
 
 export const Drawer = styled.div`
@@ -47,6 +53,10 @@ export const Drawer = styled.div`
   background-color: var(--background-secondary);
   transition: transform 200ms ease;
   z-index: var(--z-index-drawer);
+
+  &[data-open='false'] {
+    width: 0;
+  }
 
   @media (max-width: 767px) {
     position: fixed;

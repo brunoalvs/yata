@@ -4,13 +4,13 @@ export const Container = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 1.2rem;
+  gap: 1rem;
   align-items: center;
 `
 
 export const UserInfoWrapper = styled.div`
   display: grid;
-  gap: 0.8rem;
+  gap: 0.5rem;
   align-items: flex-start;
 `
 

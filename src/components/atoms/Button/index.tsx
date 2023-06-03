@@ -5,15 +5,15 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   fullWidth?: boolean
   icon?: ReactNode
-  size?: 'small' | 'large'
+  size?: 'reduced' | 'small' | 'large'
   variant?: 'default' | 'outline' | 'text'
   type?: 'button' | 'submit' | 'reset'
 }
 
-const Button = ({ children, type = 'button', ...props }: ButtonProps) => (
+const Button = ({ children, type = 'button', icon, ...props }: ButtonProps) => (
   <S.Container type={type} {...props}>
     <span />
-    {props.icon ?? props.icon}
+    {icon ?? icon}
     {children}
     <span />
   </S.Container>

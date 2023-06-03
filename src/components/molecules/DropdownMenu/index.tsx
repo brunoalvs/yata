@@ -4,6 +4,7 @@ interface DropdownnMenuProps {
   isOpen?: boolean
   items?: Array<{
     name: string
+    icon?: React.ReactNode
     onClick: () => void
   }>
 }
@@ -17,6 +18,7 @@ const DropdownnMenu = ({ items, isOpen }: DropdownnMenuProps) => (
         role="option"
         aria-hidden={isOpen}
       >
+        {item.icon}
         {item.name}
       </S.Item>
     ))}

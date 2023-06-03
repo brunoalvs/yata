@@ -1,5 +1,6 @@
 import { usePathname } from 'next/navigation'
-import { FiPlus, FiPlusSquare, FiMenu } from 'react-icons/fi'
+import { FiPlus, FiMenu } from 'react-icons/fi'
+import { IoHome, IoAlbums } from 'react-icons/io5'
 
 import Button from '@/components/atoms/Button'
 import ProfileMenu from '@/components/organisms/ProfileMenu'
@@ -34,6 +35,7 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
             title="A list that refreshes every day"
             data-current={pathname === '/app'}
           >
+            <IoHome />
             Today
           </S.ListItem>
           <S.ListItem
@@ -41,38 +43,21 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
             title="All tasks"
             data-current={pathname === '/app/all'}
           >
+            <IoAlbums />
             All Tasks
           </S.ListItem>
         </S.List>
-        {/* <nav className={styles.lists}>
-          {collections.collections
-            .filter((collection) => collection.author === session?.user?.id)
-            .map((collection) => (
-              <Link
-                key={collection.id}
-                href={`/app/collection/${collection.id}`}
-                data-current={
-                  pathname?.includes(collection.id) ? 'true' : 'false'
-                }
-              >
-                {collection.title}
-              </Link>
-            ))}
-        </nav> */}
       </S.Content>
       <S.Footer>
         <Button
-          icon={<FiPlus />}
           variant="text"
           size="small"
           onClick={() => {
-            // handleNewCollection()
+            console.log('New Collection')
           }}
         >
           New Collection
-        </Button>
-        <Button variant="text" title="Create a new Group">
-          <FiPlusSquare />
+          <FiPlus />
         </Button>
       </S.Footer>
     </S.Container>

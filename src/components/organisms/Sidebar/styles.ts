@@ -14,6 +14,7 @@ export const Container = styled.aside`
   @media (max-width: 767px) {
     width: 80%;
     height: 100%;
+    backdrop-filter: blur(9rem);
     position: fixed;
     top: 0;
     left: 0;
@@ -28,17 +29,11 @@ export const Container = styled.aside`
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-rows: max-content 1fr max-content;
+    grid-template-rows: repeat(3, max-content);
   }
 `
 export const Header = styled.header`
-  @media (max-width: 767px) {
-    padding-top: 1rem;
-
-    > button:first-of-type {
-      margin-left: 1rem;
-    }
-  }
+  padding: 2rem 1rem 0.5rem;
 
   @media (min-width: 768px) {
     > button:first-of-type {
@@ -49,7 +44,6 @@ export const Header = styled.header`
 `
 
 export const Content = styled.section`
-  max-height: calc(100vh - 12.5rem - 4.5rem);
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -63,10 +57,6 @@ export const Content = styled.section`
   &::-webkit-scrollbar-thumb {
     background: var(--text-secondary);
     border-radius: 0.5rem;
-  }
-
-  @media (min-width: 768px) {
-    max-height: calc(100vh - 6rem - 4.5rem);
   }
 `
 
@@ -85,6 +75,7 @@ export const List = styled.nav`
 export const ListItem = styled(Link)`
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   font-size: medium;
   color: var(--text-sidebar);
   padding: 1rem;

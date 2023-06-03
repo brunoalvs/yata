@@ -4,7 +4,7 @@ import type { ButtonProps } from './'
 export const Container = styled.button<ButtonProps>`
   cursor: pointer;
   border-radius: 0.25rem;
-  padding: 1rem 1.2rem;
+  padding: 1rem;
   background-color: var(--primary-500);
   border: 0.2rem solid var(--primary-500);
   position: relative;
@@ -13,6 +13,7 @@ export const Container = styled.button<ButtonProps>`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.2rem;
   transition: background 200ms ease;
 
@@ -126,6 +127,13 @@ export const Container = styled.button<ButtonProps>`
     switch (size) {
       case 'small':
         return 'font-size: small;'
+      case 'reduced':
+        return `
+          padding: 0.5rem;
+          > span {
+            width: 25%;
+          }
+        `
       default:
         return 'font-size: large;'
     }

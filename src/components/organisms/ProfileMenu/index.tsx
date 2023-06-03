@@ -1,13 +1,18 @@
 import { useState } from 'react'
-import { signOut } from '@/firebase/auth/signout'
-
-import DropdownnMenu from '@/components/molecules/DropdownMenu'
-import UserInfo from '@/components/molecules/UserInfo'
-import Button from '@/components/atoms/Button'
-import * as S from './styles'
-import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/router'
+import { signOut } from '@/firebase/auth/signout'
+import {
+  IoChevronDown,
+  IoLogOutOutline,
+  IoSettingsOutline,
+} from 'react-icons/io5'
+
+import { useAuthContext } from '@/contexts/AuthContext'
+import Button from '@/components/atoms/Button'
+import DropdownnMenu from '@/components/molecules/DropdownMenu'
 import Overlay from '@/components/molecules/Overlay'
+import UserInfo from '@/components/molecules/UserInfo'
+import * as S from './styles'
 
 const ProfileMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,11 +32,11 @@ const ProfileMenu = () => {
     <>
       <S.Container>
         <Button
-          variant="text"
-          style={{ width: '100%' }}
           aria-haspopup="true"
           aria-expanded={isOpen}
           onClick={handleToggle}
+          size="reduced"
+          variant="text"
         >
           <UserInfo
             user={{
@@ -40,18 +45,23 @@ const ProfileMenu = () => {
               email: user?.email ?? '',
             }}
           />
+          <S.IconWrapper>
+            <IoChevronDown />
+          </S.IconWrapper>
         </Button>
         <DropdownnMenu
           isOpen={isOpen}
           items={[
             {
               name: 'Settings',
+              icon: <IoSettingsOutline />,
               onClick: () => {
                 push('/app/settings')
               },
             },
             {
               name: 'Logout',
+              icon: <IoLogOutOutline />,
               onClick: () => {
                 handleSignOut()
               },

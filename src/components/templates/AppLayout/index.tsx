@@ -3,10 +3,10 @@ import { useRouter } from 'next/router'
 import { FiMenu, FiPlus } from 'react-icons/fi'
 
 import { useAuthContext } from '@/contexts/AuthContext'
+import { TaskContextProvider } from '@/contexts/TaskContext'
 import Button from '@/components/atoms/Button'
 import Sidebar from '@/components/organisms/Sidebar'
 import Overlay from '@/components/molecules/Overlay'
-
 import * as S from './styles'
 
 interface AppLayoutProps {
@@ -58,38 +58,45 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   if (user !== null) {
     return (
-      <S.Container data-theme="dark">
-        <Sidebar isOpen={isSidebarOpen} closeSidebar={handleToggleSidebar} />
-        <S.Content>
+      <TaskContextProvider>
+        <S.Container>
+          <Sidebar isOpen={isSidebarOpen} closeSidebar={handleToggleSidebar} />
+          <S.Content>
+            {isMobile && (
+              <header>
+                <Button
+                  onClick={handleToggleSidebar}
+                  title="Open Sidebar"
+                  variant="text"
+                  style={{
+                    borderRadius: '1rem',
+                  }}
+                >
+                  <FiMenu />
+                </Button>
+              </header>
+            )}
+            {children}
+          </S.Content>
+          <S.Drawer data-open={isDrawerOpen}>
+            <S.DrawerHeader>
+              <Button
+                onClick={handleToggleDrawer}
+                title="Close Drawer"
+                variant="text"
+              >
+                <FiPlus />
+              </Button>
+            </S.DrawerHeader>
+          </S.Drawer>
           {isMobile && (
-            <Button
-              onClick={handleToggleSidebar}
-              title="Open Sidebar"
-              variant="text"
-            >
-              <FiMenu />
-            </Button>
+            <Overlay
+              isOpen={isDrawerOpen || isSidebarOpen}
+              onClick={isDrawerOpen ? handleToggleDrawer : handleToggleSidebar}
+            />
           )}
-          {children}
-        </S.Content>
-        <S.Drawer data-open={isDrawerOpen}>
-          <S.DrawerHeader>
-            <Button
-              onClick={handleToggleDrawer}
-              title="Close Drawer"
-              variant="text"
-            >
-              <FiPlus />
-            </Button>
-          </S.DrawerHeader>
-        </S.Drawer>
-        {isMobile && (
-          <Overlay
-            isOpen={isDrawerOpen || isSidebarOpen}
-            onClick={isDrawerOpen ? handleToggleDrawer : handleToggleSidebar}
-          />
-        )}
-      </S.Container>
+        </S.Container>
+      </TaskContextProvider>
     )
   }
 

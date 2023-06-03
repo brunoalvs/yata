@@ -9,7 +9,7 @@ enum AvatarSize {
   large = 64,
 }
 
-interface AvatarProps {
+export interface AvatarProps {
   src: string
   name: string
   size?: keyof typeof AvatarSize
@@ -17,7 +17,7 @@ interface AvatarProps {
 
 const Avatar = ({ src, name, size = 'medium' }: AvatarProps) => {
   return (
-    <S.Container>
+    <S.Container role="img">
       <Suspense fallback={<div>loading...</div>}>
         <Image
           src={src === '' ? `https://ui-avatars.com/api/?name=${name}}` : src}
