@@ -14,7 +14,9 @@ export const Label = styled.label`
   padding-bottom: 0.6rem;
 `
 
-export const Input = styled.input`
+export const Input = styled.input<{
+  fullWidth?: boolean
+}>`
   background-color: rgba(255, 255, 255, 0.1);
   border: 0.2rem solid rgba(200, 200, 200, 0.3);
   border-radius: 0.4rem;
@@ -26,4 +28,10 @@ export const Input = styled.input`
     border-color: #9e6bff;
     outline: none;
   }
+
+  ${({ fullWidth }) =>
+    fullWidth === true &&
+    `
+      width: 100%;
+    `}
 `

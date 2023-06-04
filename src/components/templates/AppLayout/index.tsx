@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import { FiMenu, FiPlus } from 'react-icons/fi'
 
 import { useAuthContext } from '@/contexts/AuthContext'
@@ -58,45 +59,57 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   if (user !== null) {
     return (
-      <TaskContextProvider>
-        <S.Container>
-          <Sidebar isOpen={isSidebarOpen} closeSidebar={handleToggleSidebar} />
-          <S.Content>
-            {isMobile && (
-              <header>
-                <Button
-                  onClick={handleToggleSidebar}
-                  title="Open Sidebar"
-                  variant="text"
-                  style={{
-                    borderRadius: '1rem',
-                  }}
-                >
-                  <FiMenu />
-                </Button>
-              </header>
-            )}
-            {children}
-          </S.Content>
-          <S.Drawer data-open={isDrawerOpen}>
-            <S.DrawerHeader>
-              <Button
-                onClick={handleToggleDrawer}
-                title="Close Drawer"
-                variant="text"
-              >
-                <FiPlus />
-              </Button>
-            </S.DrawerHeader>
-          </S.Drawer>
-          {isMobile && (
-            <Overlay
-              isOpen={isDrawerOpen || isSidebarOpen}
-              onClick={isDrawerOpen ? handleToggleDrawer : handleToggleSidebar}
+      <>
+        <Head>
+          <title>Task Manager</title>
+          <meta name="author" content="Bruno Alves" />
+        </Head>
+        <TaskContextProvider>
+          <S.Container>
+            <Sidebar
+              isOpen={isSidebarOpen}
+              closeSidebar={handleToggleSidebar}
             />
-          )}
-        </S.Container>
-      </TaskContextProvider>
+            <S.Content>
+              {isMobile && (
+                <header>
+                  <Button
+                    onClick={handleToggleSidebar}
+                    title="Open Sidebar"
+                    variant="text"
+                    style={{
+                      borderRadius: '1rem',
+                    }}
+                  >
+                    <FiMenu />
+                  </Button>
+                </header>
+              )}
+              <h1>PageTitle</h1>
+              {children}
+            </S.Content>
+            <S.Drawer data-open={isDrawerOpen}>
+              <S.DrawerHeader>
+                <Button
+                  onClick={handleToggleDrawer}
+                  title="Close Drawer"
+                  variant="text"
+                >
+                  <FiPlus />
+                </Button>
+              </S.DrawerHeader>
+            </S.Drawer>
+            {isMobile && (
+              <Overlay
+                isOpen={isDrawerOpen || isSidebarOpen}
+                onClick={
+                  isDrawerOpen ? handleToggleDrawer : handleToggleSidebar
+                }
+              />
+            )}
+          </S.Container>
+        </TaskContextProvider>
+      </>
     )
   }
 

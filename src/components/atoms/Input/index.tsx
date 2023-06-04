@@ -2,9 +2,10 @@ import * as S from './styles'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
+  fullWidth?: boolean
 }
 
-export const Input = ({ label, ...props }: InputProps) => {
+const Input = ({ label, ...props }: InputProps) => {
   return (
     <S.Container>
       <S.Label htmlFor={props.name}>{label}</S.Label>
@@ -12,3 +13,5 @@ export const Input = ({ label, ...props }: InputProps) => {
     </S.Container>
   )
 }
+
+export default Input

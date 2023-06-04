@@ -1,6 +1,6 @@
-import { Input } from '@/components/atoms/Input'
-import * as S from './styles'
 import Button from '@/components/atoms/Button'
+import Input from '@/components/atoms/Input'
+import * as S from './styles'
 
 interface SignFormProps {
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
