@@ -4,12 +4,12 @@ import styled from 'styled-components'
 export const Container = styled.aside`
   width: 100%;
   height: 100%;
-  max-width: 22rem;
   max-height: 100vh;
   background-color: var(--background-secondary);
   background-image: url('/noise.png');
   background-size: 100px;
   border-right: 1px solid var(--element-active);
+  padding: 2rem 1rem 0.5rem;
 
   @media (max-width: 767px) {
     width: 80%;
@@ -33,8 +33,6 @@ export const Container = styled.aside`
   }
 `
 export const Header = styled.header`
-  padding: 2rem 1rem 0.5rem;
-
   @media (min-width: 768px) {
     > button:first-of-type {
       display: none;
@@ -128,7 +126,7 @@ export const Footer = styled.footer`
   height: 4.5rem;
   display: grid;
   grid-template-columns: 1fr max-content;
-  border-top: 1px solid var(--element-active);
+  border-top: 1px solid var(--element-visible);
   color: var(--text);
 
   > button {

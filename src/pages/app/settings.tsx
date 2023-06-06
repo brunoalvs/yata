@@ -8,6 +8,8 @@ import AppLayout from '@/components/templates/AppLayout'
 const SettingsPage: NextPageWithLayout = () => {
   const { user } = useAuthContext()
 
+  // Form data: name, email, password, photoURL, City, State, ZipCode, Country;
+
   return (
     <div>
       <section
@@ -21,7 +23,7 @@ const SettingsPage: NextPageWithLayout = () => {
         <Avatar
           name={user?.displayName ?? ''}
           src={user?.photoURL ?? ''}
-          size="large"
+          size="giant"
         />
         <Button>Change</Button>
         <Button variant="text">Remove</Button>
@@ -40,6 +42,7 @@ const SettingsPage: NextPageWithLayout = () => {
           padding: '2rem',
         }}
       >
+        <h2>Personal Information</h2>
         <Input
           defaultValue={user?.displayName ?? ''}
           fullWidth={true}
@@ -52,6 +55,13 @@ const SettingsPage: NextPageWithLayout = () => {
           label="Email"
           placeholder="Your email"
         />
+
+        {/* <h2>Security</h2> */}
+        {/* <Input
+          defaultValue={user?.password ?? ''}
+          label="Password"
+          placeholder="Your password"
+        /> */}
 
         <Button type="submit">Save</Button>
       </form>

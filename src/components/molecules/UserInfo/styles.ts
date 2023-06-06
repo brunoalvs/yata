@@ -22,7 +22,7 @@ export const UserName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
 `
 
@@ -30,10 +30,10 @@ export const UserEmail = styled.p`
   text-align: initial;
   width: 100%;
   white-space: nowrap;
-  line-height: 1.8rem;
+  line-height: 1.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--text);
-  font-size: 1.4rem;
+  color: var(--text-sidebar);
+  font-size: 1.2rem;
   font-weight: 400;
 `

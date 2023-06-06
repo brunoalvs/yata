@@ -15,7 +15,7 @@ export const Container = styled.div`
   position: relative;
 
   @media (min-width: 768px) {
-    grid-template-columns: minmax(14rem, 22rem) 1fr max-content;
+    grid-template-columns: minmax(14rem, 24rem) 1fr max-content;
   }
 `
 
@@ -44,6 +44,10 @@ export const Content = styled.article`
     display: grid;
     grid-template-rows: 4.4rem 1fr;
     gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 4rem 6rem;
   }
 `
 

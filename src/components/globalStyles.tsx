@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
 
     --element-hover: rgba(0, 0, 0, 0.2);
     --element-active: rgba(0, 0, 0, 0.3);
-    --element-visible: rgba(255, 255, 255, 0.1);
+    --element-visible: rgba(180, 180, 180, 0.1);
   }
 `
 

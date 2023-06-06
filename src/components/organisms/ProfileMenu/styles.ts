@@ -7,4 +7,5 @@ export const Container = styled.section`
 
 export const IconWrapper = styled.div`
   align-self: flex-start;
+  padding-top: 0.8rem;
 `

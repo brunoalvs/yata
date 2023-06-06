@@ -7,6 +7,7 @@ enum AvatarSize {
   small = 32,
   medium = 48,
   large = 64,
+  giant = 92,
 }
 
 export interface AvatarProps {

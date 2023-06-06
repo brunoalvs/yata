@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.ul`
   width: 100%;
-  max-width: 18rem;
   display: grid;
   gap: 0.5rem;
   background-color: var(--background-primary);
