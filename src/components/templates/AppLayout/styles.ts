@@ -27,19 +27,6 @@ export const Content = styled.article`
   overflow-y: auto;
   padding: 2rem;
 
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--background-secondary);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--text-secondary);
-    border-radius: 0.5rem;
-  }
-
   @media (max-width: 767px) {
     display: grid;
     grid-template-rows: 4.4rem 1fr;

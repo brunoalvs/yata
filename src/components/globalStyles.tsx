@@ -7,6 +7,19 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--background-secondary);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--text-secondary);
+      border-radius: 0.5rem;
+    }
   }
 
   :root {
@@ -38,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
     --element-active: rgba(0, 0, 0, 0.3);
     --element-visible: rgba(180, 180, 180, 0.1);
   }
+
 `
 
 export default GlobalStyle
