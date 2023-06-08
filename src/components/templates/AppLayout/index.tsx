@@ -93,7 +93,6 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   </Button>
                 </header>
               )}
-              <h1>PageTitle</h1>
               {children}
             </S.Content>
             <S.Drawer data-open={isDrawerOpen}>

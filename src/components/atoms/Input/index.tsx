@@ -5,11 +5,13 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean
 }
 
-const Input = ({ label, ...props }: InputProps) => {
+const Input = ({ label, fullWidth = false, ...props }: InputProps) => {
+  const labelId = label.toLowerCase().replace(' ', '-')
+
   return (
     <S.Container>
-      <S.Label htmlFor={props.name}>{label}</S.Label>
-      <S.Input {...props} />
+      <S.Label htmlFor={labelId}>{label}</S.Label>
+      <S.Input {...props} id={labelId} />
     </S.Container>
   )
 }

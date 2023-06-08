@@ -10,7 +10,13 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset'
 }
 
-const Button = ({ children, type = 'button', icon, ...props }: ButtonProps) => (
+const Button = ({
+  children,
+  fullWidth = false,
+  type = 'button',
+  icon,
+  ...props
+}: ButtonProps) => (
   <S.Container type={type} {...props}>
     <span />
     {icon ?? icon}
