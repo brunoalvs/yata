@@ -61,8 +61,16 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     return (
       <>
         <Head>
-          <title>Task Manager</title>
           <meta name="author" content="Bruno Alves" />
+          <meta
+            name="description"
+            content="A simple todo list application made with Next.js and Firebase"
+          />
+          <meta
+            name="keywords"
+            content="Next.js, Firebase, Todo List, Todo App, Todo"
+          />
+          <meta name="robots" content="noindex, nofollow" />
         </Head>
         <TaskContextProvider>
           <S.Container>

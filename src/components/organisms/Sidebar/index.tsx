@@ -5,6 +5,7 @@ import { IoHome, IoAlbums } from 'react-icons/io5'
 import Button from '@/components/atoms/Button'
 import ProfileMenu from '@/components/organisms/ProfileMenu'
 import * as S from './styles'
+import { useTaskContext } from '@/contexts/TaskContext'
 
 interface SidebarProps {
   isOpen: boolean
@@ -13,6 +14,7 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const pathname = usePathname()
+  const { collections } = useTaskContext()
 
   return (
     <S.Container data-open={isOpen}>
@@ -59,6 +61,19 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           New Collection
           <FiPlus />
         </Button>
+        <S.List>
+          {collections.map((collection) => (
+            <S.ListItem
+              key={collection.id}
+              href={`/app/collection/${collection.id}`}
+              title={collection.title}
+              data-current={pathname === `/app/collection/${collection.id}`}
+            >
+              <IoAlbums />
+              {collection.title}
+            </S.ListItem>
+          ))}
+        </S.List>
       </S.Footer>
     </S.Container>
   )

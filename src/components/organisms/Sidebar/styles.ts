@@ -10,6 +10,7 @@ export const Container = styled.aside`
   background-size: 100px;
   border-right: 1px solid var(--element-active);
   padding: 2rem 1rem 0.5rem;
+  overflow-y: auto;
 
   @media (max-width: 767px) {
     width: 80%;
@@ -43,19 +44,6 @@ export const Header = styled.header`
 
 export const Content = styled.section`
   overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--background-secondary);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--text-secondary);
-    border-radius: 0.5rem;
-  }
 `
 
 export const List = styled.nav`
@@ -123,9 +111,9 @@ export const ListItem = styled(Link)`
 
 export const Footer = styled.footer`
   width: 100%;
-  height: 4.5rem;
+  /* height: 4.5rem; */
   display: grid;
-  grid-template-columns: 1fr max-content;
+  /* grid-template-columns: 1fr max-content; */
   border-top: 1px solid var(--element-visible);
   color: var(--text);
 
