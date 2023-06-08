@@ -69,7 +69,6 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
               title={collection.title}
               data-current={pathname === `/app/collection/${collection.id}`}
             >
-              <IoAlbums />
               {collection.title}
             </S.ListItem>
           ))}
