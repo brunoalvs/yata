@@ -17,7 +17,6 @@ export const Container = styled.div<{ open: boolean; hidden: boolean }>`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  cursor: pointer;
   z-index: 1;
   animation: ${fadeIn} 200ms ease-in-out;
 
